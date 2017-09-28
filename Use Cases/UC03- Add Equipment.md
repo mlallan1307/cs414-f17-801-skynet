@@ -1,4 +1,4 @@
-UC3- Add Equipment
+UC03- Add Equipment
 -------------------------------
 
 **Scope:** "SkynetGym" Gym management Software  

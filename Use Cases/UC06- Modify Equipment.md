@@ -1,4 +1,4 @@
-UC6- Modify Equipment
+UC06- Modify Equipment
 ----------------------------------------
 
 **Scope:** "SkynetGym" Gym management Software  

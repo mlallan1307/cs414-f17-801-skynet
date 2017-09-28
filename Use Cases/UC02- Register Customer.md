@@ -1,4 +1,4 @@
-UC2- Register Customer
+UC02- Register Customer
 ----------------------------------
 
 **Scope:** "SkynetGym" Gym management Software  

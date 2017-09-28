@@ -1,4 +1,4 @@
-UC5- Modify Customer
+UC05- Modify Customer
 ------------------------------
 
 **Scope:** "SkynetGym" Gym management Software  

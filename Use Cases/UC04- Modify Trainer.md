@@ -1,4 +1,4 @@
-UC4- Modify Trainer
+UC04- Modify Trainer
 -----------------------------
 
 **Scope:** "SkynetGym" Gym management Software  
