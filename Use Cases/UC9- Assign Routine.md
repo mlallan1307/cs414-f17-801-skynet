@@ -1,4 +1,4 @@
-UC9: Workout routine assignment
+UC9- Assign Routine
 -------------------------------
 
 **Scope:** "SkynetGym" Gym management Software  

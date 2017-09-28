@@ -1,4 +1,4 @@
-UC10: Customer and routine search
+UC10- Find Customer or Routine
 ---------------------------------
 
 **Scope:** "SkynetGym" Gym management Software  
@@ -27,7 +27,7 @@ UC10: Customer and routine search
 7.	Trainer selects a routine on the routine list.
 8.	System displays the routine information, a list of customers assigned to it, and a back button.
 9.	Trainer selects back button.
-10.	System returns to step 2 display.
+10. System returns to step 2 display.
 
  *Trainer repeats steps 7-10 until done.*
 

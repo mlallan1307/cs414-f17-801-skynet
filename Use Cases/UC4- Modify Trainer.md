@@ -1,4 +1,4 @@
-UC4: Modification of trainers
+UC4- Modify Trainer
 -----------------------------
 
 **Scope:** "SkynetGym" Gym management Software  
@@ -21,8 +21,8 @@ UC4: Modification of trainers
 7.	Manager submits changes.
 8.	System validates that all required fields are populated.
 9.	System validates that trainer's Driver's license number is not already associated with a different trainer.
-10.	System saves modified trainer.
-11.	System notifies manager that the update is complete.
+10. System saves modified trainer.
+11. System notifies manager that the update is complete.
 
 **Extensions:**
 

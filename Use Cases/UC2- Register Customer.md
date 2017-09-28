@@ -1,4 +1,4 @@
-UC2: Registration of new customers
+UC2- Register Customer
 ----------------------------------
 
 **Scope:** "SkynetGym" Gym management Software  
@@ -6,10 +6,8 @@ UC2: Registration of new customers
 **Primary Actor:** Manager  
 **Stakeholders and Interests:**
 
- - Manager: Wants to easily add a new customer's personal and
-   membership information.
- - Customer: Wants to provide only the
-   information that is needed.
+- Manager: Wants to easily add a new customer's personal and membership information.
+- Customer: Wants to provide only the information that is needed.
 
 **Preconditions:** None  
 **Success Guarantee:** New customer information is saved.  

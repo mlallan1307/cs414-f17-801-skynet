@@ -1,4 +1,4 @@
-UC6: Modification of equipment inventory
+UC6- Modify Equipment
 ----------------------------------------
 
 **Scope:** "SkynetGym" Gym management Software  
@@ -21,8 +21,8 @@ UC6: Modification of equipment inventory
 7.	Manager submits changes.
 8.	System validates that all required fields are populated.
 9.	System validates that the given equipment name is not associated with another equipment entry.
-10.	System saves modified equipment.
-11.	System notifies manager that the update is complete.
+10. System saves modified equipment.
+11. System notifies manager that the update is complete.
 
 **Extensions:**
 

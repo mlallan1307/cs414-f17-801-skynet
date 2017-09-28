@@ -1,4 +1,4 @@
-UC8: Modification of workout routines
+UC8- Modify Routine
 -------------------------------------
 
 **Scope:** "SkynetGym" Gym management Software  
@@ -24,32 +24,32 @@ UC8: Modification of workout routines
 7.	System displays a digital form (populated with selected workout data) containing fields for workout name, duration (time), number of sets, repetitions per set, and a list of the equipment in the inventory.
 8.	Trainer edits workout name, if desired.
 9.	Trainer edits the duration, or they can edit the number of sets and repetitions per set, if desired.
-10.	Trainer selects or changes a piece of equipment from the inventory, if needed.
-11.	Trainer selects save on the system when done.
-12.	System validates that the workout name is not empty.
-13.	System validates that the duration field is filled or one of the set fields are filled but not both.
-14.	System saves the updated workout.
-15.	System returns to show the list of workouts in routine and gives the option to add more.
+10. Trainer selects or changes a piece of equipment from the inventory, if needed.
+11. Trainer selects save on the system when done.
+12. System validates that the workout name is not empty.
+13. System validates that the duration field is filled or one of the set fields are filled but not both.
+14. System saves the updated workout.
+15. System returns to show the list of workouts in routine and gives the option to add more.
 
  *Trainer repeats steps 6-15 until all workout modifications are complete*
  
-16.	Trainer selects to add workout, if desired.
-17.	System displays a digital form containing fields for workout name, duration (time), number of sets, repetitions per set, and a list of the equipment in the inventory.
-18.	Trainer enters workout name.
-19.	Trainer enters the duration, or they can enter the number of sets and repetitions per set
-20.	Trainer selects a piece of equipment from the inventory if needed.
-21.	Trainer selects add on the system.
-22.	System validates that the workout name is not empty.
-23.	System validates that the duration field is filled or one of the set fields are filled but not both.
-24.	System saves the new workout and associates it with the routine.
-25.	System returns to show the list of workouts added and gives the option to add more.
+16. Trainer selects to add workout, if desired.
+17. System displays a digital form containing fields for workout name, duration (time), number of sets, repetitions per set, and a list of the equipment in the inventory.
+18. Trainer enters workout name.
+19. Trainer enters the duration, or they can enter the number of sets and repetitions per set
+20. Trainer selects a piece of equipment from the inventory if needed.
+21. Trainer selects add on the system.
+22. System validates that the workout name is not empty.
+23. System validates that the duration field is filled or one of the set fields are filled but not both.
+24. System saves the new workout and associates it with the routine.
+25. System returns to show the list of workouts added and gives the option to add more.
 
  *Trainer repeats steps 16-25 until all needed workouts are added to routine*
  
-26.	Trainer selects to save routine on system.
-27.	System validates that the routine name field is not empty.
-28.	System updates routine name on the modified routine and saves it.
-29.	System displays that the routine has been updated.
+26. Trainer selects to save routine on system.
+27. System validates that the routine name field is not empty.
+28. System updates routine name on the modified routine and saves it.
+29. System displays that the routine has been updated.
 
 **Extensions:**
 

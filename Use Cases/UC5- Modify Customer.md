@@ -1,4 +1,4 @@
-UC5: Modification of customers
+UC5- Modify Customer
 ------------------------------
 
 **Scope:** "SkynetGym" Gym management Software  
@@ -21,8 +21,8 @@ UC5: Modification of customers
 7.	Manager submits changes.
 8.	System validates that all required fields are populated.
 9.	System validates that customer's Driver's license number is not already associated with a different customer.
-10.	System saves modified customer.
-11.	System notifies manager that the update is complete.
+10. System saves modified customer.
+11. System notifies manager that the update is complete.
 
 **Extensions:**
 

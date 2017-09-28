@@ -1,4 +1,4 @@
-UC7: Creation of workout routines
+UC7- Create Routine
 ---------------------------------
 
 **Scope:** "SkynetGym" Gym management Software  
@@ -21,17 +21,17 @@ UC7: Creation of workout routines
 7.	Trainer enters the duration, or they can enter the number of sets and repetitions per set
 8.	Trainer selects a piece of equipment from the inventory if needed.
 9.	Trainer selects add on the system when done.
-10.	System validates that the workout name is not empty.
-11.	System validates that the duration field is filled or one of the set fields are filled but not both.
-12.	System returns to show the list of workouts added and gives the option to add more.
+10. System validates that the workout name is not empty.
+11. System validates that the duration field is filled or one of the set fields are filled but not both.
+12. System returns to show the list of workouts added and gives the option to add more.
 
  *Trainer repeats steps 4-12 until all needed workouts are added to routine.*
 
-13.	Trainer selects to save routine on system.
-14.	System validates that the routine name field is not empty.
-15.	System validates that the routine name is not associated with another routine.
-16.	System saves new routine with all the entered information.
-17.	System displays that the routine has been added.
+13. Trainer selects to save routine on system.
+14. System validates that the routine name field is not empty.
+15. System validates that the routine name is not associated with another routine.
+16. System saves new routine with all the entered information.
+17. System displays that the routine has been added.
 
 **Extensions:**
 

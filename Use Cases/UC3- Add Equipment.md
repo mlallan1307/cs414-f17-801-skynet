@@ -1,4 +1,4 @@
-UC3: Add equipment to Inventory
+UC3- Add Equipment
 -------------------------------
 
 **Scope:** "SkynetGym" Gym management Software  
