@@ -1,5 +1,5 @@
-UC03- Add Equipment
--------------------------------
+UC06- Create Equipment
+=======================
 
 **Scope:** "SkynetGym" Gym management Software  
 **Level:** User goal  
@@ -8,7 +8,7 @@ UC03- Add Equipment
 
 - Manager: Wants to add new equipment to inventory.
 
-**Preconditions:** None  
+**Preconditions:** UC00 or UC01 has been completed and system knows the current user is a Manager.  
 **Success Guarantee:** New equipment information is saved.  
 **Main Success Scenario:**
 
@@ -23,25 +23,30 @@ UC03- Add Equipment
 
 **Extensions:**
 
+*a. At any time, Manager is able to cancel operation.
+
+1. Manager selects a cancel button.
+2. System returns to Manager UI main page.
+
 5a. Required fields are empty.
 
-1. System notifies manager what required fields must be completed
+1. System notifies manager what required fields must be completed.
 
-6a. Equipment name is already in use
+6a. Equipment name is already in use.
 
-1.	System notifies manager that this equipment exists and asks if the manager would like to go to **Modification of equipment inventory**.
+1.	System notifies manager that this equipment exists and asks if the manager would like to go to **UC07**.
 
- 1a. If yes, switch to **Modification of equipment inventory**.
+ 1a. If yes, switch to **UC07**.
  
  1b. If no, dismiss notification.
  
 **Special Requirements:**
 
-- UI has button to create new equipment entry.
+- Manager UI main page has button to create new equipment entry.
 
 **Technology and Data Variations List:**
 
-3a. An equipment image should be smaller than 10MB
+3a. An equipment image should be smaller than 10MB.
 
 7a. System stores data in non-volatile form for future state restoration.
 

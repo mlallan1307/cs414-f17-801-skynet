@@ -1,5 +1,5 @@
-UC02- Register Customer
-----------------------------------
+UC04- Create Customer
+=======================
 
 **Scope:** "SkynetGym" Gym management Software  
 **Level:** User goal  
@@ -9,7 +9,7 @@ UC02- Register Customer
 - Manager: Wants to easily add a new customer's personal and membership information.
 - Customer: Wants to provide only the information that is needed.
 
-**Preconditions:** None  
+**Preconditions:** UC00 or UC01 has been completed and system knows the current user is a Manager.  
 **Success Guarantee:** New customer information is saved.  
 **Main Success Scenario:**
 
@@ -25,21 +25,26 @@ UC02- Register Customer
 
 **Extensions:**
 
+*a. At any time, Manager is able to cancel operation.
+
+1. Manager selects a cancel button.
+2. System returns to Manager UI main page.
+
 6a. Required fields are empty.
 
 1.	System notifies manager what required fields must be completed.
 
 7a. Driver's license number is already associated with a customer.
 
-1.	System notifies manager that this customer already exists and asks if the manager would like to go to **Modification of customers**.
+1.	System notifies manager that this customer already exists and asks if the manager would like to go to **UC05**.
 
- 1a. If yes, switch to **Modification of customers**.
+ 1a. If yes, switch to **UC05**.
 
  1b. If no, dismiss notification.
  
 **Special Requirements:**
 
-- UI has button to create new customer.
+- Manager UI main page has button to create new customer.
 
 **Technology and Data Variations List:**
 

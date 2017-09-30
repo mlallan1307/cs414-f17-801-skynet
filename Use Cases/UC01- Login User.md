@@ -1,9 +1,9 @@
-UC12- Login User
+UC01- Login User
 =======================
 
 **Scope:** "SkynetGym" Gym management Software  
 **Level:** User goal  
-**Primary Actor:** User (Manager or Actor)
+**Primary Actor:** User (Manager or Trainer)  
 **Stakeholders and Interests:**  
 
 - Manager: Wants to be able to log into the system using their username and password. They want to be identified as a manager.
@@ -11,10 +11,10 @@ UC12- Login User
 
 **Preconditions:**
 
-- UC01 (Hire Trainer) for trainer login
-- UC11 (Initialize System) for manager login
+- UC00 (Initialize System) for manager login.
+- UC02 (Create Trainer) for trainer login.
 
-**Success Guarantee:** User is logged in and identified as the correct user type.
+**Success Guarantee:** User is logged in and identified as the correct user type.  
 **Main Success Scenario:**
 
 1. System finds that there is currently not a logged in user.
@@ -28,6 +28,14 @@ UC12- Login User
 
 **Extensions:**
 
+3a. User forgot username.
+
+1. User selects Recover Username option and uses **UC01.1**
+
+3b. User forgot password.
+
+1. User selects Reset Password option and uses **UC01.2**
+
 5a. Required fields are empty.
 
 1. System notifies user what required fields must be completed.
@@ -40,7 +48,10 @@ UC12- Login User
 
 1. System notifies user that the password is incorrect.
 
-**Special Requirements:** None
+**Special Requirements:**
+
+- Login page has a button to select forgot/recover username.
+- Login page has a button to select reset password.
 
 **Technology and Data Variations List:** None
 
