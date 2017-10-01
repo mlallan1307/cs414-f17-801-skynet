@@ -13,7 +13,7 @@ UC00- Initialize System
 **Main Success Scenario:**
 
 1. System is initialized and finds that there are no manager accounts
-2. System displays a digital form with fields including: First name, Last name, Drivers license number, desired username, and password.
+2. System displays a digital form with fields including: First name, Last name, address, phone, email, Drivers license number, health insurance provider name, desired username, and password.
 3. Manager fills out digital form fields with their information.
 4. Manager submits form.
 5. System validates that all required fields are populated.
