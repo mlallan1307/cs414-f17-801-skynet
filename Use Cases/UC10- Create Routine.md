@@ -13,25 +13,25 @@ UC10- Create Routine
 **Main Success Scenario:**
 
 1.	Trainer selects to create routine on system.
-2.	System displays a digital form containing a field for routine name, an option to add existing excercises, and an option create new excercise.
+2.	System displays a digital form containing a field for routine name, an option to add existing exercises, and an option create new exercise.
 3.	Trainer enters routine name on form.
 
- *Trainer can skip to step 7 if they only want to add existing excercises.*
+ *Trainer can skip to step 7 if they only want to add existing exercises.*
 
-4.	Trainer selects to create new excercise.
-5. Trainer creates excercise using **UC08**
-6. System returns to show the list of excercises in routine and gives the option to add more.
+4.	Trainer selects to create new exercise.
+5. Trainer creates exercise using **UC08**
+6. System returns to show the list of exercises in routine and gives the option to add more.
 
- *Trainer repeats steps 4-6 until all needed new excercises are added to routine.*
+ *Trainer repeats steps 4-6 until all needed new exercises are added to routine.*
  
-7. Trainer selects to add an existing excercise.
-8. Trainer selects an existing excercise using **UC09.1**
+7. Trainer selects to add an existing exercise.
+8. Trainer selects an existing exercise using **UC09.1**
 9. System adds the selected exercise to the routine.
-10. System returns to show the list of excercises in routine and gives the option to add more.
+10. System returns to show the list of exercises in routine and gives the option to add more.
 
- *Trainer repeats steps 7-10 until all needed existing excercises are added to routine.*
+ *Trainer repeats steps 7-10 until all needed existing exercises are added to routine.*
  
- *Trainer can return to step 4 to add new excercises.*
+ *Trainer can return to step 4 to add new exercises.*
 
 11. Trainer selects to save routine on system.
 12. System validates that the routine name field is not empty.

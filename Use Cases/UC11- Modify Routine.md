@@ -14,25 +14,25 @@ UC11- Modify Routine
 
 1.	Trainer selects to modify routine on system.
 2. Trainer selects a routine for the system using **UC11.1**
-3.	System displays a digital form (populated using selected routine) containing a field for routine name, an option to add existing excercise, option create new excercise, and a list of the current excercises.
+3.	System displays a digital form (populated using selected routine) containing a field for routine name, an option to add existing exercise, option create new exercise, and a list of the current exercises.
 4.	Trainer may modify routine name on form.
 
- *Trainer can skip to step 8 if they only want to add existing excercises.*
+ *Trainer can skip to step 8 if they only want to add existing exercises.*
 
-5.	Trainer selects to create new excercise.
-6. Trainer creates excercise using **UC08**
-7. System returns to show the list of excercises in routine and gives the option to add more.
+5.	Trainer selects to create new exercise.
+6. Trainer creates exercise using **UC08**
+7. System returns to show the list of exercises in routine and gives the option to add more.
 
- *Trainer repeats steps 5-7 until all needed new excercises are added to routine.*
+ *Trainer repeats steps 5-7 until all needed new exercises are added to routine.*
  
-8. Trainer selects to add an existing excercise.
-9. Trainer selects an existing excercise using **UC09.1**
+8. Trainer selects to add an existing exercise.
+9. Trainer selects an existing exercise using **UC09.1**
 10. System adds the selected exercise to the routine.
-11. System returns to show the list of excercises in routine and gives the option to add more.
+11. System returns to show the list of exercises in routine and gives the option to add more.
 
- *Trainer repeats steps 8-11 until all needed existing excercises are added to routine.*
+ *Trainer repeats steps 8-11 until all needed existing exercises are added to routine.*
  
- *Trainer can return to step 5 to add new excercises.*
+ *Trainer can return to step 5 to add new exercises.*
 
 12. Trainer selects to save routine on system.
 13. System validates that the routine name field is not empty.
