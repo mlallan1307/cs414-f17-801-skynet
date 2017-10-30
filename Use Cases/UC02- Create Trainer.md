@@ -14,14 +14,14 @@ UC02- Create Trainer
 **Main Success Scenario:**
 
 1. Manager selects to create new trainer on system.
-2. System displays new trainer digital form with fields including: First name, Last name, address, phone, email, Drivers license number, health insurance provider name, work hours, qualifications, and desired username.
+2. System displays new trainer digital form with fields including: First name, Last name, address, phone, email, Drivers license number, health insurance provider name, work hours, qualifications, username, and password.
 3. Trainer presents manager with required personal and work information.
-4. Manager enters new trainer data into a digital form.
+4. Manager enters new trainer data into a digital form and gives the trainer an inital password to use.
 5. Manager submits form.
 6. System validates that all required fields are populated.
 7. System validates that new trainer's Drivers license number is not already associated with an existing trainer.
 8. System validates that the desired username is not already in use.
-9. System saves new trainer with the given information and sets their password to their Drivers license number.
+9. System saves new trainer with the given information.
 10. System notifies manager that the new trainer has been added.
 
 **Extensions:**
