@@ -21,6 +21,7 @@ public final class CustomerCtrl {
 	}
 	
 	private static String serializedName = "customers";
+	private static ArrayList<Customer> customers = new ArrayList<Customer>();
 	
 	@Override
 	public String toString() {
