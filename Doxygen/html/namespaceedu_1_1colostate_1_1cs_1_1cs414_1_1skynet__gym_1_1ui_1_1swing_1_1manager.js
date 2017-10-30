@@ -1,0 +1,10 @@
+var namespaceedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1ui_1_1swing_1_1manager =
+[
+    [ "CreateCustomer", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1ui_1_1swing_1_1manager_1_1_create_customer.html", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1ui_1_1swing_1_1manager_1_1_create_customer" ],
+    [ "CreateTrainer", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1ui_1_1swing_1_1manager_1_1_create_trainer.html", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1ui_1_1swing_1_1manager_1_1_create_trainer" ],
+    [ "ManagerScreen", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1ui_1_1swing_1_1manager_1_1_manager_screen.html", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1ui_1_1swing_1_1manager_1_1_manager_screen" ],
+    [ "ModifyCustomer", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1ui_1_1swing_1_1manager_1_1_modify_customer.html", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1ui_1_1swing_1_1manager_1_1_modify_customer" ],
+    [ "ModifyTrainer", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1ui_1_1swing_1_1manager_1_1_modify_trainer.html", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1ui_1_1swing_1_1manager_1_1_modify_trainer" ],
+    [ "SelectCustomer", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1ui_1_1swing_1_1manager_1_1_select_customer.html", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1ui_1_1swing_1_1manager_1_1_select_customer" ],
+    [ "SelectTrainer", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1ui_1_1swing_1_1manager_1_1_select_trainer.html", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1ui_1_1swing_1_1manager_1_1_select_trainer" ]
+];
