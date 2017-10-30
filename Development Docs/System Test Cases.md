@@ -2,13 +2,13 @@ System Test Cases
 =======================
 
 
-###Overview
+### Overview
 
 This document gives the steps that the customer can use to validate the system's functionality
 
 ----------
 
-###1. System Initialization
+### 1. System Initialization
 
 1. With a no stored system data, run the Skynet Gym program
 2. The program should display a digital form with fields including: First name, Last name, address, phone, email, Drivers license number, health insurance provider name, desired username, and password.
@@ -21,14 +21,14 @@ This document gives the steps that the customer can use to validate the system's
 9. Validate that the provided manager username and password allow you to login successfully
 10. You should then see the Manager Screen again
 
-###2. Login
+### 2. Login
 
 1. With an initialized system, run the Skynet Gym program
 2. The first thing you should see is the Login screen
 3. Login as a manager and you should be presented with the manager screen, or login as a trainer and you should be presented with the trainer screen.
 4. If either field is empty or not associated with a valid account then the login should fail
 
-###3. Recover Username
+### 3. Recover Username
 
 1. With an initialized system, run the Skynet Gym program
 2. The first thing you should see is the Login screen with a "Recover Username" button
@@ -38,7 +38,7 @@ This document gives the steps that the customer can use to validate the system's
 6. If all fields do not match a valid account the result should be a failure message
 7. Try entering valid account information and a message should display the corresponding username
 
-###4. Reset Password
+### 4. Reset Password
 
 1. With an initialized system, run the Skynet Gym program
 2. The first thing you should see is the Login screen with a "Reset Password" button
@@ -48,7 +48,7 @@ This document gives the steps that the customer can use to validate the system's
 6. If all fields (except new password) do not match a valid account the result should be a failure message
 7. Try entering valid account information and a message should notify you that the password has been set to the new password
 
-###5. Manager: Create Trainer
+### 5. Manager: Create Trainer
 
 1. Log in as the manager
 2. Select the Create Trainer Tab
@@ -61,7 +61,7 @@ This document gives the steps that the customer can use to validate the system's
 9. On the login screen, enter the username and password of the new trainer
 10. Validate that login succeeds and that you are given the trainer screen
 
-###6. Manager: Modify Trainer Data
+### 6. Manager: Modify Trainer Data
 
 1. Log in as the manager
 2. Select the Modify Trainer Tab
@@ -77,7 +77,7 @@ This document gives the steps that the customer can use to validate the system's
 9. On the login screen, enter the username and password of the new trainer
 10. Validate that login succeeds and that you are given the trainer screen
 
-###7. Manager: Create Customer
+### 7. Manager: Create Customer
 
 1. Log in as the manager
 2. Select the Create Customer Tab
@@ -87,7 +87,7 @@ This document gives the steps that the customer can use to validate the system's
 6. Fill out the form with valid information and submission should be successful
 7. To validate that the customer has been created. Follow the Modify Customer Data test and use the new customer's information
 
-###8. Manager: Modify Customer Data
+### 8. Manager: Modify Customer Data
 
 1. Log in as the manager
 2. Select the Modify Customer Tab
@@ -100,7 +100,7 @@ This document gives the steps that the customer can use to validate the system's
 9. Fill out the form with valid information and submission should be successful
 10. To validate that the information has been updated, you can repeat the steps to select the customer and the form should come up again with the newly updated information
 
-###9. Manager: Create Equipment
+### 9. Manager: Create Equipment
 
 1. Log in as the manager
 2. Select the Create Equipment Tab
@@ -110,7 +110,7 @@ This document gives the steps that the customer can use to validate the system's
 6. Fill out the form with valid information and submission should be successful
 7. To validate that the equipment has been created. Follow the Modify Equipment test and use the new equipment's information
 
-###10. Manager: Modify Equipment
+### 10. Manager: Modify Equipment
 
 1. Log in as the manager
 2. Select the Modify Equipment Tab
@@ -123,7 +123,7 @@ This document gives the steps that the customer can use to validate the system's
 9. Fill out the form with valid information and submission should be successful
 10. To validate that the information has been updated, you can repeat the steps to select the equipment and the form should come up again with the newly updated information
 
-###11. Trainer: Create Exercise
+### 11. Trainer: Create Exercise
 
 1. Log in as a trainer
 2. Select the Create Exercise Tab
@@ -137,7 +137,7 @@ This document gives the steps that the customer can use to validate the system's
 10. Fill out the form with valid information and submission should be successful
 11. To validate that the exercise has been created. Follow the Modify Exercise test and use the new exercise's name
 
-###12. Trainer: Modify Exercise
+### 12. Trainer: Modify Exercise
 
 1. Log in as a Trainer
 2. Select the Modify Exercise Tab
@@ -150,7 +150,7 @@ This document gives the steps that the customer can use to validate the system's
 9. Fill out the form with valid information and submission should be successful
 10. To validate that the information has been updated, you can repeat the steps to select the exercise and the form should come up again with the newly updated information
 
-###13. Trainer: Create Routine
+### 13. Trainer: Create Routine
 
 1. Log in as a trainer
 2. Select the Create Routine Tab
@@ -163,7 +163,7 @@ This document gives the steps that the customer can use to validate the system's
 9. Fill out the form with valid information and submission should be successful
 10. To validate that the routine has been created. Follow the Modify Routine test and use the new routine's name
 
-###14. Trainer: Modify Routine
+### 14. Trainer: Modify Routine
 
 1. Log in as a Trainer
 2. Select the Modify Routine Tab
@@ -177,7 +177,7 @@ This document gives the steps that the customer can use to validate the system's
 10. Fill out the form with valid information and submission should be successful
 11. To validate that the information has been updated, you can repeat the steps to select the routine and the form should come up again with the newly updated information
 
-###15. Trainer: Assign Routine
+### 15. Trainer: Assign Routine
 
 1. Log in as a Trainer
 2. Select the Assign Routine Tab

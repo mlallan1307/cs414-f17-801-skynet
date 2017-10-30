@@ -12,7 +12,7 @@ Development Manual
 
 ----------
 
-###1. Setup
+### 1. Setup
 
 > Note: Setup instructions assume you are using a Windows OS
 
@@ -32,7 +32,7 @@ Development Manual
 
 ----------
 
-###2. Packages
+### 2. Packages
 
  * Domain
 	 * Control
@@ -55,7 +55,7 @@ Development Manual
 
 ----------
 
-###3. Testing
+### 3. Testing
 
  * There is a top level **RunAllTests.java** file which can be used to run all the JUnit tests
  * There are also JUnit test suite files for each level one package, and most level two packages that must be updated as new tests are added
@@ -69,6 +69,6 @@ Development Manual
 
 ----------
 
-###4. Repository Management
+### 4. Repository Management
 
 When making changes you must first create a branch off of Master. Be sure to keep the branch up to date if master changes after you branch off. When you have finished making changes you should create a pull request of the github repository. If the changes you make addres an open issue then that should be mentioned in the pull request. A repository admin will approve the pull request or respond with feedback. You should not merge it into the Master branch yourself. Changes to the code will be accepted only if all related documentation updates have been made also.
