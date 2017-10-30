@@ -20,6 +20,8 @@ import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 
 import edu.colostate.cs.cs414.skynet_gym.domain.control.ManagerCtrl;
+import edu.colostate.cs.cs414.skynet_gym.domain.control.TrainerCtrl;
+
 import javax.swing.JPasswordField;
 
 /**
@@ -142,12 +144,22 @@ public class ResetPassword extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				// Check login
-				if (ManagerCtrl.resetPassword(
+				Boolean resetWorked = ManagerCtrl.resetPassword(
 						firstName.getText(),
 						lastName.getText(),
 						driversLicenseNum.getText(),
 						username.getText(),
-						String.valueOf(password.getPassword()))) {
+						String.valueOf(password.getPassword()));
+				
+				if (!resetWorked) {
+					resetWorked = TrainerCtrl.resetPassword(
+							firstName.getText(),
+							lastName.getText(),
+							driversLicenseNum.getText(),
+							username.getText(),
+							String.valueOf(password.getPassword()));
+				}
+				if (resetWorked) {
 					JOptionPane.showMessageDialog(null,
 						    "Password Reset",
 						    "Reset password",

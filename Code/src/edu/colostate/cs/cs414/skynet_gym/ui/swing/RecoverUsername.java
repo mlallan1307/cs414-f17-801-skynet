@@ -20,6 +20,7 @@ import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 
 import edu.colostate.cs.cs414.skynet_gym.domain.control.ManagerCtrl;
+import edu.colostate.cs.cs414.skynet_gym.domain.control.TrainerCtrl;
 
 /**
  * This is the username recovery pane
@@ -123,7 +124,13 @@ public class RecoverUsername extends JPanel {
 						firstName.getText(),
 						lastName.getText(),
 						driversLicenseNum.getText());
-				if (username != null){
+				if (username == ""){
+					username = TrainerCtrl.recoverUsername(
+							firstName.getText(),
+							lastName.getText(),
+							driversLicenseNum.getText());
+				}
+				if (username != ""){
 					JOptionPane.showMessageDialog(null,
 						    "Your username is: " + username,
 						    "Recover username",
