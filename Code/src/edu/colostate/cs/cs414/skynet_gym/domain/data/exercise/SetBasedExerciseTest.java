@@ -1,6 +1,7 @@
 package edu.colostate.cs.cs414.skynet_gym.domain.data.exercise;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;

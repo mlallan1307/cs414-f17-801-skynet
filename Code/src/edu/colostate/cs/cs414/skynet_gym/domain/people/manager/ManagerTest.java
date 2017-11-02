@@ -1,8 +1,7 @@
 package edu.colostate.cs.cs414.skynet_gym.domain.people.manager;
 
-import static org.junit.Assert.*;
-
-import java.util.ArrayList;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
@@ -11,9 +10,6 @@ import org.junit.Test;
 import edu.colostate.cs.cs414.skynet_gym.domain.people.info.Address;
 import edu.colostate.cs.cs414.skynet_gym.domain.people.info.HealthInsurance;
 import edu.colostate.cs.cs414.skynet_gym.domain.people.info.PersonInformation;
-import edu.colostate.cs.cs414.skynet_gym.domain.people.info.Qualification;
-import edu.colostate.cs.cs414.skynet_gym.domain.people.trainer.Trainer;
-import edu.colostate.cs.cs414.skynet_gym.utility.data.Schedule;
 
 public class ManagerTest {
 

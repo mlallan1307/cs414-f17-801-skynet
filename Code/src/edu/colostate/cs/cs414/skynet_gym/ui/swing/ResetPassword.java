@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
@@ -21,8 +22,6 @@ import com.jgoodies.forms.layout.RowSpec;
 
 import edu.colostate.cs.cs414.skynet_gym.domain.control.ManagerCtrl;
 import edu.colostate.cs.cs414.skynet_gym.domain.control.TrainerCtrl;
-
-import javax.swing.JPasswordField;
 
 /**
  * This is the password reset pane

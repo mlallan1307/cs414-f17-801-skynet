@@ -19,8 +19,6 @@ import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 
 import edu.colostate.cs.cs414.skynet_gym.domain.control.CustomerCtrl;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 /**
  * This panel is shown to create a customer for the system.

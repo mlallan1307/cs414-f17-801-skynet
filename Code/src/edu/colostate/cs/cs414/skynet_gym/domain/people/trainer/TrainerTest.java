@@ -19,7 +19,6 @@ import edu.colostate.cs.cs414.skynet_gym.domain.people.info.Address;
 import edu.colostate.cs.cs414.skynet_gym.domain.people.info.HealthInsurance;
 import edu.colostate.cs.cs414.skynet_gym.domain.people.info.PersonInformation;
 import edu.colostate.cs.cs414.skynet_gym.domain.people.info.Qualification;
-import edu.colostate.cs.cs414.skynet_gym.domain.people.manager.Manager;
 import edu.colostate.cs.cs414.skynet_gym.utility.data.Schedule;
 import edu.colostate.cs.cs414.skynet_gym.utility.data.TimePeriod;
 
