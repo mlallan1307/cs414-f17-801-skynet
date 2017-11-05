@@ -1,4 +1,4 @@
-package test;
+package test.edu.colostate.cs.cs414.skynet_gym;
 
 import org.junit.internal.TextListener;
 import org.junit.runner.JUnitCore;
@@ -14,10 +14,10 @@ import edu.colostate.cs.cs414.skynet_gym.utility.TestUtilityPkg;
 	TestDomainPkg.class,
 	TestUtilityPkg.class
 })
-public class RunAllTests {
+public class AllTest {
 	public static void main(String args[]) {
 		JUnitCore junit = new JUnitCore();
         junit.addListener(new TextListener(System.out));
-        junit.run(RunAllTests.class);
+        junit.run(AllTest.class);
 	}
 }
