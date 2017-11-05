@@ -1,4 +1,4 @@
-package edu.colostate.cs.cs414.skynet_gym.domain.data;
+package test.edu.colostate.cs.cs414.skynet_gym.domain.data;
 
 import org.junit.internal.TextListener;
 import org.junit.runner.JUnitCore;
@@ -21,10 +21,10 @@ import edu.colostate.cs.cs414.skynet_gym.domain.data.routine.RoutineTest;
 	RoutineTest.class
 	
 })
-public class TestDomainDataPkg {
+public class DomainDataPkgSuite {
 	public static void main(String args[]) {
 		JUnitCore junit = new JUnitCore();
         junit.addListener(new TextListener(System.out));
-        junit.run(TestDomainDataPkg.class);
+        junit.run(DomainDataPkgSuite.class);
 	}
 }
