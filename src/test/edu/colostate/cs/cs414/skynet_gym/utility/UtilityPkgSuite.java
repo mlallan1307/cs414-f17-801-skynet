@@ -14,10 +14,10 @@ import edu.colostate.cs.cs414.skynet_gym.utility.data.TimePeriodTest;
 	ScheduleTest.class,
 	TimePeriodTest.class
 })
-public class TestUtilityPkg {
+public class UtilityPkgSuite {
 	public static void main(String args[]) {
 		JUnitCore junit = new JUnitCore();
         junit.addListener(new TextListener(System.out));
-        junit.run(TestUtilityPkg.class);
+        junit.run(UtilityPkgSuite.class);
 	}
 }

@@ -6,21 +6,21 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
-import test.edu.colostate.cs.cs414.skynet_gym.domain.control.TestDomainControlPkg;
-import test.edu.colostate.cs.cs414.skynet_gym.domain.data.TestDomainDataPkg;
-import test.edu.colostate.cs.cs414.skynet_gym.domain.people.TestDomainPeoplePkg;
+import test.edu.colostate.cs.cs414.skynet_gym.domain.control.DomainControlPkgSuite;
+import test.edu.colostate.cs.cs414.skynet_gym.domain.data.DomainDataPkgSuite;
+import test.edu.colostate.cs.cs414.skynet_gym.domain.people.DomainPeoplePkgSuite;
 
 @RunWith(Suite.class)
 @SuiteClasses({
-	TestDomainControlPkg.class,
-	TestDomainDataPkg.class,
-	TestDomainPeoplePkg.class
+	DomainControlPkgSuite.class,
+	DomainDataPkgSuite.class,
+	DomainPeoplePkgSuite.class
 	
 })
-public class TestDomainPkg {
+public class DomainPkgSuite {
 	public static void main(String args[]) {
 		JUnitCore junit = new JUnitCore();
         junit.addListener(new TextListener(System.out));
-        junit.run(TestDomainPkg.class);
+        junit.run(DomainPkgSuite.class);
 	}
 }
