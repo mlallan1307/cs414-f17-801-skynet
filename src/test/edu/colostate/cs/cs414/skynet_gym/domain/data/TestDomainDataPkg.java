@@ -1,4 +1,4 @@
-package edu.colostate.cs.cs414.skynet_gym.domain.data;
+package test.edu.colostate.cs.cs414.skynet_gym.domain.data;
 
 import org.junit.internal.TextListener;
 import org.junit.runner.JUnitCore;

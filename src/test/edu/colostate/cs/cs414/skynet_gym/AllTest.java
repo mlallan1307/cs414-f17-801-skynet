@@ -6,8 +6,8 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
-import edu.colostate.cs.cs414.skynet_gym.domain.TestDomainPkg;
-import edu.colostate.cs.cs414.skynet_gym.utility.TestUtilityPkg;
+import test.edu.colostate.cs.cs414.skynet_gym.domain.TestDomainPkg;
+import test.edu.colostate.cs.cs414.skynet_gym.utility.TestUtilityPkg;
 
 @RunWith(Suite.class)
 @SuiteClasses({

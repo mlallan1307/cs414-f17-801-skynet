@@ -1,4 +1,4 @@
-package edu.colostate.cs.cs414.skynet_gym.utility;
+package test.edu.colostate.cs.cs414.skynet_gym.utility;
 
 import org.junit.internal.TextListener;
 import org.junit.runner.JUnitCore;
