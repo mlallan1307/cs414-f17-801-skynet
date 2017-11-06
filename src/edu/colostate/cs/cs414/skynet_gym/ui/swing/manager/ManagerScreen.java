@@ -72,6 +72,12 @@ public class ManagerScreen extends JPanel {
 		JPanel selectCustomer = new SelectCustomer(tabbedPane);
 		tabbedPane.addTab("Modify Customer", null, selectCustomer, null);
 		
+		JPanel createEquipment = new CreateEquipment(tabbedPane);
+		tabbedPane.addTab("Create Equipment", null, createEquipment, null);
+		
+		JPanel selectEquipment = new SelectEquipment(tabbedPane);
+		tabbedPane.addTab("Modify Equipment", null, selectEquipment, null);
+		
 		setLayout(groupLayout);
 		
 		frame.setBounds(getLayout().preferredLayoutSize(this));

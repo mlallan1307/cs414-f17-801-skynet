@@ -4,6 +4,7 @@
 # Bin files
 /bin
 /target
+*.ser
 
 # Log file
 *.log

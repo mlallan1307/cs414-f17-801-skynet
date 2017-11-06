@@ -7,12 +7,14 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 import edu.colostate.cs.cs414.skynet_gym.domain.control.CustomerCtrlTest;
+import edu.colostate.cs.cs414.skynet_gym.domain.control.EquipmentCtrlTest;
 import edu.colostate.cs.cs414.skynet_gym.domain.control.ManagerCtrlTest;
 import edu.colostate.cs.cs414.skynet_gym.domain.control.TrainerCtrlTest;
 
 @RunWith(Suite.class)
 @SuiteClasses({
 	CustomerCtrlTest.class,
+	EquipmentCtrlTest.class,
 	ManagerCtrlTest.class,
 	TrainerCtrlTest.class
 	
