@@ -70,7 +70,7 @@ public class TimeBasedExerciseTest {
 
 	@Test
 	public final void testGetType() {
-		assertTrue(tbe.getType().equals("time based"));
+		assertTrue(tbe.getType().equals(ExerciseType.TimeBased));
 	}
 
 	@Test

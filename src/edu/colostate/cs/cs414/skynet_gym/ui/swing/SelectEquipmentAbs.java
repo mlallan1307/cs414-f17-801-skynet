@@ -1,4 +1,4 @@
-package edu.colostate.cs.cs414.skynet_gym.ui.swing.manager;
+package edu.colostate.cs.cs414.skynet_gym.ui.swing;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -24,30 +24,32 @@ import com.jgoodies.forms.layout.RowSpec;
 
 import edu.colostate.cs.cs414.skynet_gym.domain.control.EquipmentCtrl;
 import edu.colostate.cs.cs414.skynet_gym.domain.data.equipment.Equipment;
-import edu.colostate.cs.cs414.skynet_gym.ui.swing.MyListModel;
 
 /**
- * This panel is shown to select equipment for the system.
+ * This abstract class defines the select equipment functionality.
+ * Derived classes are responsible for implementing the "selectPressed" method.
  * 
  * @author Mike Allan
  *
  */
-public class SelectEquipment extends JPanel {
+public abstract class SelectEquipmentAbs extends JPanel {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 3014707820954804104L;
-	private JTextField name;
-	private JSpinner quantity;
-	private JList matchingEquipment;
-	private ArrayList<Equipment> equipmentList;
+	private static final long serialVersionUID = 2439525020625651411L;
+	protected JTextField name;
+	protected JSpinner quantity;
+	protected JList matchingEquipment;
+	protected ArrayList<Equipment> equipmentList;
+	protected JButton btnSelect;
+	protected final JTabbedPane myFrame;
 
 	/**
 	 * Create the panel.
 	 * @param tabbedPane 
 	 */
-	public SelectEquipment(final JTabbedPane frame) {
+	public SelectEquipmentAbs(final JTabbedPane frame) {
 		setLayout(new FormLayout(new ColumnSpec[] {
 				ColumnSpec.decode("max(11dlu;default):grow"),
 				FormFactory.LABEL_COMPONENT_GAP_COLSPEC,
@@ -82,7 +84,7 @@ public class SelectEquipment extends JPanel {
 				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
 				RowSpec.decode("default:grow"),}));
-		
+		myFrame = frame;
 		equipmentList = new ArrayList<Equipment>();
 		
 		JLabel lblCreateManagerAccount = new JLabel("Select Equipment");
@@ -129,29 +131,18 @@ public class SelectEquipment extends JPanel {
 		matchingEquipment.setValueIsAdjusting(true);
 		add(matchingEquipment, "3, 15, 3, 7, fill, fill");
 		
-		JButton btnNewButton = new JButton("Modify");
-		btnNewButton.addMouseListener(new MouseAdapter() {
+		btnSelect = new JButton("Select");
+		btnSelect.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				int index = matchingEquipment.getSelectedIndex();
-				
-				if (index >= 0 &&
-						index <= equipmentList.size()) {
-					Equipment modEq = equipmentList.get(index);
-					JPanel modEquipment = new ModifyEquipment(frame, modEq);
-					frame.addTab("Modify Equipment: " + modEq.getName(),
-							null,
-							modEquipment,
-							null);
-					frame.setSelectedIndex(frame.getTabCount()-1);
-				}
+				selectPressed();
 			}
 		});
-		add(btnNewButton, "5, 23, right, default");
+		add(btnSelect, "5, 23, right, default");
 		
 	}
 	
-	public ArrayList<String> matchingEquipment(){
+	protected ArrayList<String> matchingEquipment(){
 		ArrayList<String> rtn = new ArrayList<String>();
 		ArrayList<Equipment> equipment = EquipmentCtrl.searchEquipment(
 				this.name.getText(),
@@ -164,7 +155,7 @@ public class SelectEquipment extends JPanel {
 		return rtn;
 	}
 	
-	public String equipmentToString(Equipment eq) {
+	protected String equipmentToString(Equipment eq) {
 		String rtn = "";
 		
 		rtn += eq.getName() + " ";
@@ -172,5 +163,7 @@ public class SelectEquipment extends JPanel {
 		
 		return rtn;
 	}
+	
+	protected abstract void selectPressed();
 
 }

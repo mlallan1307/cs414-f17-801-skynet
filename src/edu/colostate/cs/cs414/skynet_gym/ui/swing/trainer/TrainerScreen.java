@@ -8,6 +8,7 @@ import javax.swing.JTabbedPane;
 import javax.swing.SwingConstants;
 
 import edu.colostate.cs.cs414.skynet_gym.ui.swing.Launcher;
+import edu.colostate.cs.cs414.skynet_gym.ui.swing.manager.CreateTrainer;
 
 /**
  * This is the screen shown to a logged in trainer
@@ -59,6 +60,12 @@ public class TrainerScreen extends JPanel {
 					.addGap(315))
 		);
 		Welcome.setLayout(groupLayout_1);
+		
+		JPanel createExercise = new CreateExercise(tabbedPane);
+		tabbedPane.addTab("Create Exercise", null, createExercise, null);
+		
+		JPanel selectExercise = new SelectExercise(tabbedPane);
+		tabbedPane.addTab("Modify Exercise", null, selectExercise, null);
 		
 		setLayout(groupLayout);
 		

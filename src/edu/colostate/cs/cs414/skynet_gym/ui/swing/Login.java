@@ -109,6 +109,7 @@ public class Login extends JPanel {
 			public void mousePressed(MouseEvent arg0) {
 				// Check login
 				//frame.setPanel(new ManagerScreen(frame)); // DEBUG
+				//frame.setPanel(new TrainerScreen(frame)); // DEBUG
 				if (ManagerCtrl.login(
 						username.getText(),
 						String.valueOf(password.getPassword()))){

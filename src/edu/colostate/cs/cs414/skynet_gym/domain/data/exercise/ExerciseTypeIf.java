@@ -1,5 +1,6 @@
 package edu.colostate.cs.cs414.skynet_gym.domain.data.exercise;
 
+import java.io.Serializable;
 import java.time.Duration;
 
 /**
@@ -8,7 +9,7 @@ import java.time.Duration;
  * @author Mike Allan
  *
  */
-public interface ExerciseTypeIf {
+public interface ExerciseTypeIf extends Serializable{
 	
 	public String toString();
 	
@@ -17,7 +18,7 @@ public interface ExerciseTypeIf {
 	/**
 	 * @return the type
 	 */
-	public String getType();
+	public ExerciseType getType();
 
 	
 	/**

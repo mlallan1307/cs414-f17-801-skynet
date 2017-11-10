@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 
 import edu.colostate.cs.cs414.skynet_gym.domain.control.CustomerCtrl;
 import edu.colostate.cs.cs414.skynet_gym.domain.control.EquipmentCtrl;
+import edu.colostate.cs.cs414.skynet_gym.domain.control.ExerciseCtrl;
 import edu.colostate.cs.cs414.skynet_gym.domain.control.ManagerCtrl;
 import edu.colostate.cs.cs414.skynet_gym.domain.control.TrainerCtrl;
 
@@ -57,11 +58,11 @@ public class Launcher {
 		TrainerCtrl.initialize();
 		CustomerCtrl.initialize();
 		EquipmentCtrl.initialize();
+		ExerciseCtrl.initialize();
 		
 		if (!systemIsInitialized()) {
 			setPanel(new CreateManager(this));
-		}
-		else {
+		} else {
 			setPanel(new Login(this));
 		}
 		

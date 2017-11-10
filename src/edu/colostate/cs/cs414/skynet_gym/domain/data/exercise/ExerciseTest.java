@@ -97,7 +97,7 @@ public class ExerciseTest {
 
 	@Test
 	public final void testGetExerciseInfo() {
-		assertTrue(ex.getExerciseInfo().getType().equals("set based"));
+		assertTrue(ex.getExerciseInfo().getType().equals(ExerciseType.SetBased));
 		assertTrue(ex.getExerciseInfo().equals(exerciseInfo));
 	}
 

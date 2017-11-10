@@ -3,6 +3,8 @@ package edu.colostate.cs.cs414.skynet_gym.domain.data.exercise;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.time.Duration;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,7 +28,7 @@ public class SetBasedExerciseTest {
 
 	@Test
 	public final void testSetBasedExercise() {
-		assertTrue(sbe.getType().equals("set based"));
+		assertTrue(sbe.getType().equals(ExerciseType.SetBased));
 		assertTrue(sbe.getNumberOfSets() == numberOfSets);
 		assertTrue(sbe.getNumberOfRepetitions() == numberOfRepetitions);
 	}
@@ -66,12 +68,12 @@ public class SetBasedExerciseTest {
 
 	@Test
 	public final void testGetType() {
-		assertTrue(sbe.getType().equals("set based"));
+		assertTrue(sbe.getType().equals(ExerciseType.SetBased));
 	}
 
 	@Test
 	public final void testGetDuration() {
-		assertTrue(sbe.getDuration() == null);
+		assertTrue(sbe.getDuration().equals(Duration.ZERO));
 	}
 
 }
