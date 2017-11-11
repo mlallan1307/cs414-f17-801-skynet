@@ -10,6 +10,7 @@ import edu.colostate.cs.cs414.skynet_gym.domain.control.CustomerCtrlTest;
 import edu.colostate.cs.cs414.skynet_gym.domain.control.EquipmentCtrlTest;
 import edu.colostate.cs.cs414.skynet_gym.domain.control.ExerciseCtrlTest;
 import edu.colostate.cs.cs414.skynet_gym.domain.control.ManagerCtrlTest;
+import edu.colostate.cs.cs414.skynet_gym.domain.control.RoutineCtrlTest;
 import edu.colostate.cs.cs414.skynet_gym.domain.control.TrainerCtrlTest;
 
 @RunWith(Suite.class)
@@ -18,7 +19,8 @@ import edu.colostate.cs.cs414.skynet_gym.domain.control.TrainerCtrlTest;
 	EquipmentCtrlTest.class,
 	ManagerCtrlTest.class,
 	TrainerCtrlTest.class,
-	ExerciseCtrlTest.class
+	ExerciseCtrlTest.class,
+	RoutineCtrlTest.class
 	
 })
 public class DomainControlPkgSuite {

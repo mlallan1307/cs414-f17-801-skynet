@@ -11,6 +11,7 @@ import edu.colostate.cs.cs414.skynet_gym.domain.control.CustomerCtrl;
 import edu.colostate.cs.cs414.skynet_gym.domain.control.EquipmentCtrl;
 import edu.colostate.cs.cs414.skynet_gym.domain.control.ExerciseCtrl;
 import edu.colostate.cs.cs414.skynet_gym.domain.control.ManagerCtrl;
+import edu.colostate.cs.cs414.skynet_gym.domain.control.RoutineCtrl;
 import edu.colostate.cs.cs414.skynet_gym.domain.control.TrainerCtrl;
 
 /**
@@ -59,6 +60,7 @@ public class Launcher {
 		CustomerCtrl.initialize();
 		EquipmentCtrl.initialize();
 		ExerciseCtrl.initialize();
+		RoutineCtrl.initialize();
 		
 		if (!systemIsInitialized()) {
 			setPanel(new CreateManager(this));

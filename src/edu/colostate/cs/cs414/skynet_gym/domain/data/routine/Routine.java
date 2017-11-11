@@ -1,5 +1,6 @@
 package edu.colostate.cs.cs414.skynet_gym.domain.data.routine;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import edu.colostate.cs.cs414.skynet_gym.domain.data.exercise.Exercise;
@@ -10,14 +11,29 @@ import edu.colostate.cs.cs414.skynet_gym.domain.data.exercise.Exercise;
  * @author Mike Allan
  *
  */
-public class Routine {
+public class Routine implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6694284744010261151L;
 	private String name;
 	private ArrayList<Exercise> exercises;
 	
 	public Routine(String name){
 		this.exercises = new ArrayList<Exercise>();
 		this.setName(name);
+	}
+	
+	public Routine(
+			String name,
+			ArrayList<Exercise> exercises){
+		this.setName(name);
+		if (exercises == null){
+			throw new IllegalArgumentException(
+					"Invalid: exercise list is null");
+		}
+		this.exercises = exercises;
 	}
 	
 	@Override
@@ -94,7 +110,7 @@ public class Routine {
 	/**
 	 * @param name the name to set
 	 */
-	protected void setName(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
@@ -109,7 +125,7 @@ public class Routine {
 	 * @param exercises the exercises to set
 	 * @throws NullPointerException if param is null
 	 */
-	protected void setExercises(ArrayList<Exercise> exercises) {
+	public void setExercises(ArrayList<Exercise> exercises) {
 		if (exercises == null) {
 			throw new NullPointerException("param can not be null");
 		}
