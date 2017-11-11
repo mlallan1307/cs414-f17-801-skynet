@@ -72,7 +72,7 @@ public class RoutineCtrlTest {
 	}
 
 	@Test
-	public final void testExerciseExist() {
+	public final void testRoutineExist() {
 		assertFalse(RoutineCtrl.routinesExist());
 		RoutineCtrl.createRoutine(
 				name,
@@ -96,7 +96,7 @@ public class RoutineCtrlTest {
 	}
 
 	@Test
-	public final void testCreateExercise() {
+	public final void testCreateRoutine() {
 		assertFalse(RoutineCtrl.routinesExist());
 		RoutineCtrl.createRoutine(
 				name,
@@ -109,7 +109,7 @@ public class RoutineCtrlTest {
 	}
 	
 	@Test
-	public final void testCreateExerciseDuplicateCheck() {
+	public final void testCreateRoutineDuplicateCheck() {
 		RoutineCtrl.createRoutine(
 				name,
 				ale);
@@ -127,7 +127,7 @@ public class RoutineCtrlTest {
 	}
 	
 	@Test
-	public final void testCreateExerciseEmptyFields() {
+	public final void testCreateRoutineEmptyFields() {
 		
 		try {
 			// empty field test
@@ -142,7 +142,7 @@ public class RoutineCtrlTest {
 	}
 	
 	@Test
-	public final void testCreateExerciseNull() {
+	public final void testCreateRoutineNull() {
 		assertEquals(0, RoutineCtrl.getRoutines().size());
 		try {
 			// Duration 0
@@ -157,7 +157,7 @@ public class RoutineCtrlTest {
 	}
 
 	@Test
-	public final void testReplaceExercise() {
+	public final void testReplaceRoutine() {
 		assertFalse(RoutineCtrl.routinesExist());
 		RoutineCtrl.createRoutine(
 				name,
@@ -190,7 +190,7 @@ public class RoutineCtrlTest {
 	}
 	
 	@Test
-	public final void testReplaceExerciseNull() {
+	public final void testReplaceRoutineNull() {
 		try {
 			RoutineCtrl.replaceRoutine(
 					name,
@@ -216,7 +216,7 @@ public class RoutineCtrlTest {
 	}
 	
 	@Test
-	public final void testReplaceExerciseEmptyFields() {
+	public final void testReplaceRoutineEmptyFields() {
 		
 		RoutineCtrl.createRoutine(
 				name,
@@ -237,7 +237,7 @@ public class RoutineCtrlTest {
 	}
 	
 	@Test
-	public final void testReplaceExerciseNameDuplicate() {
+	public final void testReplaceRoutineNameDuplicate() {
 		
 		assertFalse(RoutineCtrl.routinesExist());
 		RoutineCtrl.createRoutine(
@@ -275,7 +275,7 @@ public class RoutineCtrlTest {
 	}
 
 	@Test
-	public final void testSearchExercise() {
+	public final void testSearchRoutine() {
 		assertFalse(RoutineCtrl.routinesExist());
 		RoutineCtrl.createRoutine(
 				"aab",

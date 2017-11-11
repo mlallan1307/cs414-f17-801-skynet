@@ -2,6 +2,7 @@ package edu.colostate.cs.cs414.skynet_gym.domain.control;
 
 import java.util.ArrayList;
 
+import edu.colostate.cs.cs414.skynet_gym.domain.data.routine.Routine;
 import edu.colostate.cs.cs414.skynet_gym.domain.people.customer.Customer;
 import edu.colostate.cs.cs414.skynet_gym.domain.people.info.Address;
 import edu.colostate.cs.cs414.skynet_gym.domain.people.info.HealthInsurance;
@@ -300,6 +301,23 @@ public final class CustomerCtrl {
 		}
 
 		return rtn;
+	}
+	
+	public static void assignRoutines(
+			Customer c,
+			ArrayList<Routine> routines) {
+		if (c == null ||
+				routines == null) {
+			throw new IllegalArgumentException(
+					"Given customer or routine object is null");
+		} else if (!customers.contains(c)) {
+			throw new IllegalArgumentException(
+					"Given customer is unknown");
+		}
+		
+		customers.get(customers.indexOf(c)).setRoutines(routines);
+		
+		saveState();
 	}
 	
 	public static final ArrayList<Customer> getCustomers() {

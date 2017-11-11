@@ -1,7 +1,10 @@
 package edu.colostate.cs.cs414.skynet_gym.domain.people.customer;
 
 import java.io.Serializable;
+import java.security.InvalidParameterException;
+import java.util.ArrayList;
 
+import edu.colostate.cs.cs414.skynet_gym.domain.data.routine.Routine;
 import edu.colostate.cs.cs414.skynet_gym.domain.people.info.Membership;
 import edu.colostate.cs.cs414.skynet_gym.domain.people.info.PersonInformation;
 
@@ -19,11 +22,13 @@ public class Customer implements Serializable  {
 	private static final long serialVersionUID = -6520337216284807311L;
 	private Membership membership;
 	private PersonInformation personInfo;
+	private ArrayList<Routine> routines;
 	
 	public Customer(PersonInformation personInfo) {
 		
 		this.membership = new Membership(true);
 		this.setPersonInfo(personInfo);
+		this.routines = new ArrayList<Routine>();
 		
 	}
 
@@ -79,6 +84,23 @@ public class Customer implements Serializable  {
 		}
 		this.membership = membership;
 	}
-	
+
+	/**
+	 * @return the routines
+	 */
+	public final ArrayList<Routine> getRoutines() {
+		return routines;
+	}
+
+	/**
+	 * @param routines the routines to set
+	 * @throws NullPointerException if param is null
+	 */
+	public void setRoutines(ArrayList<Routine> routines) {
+		if (routines == null) {
+			throw new NullPointerException("Param can not be null");
+		}
+		this.routines = routines;
+	}
 
 }

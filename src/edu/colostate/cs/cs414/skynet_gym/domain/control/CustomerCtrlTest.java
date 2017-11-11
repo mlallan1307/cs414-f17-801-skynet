@@ -5,10 +5,13 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
+import java.util.ArrayList;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import edu.colostate.cs.cs414.skynet_gym.domain.data.routine.Routine;
 import edu.colostate.cs.cs414.skynet_gym.domain.people.customer.Customer;
 import edu.colostate.cs.cs414.skynet_gym.domain.people.info.Address;
 import edu.colostate.cs.cs414.skynet_gym.domain.people.info.HealthInsurance;
@@ -33,6 +36,8 @@ public class CustomerCtrlTest {
 	private final String email     = "em";
 	private PersonInformation pi;
 	
+	private Routine routine;
+	
 	private final String testFileName = "CustomerCtrlTestfile_delete_me";
 	
 	@Before
@@ -53,6 +58,8 @@ public class CustomerCtrlTest {
 				email,
 				hi,
 				address);
+		
+		routine = new Routine("rt");
 		
 		// Set test data to be in a different file than normal
 		CustomerCtrl.setSerializedName(testFileName);
@@ -912,6 +919,113 @@ public class CustomerCtrlTest {
 				"",
 				"",
 				"z").size());
+	}
+	
+	@Test
+	public final void testAssignRoutines() {
+		CustomerCtrl.createCustomer(
+				firstName,
+				lastName,
+				driversLicenseNumber,
+				phone,
+				email,
+				hiN,
+				s1,
+				s2,
+				state,
+				city,
+				zip,
+				type);
+		assertTrue(CustomerCtrl.customersExist());
+		ArrayList<Routine> rts = new ArrayList<Routine>();
+		rts.add(routine);
+		
+		CustomerCtrl.assignRoutines(
+				CustomerCtrl.getCustomers().get(0),
+				rts);
+		
+		assertEquals(
+				rts.size(),
+				CustomerCtrl.getCustomers().get(0).getRoutines().size());
+	}
+	
+	@Test
+	public final void testAssignRoutinesInvalid() {
+		CustomerCtrl.createCustomer(
+				firstName,
+				lastName,
+				driversLicenseNumber,
+				phone,
+				email,
+				hiN,
+				s1,
+				s2,
+				state,
+				city,
+				zip,
+				type);
+		assertTrue(CustomerCtrl.customersExist());
+		ArrayList<Routine> rts = new ArrayList<Routine>();
+		rts.add(routine);
+		
+		Customer c = new Customer(new PersonInformation(
+				"newName",
+				lastName,
+				driversLicenseNumber,
+				phone,
+				email,
+				hi,
+				address));
+		
+		try {
+			CustomerCtrl.assignRoutines(
+					c,
+					rts);
+			fail("Expected to throw");
+		} catch (IllegalArgumentException e) {
+		}
+		
+	}
+	
+	@Test
+	public final void testAssignRoutinesNull() {
+		CustomerCtrl.createCustomer(
+				firstName,
+				lastName,
+				driversLicenseNumber,
+				phone,
+				email,
+				hiN,
+				s1,
+				s2,
+				state,
+				city,
+				zip,
+				type);
+		assertTrue(CustomerCtrl.customersExist());
+		
+		assertEquals(0, CustomerCtrl.getCustomers().get(0).getRoutines().size());
+		try {
+			CustomerCtrl.assignRoutines(
+					CustomerCtrl.getCustomers().get(0),
+					null);
+			fail("Expected to throw");
+		} catch (IllegalArgumentException e) {
+		}
+		assertEquals(0, CustomerCtrl.getCustomers().get(0).getRoutines().size());
+		
+		ArrayList<Routine> rts = new ArrayList<Routine>();
+		rts.add(routine);
+		
+		try {
+			CustomerCtrl.assignRoutines(
+					null,
+					rts);
+			fail("Expected to throw");
+		} catch (IllegalArgumentException e) {
+		}
+		assertEquals(0, CustomerCtrl.getCustomers().get(0).getRoutines().size());
+		
 	}
 
 }

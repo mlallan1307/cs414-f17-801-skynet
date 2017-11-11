@@ -1,13 +1,17 @@
 package edu.colostate.cs.cs414.skynet_gym.domain.people.customer;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
+
+import java.util.ArrayList;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import edu.colostate.cs.cs414.skynet_gym.domain.data.routine.Routine;
 import edu.colostate.cs.cs414.skynet_gym.domain.people.info.Address;
 import edu.colostate.cs.cs414.skynet_gym.domain.people.info.HealthInsurance;
 import edu.colostate.cs.cs414.skynet_gym.domain.people.info.Membership;
@@ -117,6 +121,28 @@ public class CustomerTest {
 		assertFalse(customer.getMembership().isValid());
 		try {
 			customer.setMembership(null);
+			fail("Expected to throw");
+		} catch(NullPointerException e) {
+		}
+	}
+	
+	@Test
+	public final void testGetRoutines() {
+		assertEquals(0, customer.getRoutines().size());
+	}
+
+	@Test
+	public final void testSetRoutines() {
+		Routine r = new Routine("rtname");
+		ArrayList<Routine> rts = new ArrayList<Routine>();
+		rts.add(r);
+		
+		customer.setRoutines(rts);
+		assertEquals(
+				rts.size(),
+				customer.getRoutines().size());
+		try {
+			customer.setRoutines(null);
 			fail("Expected to throw");
 		} catch(NullPointerException e) {
 		}

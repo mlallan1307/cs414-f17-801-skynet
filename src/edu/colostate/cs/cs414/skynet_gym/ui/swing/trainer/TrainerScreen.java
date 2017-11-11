@@ -8,7 +8,6 @@ import javax.swing.JTabbedPane;
 import javax.swing.SwingConstants;
 
 import edu.colostate.cs.cs414.skynet_gym.ui.swing.Launcher;
-import edu.colostate.cs.cs414.skynet_gym.ui.swing.manager.CreateTrainer;
 
 /**
  * This is the screen shown to a logged in trainer
@@ -72,6 +71,9 @@ public class TrainerScreen extends JPanel {
 		
 		JPanel selectRoutine = new SelectRoutine(tabbedPane);
 		tabbedPane.addTab("Modify Routine", null, selectRoutine, null);
+		
+		JPanel assignRoutines = new SelectCustomer(tabbedPane);
+		tabbedPane.addTab("Assign Routine", null, assignRoutines, null);
 		
 		setLayout(groupLayout);
 		
