@@ -1,5 +1,7 @@
 package edu.colostate.cs.cs414.skynet_gym.domain.data.exercise;
 
+import java.io.Serializable;
+
 import edu.colostate.cs.cs414.skynet_gym.domain.data.equipment.Equipment;
 
 /**
@@ -8,8 +10,12 @@ import edu.colostate.cs.cs414.skynet_gym.domain.data.equipment.Equipment;
  * @author Mike Allan
  *
  */
-public class Exercise {
+public class Exercise implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2965666889611098854L;
 	private String name;
 	private Equipment equipment;
 	private ExerciseTypeIf exerciseInfo;
@@ -66,35 +72,35 @@ public class Exercise {
 	/**
 	 * @return the name
 	 */
-	protected String getName() {
+	public String getName() {
 		return name;
 	}
 
 	/**
 	 * @param name the name to set
 	 */
-	protected void setName(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
 	/**
 	 * @return the equipment, may be null
 	 */
-	protected Equipment getEquipment() {
+	public Equipment getEquipment() {
 		return equipment;
 	}
 
 	/**
 	 * @param equipment the equipment to set, allowed to be null
 	 */
-	protected void setEquipment(Equipment equipment) {
+	public void setEquipment(Equipment equipment) {
 		this.equipment = equipment;
 	}
 
 	/**
 	 * @return the exerciseInfo
 	 */
-	protected ExerciseTypeIf getExerciseInfo() {
+	public ExerciseTypeIf getExerciseInfo() {
 		return exerciseInfo;
 	}
 
@@ -102,7 +108,7 @@ public class Exercise {
 	 * @param exerciseInfo the exerciseInfo to set
 	 * @throws NullPointerException if param is null
 	 */
-	protected void setExerciseInfo(ExerciseTypeIf exerciseInfo) {
+	public void setExerciseInfo(ExerciseTypeIf exerciseInfo) {
 		if (exerciseInfo == null) {
 			throw new NullPointerException("param can not be null");
 		}

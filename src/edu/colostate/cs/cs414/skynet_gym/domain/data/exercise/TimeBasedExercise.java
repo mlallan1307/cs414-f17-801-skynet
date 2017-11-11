@@ -10,17 +10,21 @@ import java.time.Duration;
  */
 public class TimeBasedExercise implements ExerciseTypeIf {
 
-	private String type;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3073244385105900662L;
+	private ExerciseType type;
 	private Duration duration;
 	
 	public TimeBasedExercise(Duration duration) {
-		this.type = "time based";
+		this.type = ExerciseType.TimeBased;
 		this.setDuration(duration);
 	}
 	
 	@Override
 	public String toString() {
-		return (this.type + ":" +
+		return (this.type.name() + ":" +
 				this.duration.toString());
 	}
 	
@@ -52,7 +56,7 @@ public class TimeBasedExercise implements ExerciseTypeIf {
 	/**
 	 * @return the type
 	 */
-	public String getType() {
+	public ExerciseType getType() {
 		return this.type;
 	}
 

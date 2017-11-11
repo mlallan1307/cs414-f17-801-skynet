@@ -10,20 +10,24 @@ import java.time.Duration;
  */
 public class SetBasedExercise implements ExerciseTypeIf {
 	
-	private String type;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3806989798238289096L;
+	private ExerciseType type;
 	private int numberOfSets;
 	private int numberOfRepetitions;
 	
 	public SetBasedExercise(int numberOfSets,
 			int numberOfRepetitions) {
-		this.type = "set based";
+		this.type = ExerciseType.SetBased;
 		this.setNumberOfSets(numberOfSets);
 		this.setNumberOfRepetitions(numberOfRepetitions);
 	}
 	
 	@Override
 	public String toString() {
-		return (this.type + ":" +
+		return (this.type.name() + ":" +
 				String.valueOf(this.numberOfSets) + ":" +
 				String.valueOf(this.numberOfRepetitions));
 	}
@@ -70,7 +74,7 @@ public class SetBasedExercise implements ExerciseTypeIf {
 	/**
 	 * @return the type
 	 */
-	public String getType() {
+	public ExerciseType getType() {
 		return this.type;
 	}
 
@@ -78,7 +82,7 @@ public class SetBasedExercise implements ExerciseTypeIf {
 	 * @return null since this is a set based exercise
 	 */
 	public Duration getDuration() {
-		return null;
+		return Duration.ofSeconds(0);
 	}
 
 

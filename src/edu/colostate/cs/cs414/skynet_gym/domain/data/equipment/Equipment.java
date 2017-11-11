@@ -1,6 +1,7 @@
 package edu.colostate.cs.cs414.skynet_gym.domain.data.equipment;
 
 import java.io.File;
+import java.io.Serializable;
 
 /**
  * Equipment represents a piece of equipment in the gym and contains the
@@ -9,8 +10,12 @@ import java.io.File;
  * @author Mike Allan
  *
  */
-public class Equipment {
+public class Equipment implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1737086170797111784L;
 	private String name;
 	private int quantity;
 	private File picture;
@@ -44,35 +49,35 @@ public class Equipment {
 	/**
 	 * @return the name
 	 */
-	protected String getName() {
+	public String getName() {
 		return name;
 	}
 
 	/**
 	 * @param name the name to set
 	 */
-	protected void setName(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
 	/**
 	 * @return the quantity
 	 */
-	protected int getQuantity() {
+	public int getQuantity() {
 		return quantity;
 	}
 
 	/**
 	 * @param quantity the quantity to set
 	 */
-	protected void setQuantity(int quantity) {
+	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
 
 	/**
 	 * @return the picture
 	 */
-	protected File getPicture() {
+	public File getPicture() {
 		return picture;
 	}
 
@@ -81,7 +86,7 @@ public class Equipment {
 	 * @throws IllegalArgumentException if file does not exist
 	 * @throws NullPointerException if param is null
 	 */
-	protected void setPicture(File picture) {
+	public void setPicture(File picture) {
 		if (picture == null){
 			throw new NullPointerException("param can not be null");
 		}

@@ -60,6 +60,21 @@ public class TrainerScreen extends JPanel {
 		);
 		Welcome.setLayout(groupLayout_1);
 		
+		JPanel createExercise = new CreateExercise(tabbedPane);
+		tabbedPane.addTab("Create Exercise", null, createExercise, null);
+		
+		JPanel selectExercise = new SelectExercise(tabbedPane);
+		tabbedPane.addTab("Modify Exercise", null, selectExercise, null);
+		
+		JPanel createRoutine = new CreateRoutine(tabbedPane);
+		tabbedPane.addTab("Create Routine", null, createRoutine, null);
+		
+		JPanel selectRoutine = new SelectRoutine(tabbedPane);
+		tabbedPane.addTab("Modify Routine", null, selectRoutine, null);
+		
+		JPanel assignRoutines = new SelectCustomer(tabbedPane);
+		tabbedPane.addTab("Assign Routine", null, assignRoutines, null);
+		
 		setLayout(groupLayout);
 		
 		frame.setBounds(getLayout().preferredLayoutSize(this));
