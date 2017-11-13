@@ -4,13 +4,11 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.time.Duration;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JList;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTabbedPane;
@@ -22,14 +20,9 @@ import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 
-import edu.colostate.cs.cs414.skynet_gym.domain.control.CustomerCtrl;
 import edu.colostate.cs.cs414.skynet_gym.domain.control.ExerciseCtrl;
-import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.Equipment;
 import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.Exercise;
-import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.ExerciseType;
-import edu.colostate.cs.cs414.skynet_gym.domain.people.other.Customer;
-import edu.colostate.cs.cs414.skynet_gym.ui.swing.MyListModel;
-import edu.colostate.cs.cs414.skynet_gym.ui.swing.manager.ModifyCustomer;
+import edu.colostate.cs.cs414.skynet_gym.ui.swing.common.MyListModel;
 
 /**
  * This panel is shown to select an exercise for the system.

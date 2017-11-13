@@ -22,7 +22,7 @@ import com.jgoodies.forms.layout.RowSpec;
 
 import edu.colostate.cs.cs414.skynet_gym.domain.control.TrainerCtrl;
 import edu.colostate.cs.cs414.skynet_gym.domain.people.user.Trainer;
-import edu.colostate.cs.cs414.skynet_gym.ui.swing.MyListModel;
+import edu.colostate.cs.cs414.skynet_gym.ui.swing.common.MyListModel;
 
 /**
  * This panel is shown to select a trainer for the system.

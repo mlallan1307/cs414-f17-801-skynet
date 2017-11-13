@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.SwingConstants;
 
-import edu.colostate.cs.cs414.skynet_gym.ui.swing.Launcher;
+import edu.colostate.cs.cs414.skynet_gym.ui.swing.start.Launcher;
 
 /**
  * This is the screen shown to a logged in manager

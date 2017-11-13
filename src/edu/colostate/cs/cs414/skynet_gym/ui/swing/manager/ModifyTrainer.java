@@ -34,7 +34,7 @@ import edu.colostate.cs.cs414.skynet_gym.domain.data.people.Qualification;
 import edu.colostate.cs.cs414.skynet_gym.domain.data.people.Schedule;
 import edu.colostate.cs.cs414.skynet_gym.domain.data.people.TimePeriod;
 import edu.colostate.cs.cs414.skynet_gym.domain.people.user.Trainer;
-import edu.colostate.cs.cs414.skynet_gym.ui.swing.MyListModel;
+import edu.colostate.cs.cs414.skynet_gym.ui.swing.common.MyListModel;
 
 /**
  * This panel is shown to modify a trainer for the system.

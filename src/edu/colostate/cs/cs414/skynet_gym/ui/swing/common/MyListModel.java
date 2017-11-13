@@ -1,4 +1,4 @@
-package edu.colostate.cs.cs414.skynet_gym.ui.swing;
+package edu.colostate.cs.cs414.skynet_gym.ui.swing.common;
 
 import java.util.ArrayList;
 

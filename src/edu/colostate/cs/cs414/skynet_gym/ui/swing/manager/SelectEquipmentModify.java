@@ -4,7 +4,7 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
 import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.Equipment;
-import edu.colostate.cs.cs414.skynet_gym.ui.swing.SelectEquipmentAbs;
+import edu.colostate.cs.cs414.skynet_gym.ui.swing.common.SelectEquipmentAbs;
 
 /**
  * This panel is shown to select equipment for modification.

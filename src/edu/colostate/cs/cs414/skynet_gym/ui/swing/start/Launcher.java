@@ -1,4 +1,4 @@
-package edu.colostate.cs.cs414.skynet_gym.ui.swing;
+package edu.colostate.cs.cs414.skynet_gym.ui.swing.start;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -46,6 +46,24 @@ public class Launcher {
 	public Launcher() {
 		initialize();
 	}
+	
+	public void setBounds(Dimension dimension) {
+		int offset = 100;
+		frame.setBounds(
+				offset,
+				offset,
+				dimension.width+offset,
+				dimension.height+offset);
+	}
+	
+	protected void setPanel(JPanel panel) {
+		frame.getContentPane().removeAll();
+		frame.getContentPane().repaint();
+		frame.getContentPane().revalidate();
+		frame.getContentPane().add(panel, BorderLayout.CENTER);
+		frame.getContentPane().repaint();
+		frame.getContentPane().revalidate();
+	}
 
 	/**
 	 * Initialize the contents of the frame.
@@ -62,39 +80,12 @@ public class Launcher {
 		ExerciseCtrl.initialize();
 		RoutineCtrl.initialize();
 		
-		if (!systemIsInitialized()) {
+		if (!ManagerCtrl.managerExists()) {
 			setPanel(new CreateManager(this));
 		} else {
 			setPanel(new Login(this));
 		}
 		
 	}
-	
-	public void setPanel(JPanel panel) {
-		frame.getContentPane().removeAll();
-		frame.getContentPane().repaint();
-		frame.getContentPane().revalidate();
-		frame.getContentPane().add(panel, BorderLayout.CENTER);
-		frame.getContentPane().repaint();
-		frame.getContentPane().revalidate();
-	}
-	
-	public void setBounds(Dimension dimension) {
-		int offset = 100;
-		//System.out.println(dimension.width + " " + dimension.height);
-		frame.setBounds(
-				offset,
-				offset,
-				dimension.width+offset,
-				dimension.height+offset);
-	}
-
-	/**
-	 * @return the systemInitialized
-	 */
-	protected Boolean systemIsInitialized() {
-		return ManagerCtrl.managerExists();
-	}
-	
 	
 }

@@ -15,7 +15,7 @@ import javax.swing.border.LineBorder;
 
 import edu.colostate.cs.cs414.skynet_gym.domain.control.ExerciseCtrl;
 import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.Exercise;
-import edu.colostate.cs.cs414.skynet_gym.ui.swing.MyListModel;
+import edu.colostate.cs.cs414.skynet_gym.ui.swing.common.MyListModel;
 
 /**
  * This is an abstract class that implements common functionality related to routines.

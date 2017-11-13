@@ -1,4 +1,4 @@
-package edu.colostate.cs.cs414.skynet_gym.ui.swing;
+package edu.colostate.cs.cs414.skynet_gym.ui.swing.common;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -24,6 +24,7 @@ import com.jgoodies.forms.layout.RowSpec;
 
 import edu.colostate.cs.cs414.skynet_gym.domain.control.EquipmentCtrl;
 import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.Equipment;
+import edu.colostate.cs.cs414.skynet_gym.ui.swing.common.MyListModel;
 
 /**
  * This abstract class defines the select equipment functionality.

@@ -1,4 +1,4 @@
-package edu.colostate.cs.cs414.skynet_gym.ui.swing;
+package edu.colostate.cs.cs414.skynet_gym.ui.swing.common;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -22,7 +22,7 @@ import com.jgoodies.forms.layout.RowSpec;
 
 import edu.colostate.cs.cs414.skynet_gym.domain.control.CustomerCtrl;
 import edu.colostate.cs.cs414.skynet_gym.domain.people.other.Customer;
-import edu.colostate.cs.cs414.skynet_gym.ui.swing.MyListModel;
+import edu.colostate.cs.cs414.skynet_gym.ui.swing.common.MyListModel;
 
 /**
  * This panel is shown to select a customer for the system.

@@ -1,4 +1,4 @@
-package edu.colostate.cs.cs414.skynet_gym.ui.swing;
+package edu.colostate.cs.cs414.skynet_gym.ui.swing.start;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -10,7 +10,6 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JPasswordField;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
@@ -24,27 +23,25 @@ import edu.colostate.cs.cs414.skynet_gym.domain.control.ManagerCtrl;
 import edu.colostate.cs.cs414.skynet_gym.domain.control.TrainerCtrl;
 
 /**
- * This is the password reset pane
+ * This is the username recovery pane
  * 
  * @author Mike Allan
  *
  */
-public class ResetPassword extends JPanel {
+public class RecoverUsername extends JPanel {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 8643688305849739700L;
+	private static final long serialVersionUID = 6340124935891692799L;
 	private JTextField firstName;
 	private JTextField lastName;
 	private JTextField driversLicenseNum;
-	private JTextField username;
-	private JPasswordField password;
 	
 	/**
 	 * Create the panel.
 	 */
-	public ResetPassword(final Launcher frame) {
+	public RecoverUsername(final Launcher frame) {
 		setLayout(new FormLayout(new ColumnSpec[] {
 				FormFactory.LABEL_COMPONENT_GAP_COLSPEC,
 				ColumnSpec.decode("center:max(53dlu;default)"),
@@ -76,10 +73,6 @@ public class ResetPassword extends JPanel {
 				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,}));
 		
 		JButton btnBack = new JButton("");
@@ -89,10 +82,10 @@ public class ResetPassword extends JPanel {
 				frame.setPanel(new Login(frame));
 			}
 		});
-		btnBack.setIcon(new ImageIcon(ResetPassword.class.getResource("/com/sun/javafx/scene/control/skin/caspian/fxvk-backspace-button.png")));
+		btnBack.setIcon(new ImageIcon(RecoverUsername.class.getResource("/com/sun/javafx/scene/control/skin/caspian/fxvk-backspace-button.png")));
 		add(btnBack, "2, 2, left, top");
 		
-		JLabel lblNewLabel = new JLabel("Reset Password");
+		JLabel lblNewLabel = new JLabel("Recover Username");
 		add(lblNewLabel, "4, 2, 3, 1, center, bottom");
 		
 		JSeparator separator = new JSeparator();
@@ -120,22 +113,6 @@ public class ResetPassword extends JPanel {
 		driversLicenseNum.setColumns(10);
 		add(driversLicenseNum, "6, 12, fill, default");
 		
-		
-		
-		JLabel lblUsername_1 = new JLabel("Username");
-		add(lblUsername_1, "4, 14, right, default");
-		
-		username = new JTextField();
-		username.setColumns(10);
-		add(username, "6, 14, fill, default");
-		
-		JLabel lblNewPassword = new JLabel("New Password");
-		add(lblNewPassword, "4, 16, right, default");
-		
-		password = new JPasswordField();
-		password.setColumns(10);
-		add(password, "6, 16, fill, default");
-		
 		JButton btnNewButton = new JButton("Submit");
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnNewButton.setBackground(UIManager.getColor("Button.background"));
@@ -143,37 +120,32 @@ public class ResetPassword extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				// Check login
-				Boolean resetWorked = ManagerCtrl.resetPassword(
+				String username = ManagerCtrl.recoverUsername(
 						firstName.getText(),
 						lastName.getText(),
-						driversLicenseNum.getText(),
-						username.getText(),
-						String.valueOf(password.getPassword()));
-				
-				if (!resetWorked) {
-					resetWorked = TrainerCtrl.resetPassword(
+						driversLicenseNum.getText());
+				if (username == ""){
+					username = TrainerCtrl.recoverUsername(
 							firstName.getText(),
 							lastName.getText(),
-							driversLicenseNum.getText(),
-							username.getText(),
-							String.valueOf(password.getPassword()));
+							driversLicenseNum.getText());
 				}
-				if (resetWorked) {
+				if (username != ""){
 					JOptionPane.showMessageDialog(null,
-						    "Password Reset",
-						    "Reset password",
+						    "Your username is: " + username,
+						    "Recover username",
 						    JOptionPane.INFORMATION_MESSAGE);
 					frame.setPanel(new Login(frame));
 				}
 				else {
 					JOptionPane.showMessageDialog(null,
 					    "Invalid information",
-					    "Reset password",
+					    "Recover username",
 					    JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		});
-		add(btnNewButton, "4, 20, 3, 1, center, center");
+		add(btnNewButton, "4, 16, 3, 1, center, center");
 		
 		frame.setBounds(getLayout().preferredLayoutSize(this));
 	}
