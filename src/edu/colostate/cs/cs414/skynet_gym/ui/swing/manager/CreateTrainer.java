@@ -31,10 +31,10 @@ import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 
 import edu.colostate.cs.cs414.skynet_gym.domain.control.TrainerCtrl;
-import edu.colostate.cs.cs414.skynet_gym.domain.people.info.Qualification;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.people.Qualification;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.people.Schedule;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.people.TimePeriod;
 import edu.colostate.cs.cs414.skynet_gym.ui.swing.MyListModel;
-import edu.colostate.cs.cs414.skynet_gym.utility.data.Schedule;
-import edu.colostate.cs.cs414.skynet_gym.utility.data.TimePeriod;
 
 /**
  * This panel is shown to create a trainer for the system.

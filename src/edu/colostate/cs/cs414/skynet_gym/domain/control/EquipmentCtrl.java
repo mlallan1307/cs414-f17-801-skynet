@@ -3,8 +3,8 @@ package edu.colostate.cs.cs414.skynet_gym.domain.control;
 import java.io.File;
 import java.util.ArrayList;
 
-import edu.colostate.cs.cs414.skynet_gym.domain.data.equipment.Equipment;
-import edu.colostate.cs.cs414.skynet_gym.utility.file.ObjectFile;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.Equipment;
+import edu.colostate.cs.cs414.skynet_gym.services.store.ObjectFile;
 
 /**
  * EquipmentCtrl class provides static methods and holds the static instances

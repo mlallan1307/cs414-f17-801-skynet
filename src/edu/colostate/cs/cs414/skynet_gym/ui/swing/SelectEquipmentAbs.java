@@ -23,7 +23,7 @@ import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 
 import edu.colostate.cs.cs414.skynet_gym.domain.control.EquipmentCtrl;
-import edu.colostate.cs.cs414.skynet_gym.domain.data.equipment.Equipment;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.Equipment;
 
 /**
  * This abstract class defines the select equipment functionality.

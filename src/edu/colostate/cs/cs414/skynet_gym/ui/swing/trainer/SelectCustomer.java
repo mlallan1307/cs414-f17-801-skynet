@@ -7,7 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
-import edu.colostate.cs.cs414.skynet_gym.domain.people.customer.Customer;
+import edu.colostate.cs.cs414.skynet_gym.domain.people.other.Customer;
 import edu.colostate.cs.cs414.skynet_gym.ui.swing.SelectCustomerAbs;
 
 /**

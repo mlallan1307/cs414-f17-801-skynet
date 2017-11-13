@@ -2,9 +2,9 @@ package edu.colostate.cs.cs414.skynet_gym.domain.control;
 
 import java.util.ArrayList;
 
-import edu.colostate.cs.cs414.skynet_gym.domain.data.exercise.Exercise;
-import edu.colostate.cs.cs414.skynet_gym.domain.data.routine.Routine;
-import edu.colostate.cs.cs414.skynet_gym.utility.file.ObjectFile;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.Exercise;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.Routine;
+import edu.colostate.cs.cs414.skynet_gym.services.store.ObjectFile;
 
 /**
  * RoutineCtrl class provides static methods and holds the static instances

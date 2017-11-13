@@ -10,7 +10,7 @@ import javax.swing.JSpinner;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 
-import edu.colostate.cs.cs414.skynet_gym.domain.data.equipment.Equipment;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.Equipment;
 
 /**
  * This is an abstract class that implements common functionality related to exercises.

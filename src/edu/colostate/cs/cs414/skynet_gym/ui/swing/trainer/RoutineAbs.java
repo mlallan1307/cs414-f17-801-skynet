@@ -14,7 +14,7 @@ import javax.swing.ListSelectionModel;
 import javax.swing.border.LineBorder;
 
 import edu.colostate.cs.cs414.skynet_gym.domain.control.ExerciseCtrl;
-import edu.colostate.cs.cs414.skynet_gym.domain.data.exercise.Exercise;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.Exercise;
 import edu.colostate.cs.cs414.skynet_gym.ui.swing.MyListModel;
 
 /**

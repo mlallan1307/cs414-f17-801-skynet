@@ -2,13 +2,13 @@ package edu.colostate.cs.cs414.skynet_gym.domain.control;
 
 import java.util.ArrayList;
 
-import edu.colostate.cs.cs414.skynet_gym.domain.people.info.Address;
-import edu.colostate.cs.cs414.skynet_gym.domain.people.info.HealthInsurance;
-import edu.colostate.cs.cs414.skynet_gym.domain.people.info.PersonInformation;
-import edu.colostate.cs.cs414.skynet_gym.domain.people.info.Qualification;
-import edu.colostate.cs.cs414.skynet_gym.domain.people.trainer.Trainer;
-import edu.colostate.cs.cs414.skynet_gym.utility.data.Schedule;
-import edu.colostate.cs.cs414.skynet_gym.utility.file.ObjectFile;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.people.Address;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.people.HealthInsurance;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.people.PersonInformation;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.people.Qualification;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.people.Schedule;
+import edu.colostate.cs.cs414.skynet_gym.domain.people.user.Trainer;
+import edu.colostate.cs.cs414.skynet_gym.services.store.ObjectFile;
 
 /**
  * TrainerCtrl class provides static methods and holds the static instances

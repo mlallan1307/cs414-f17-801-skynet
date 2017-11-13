@@ -3,13 +3,13 @@ package edu.colostate.cs.cs414.skynet_gym.domain.control;
 import java.time.Duration;
 import java.util.ArrayList;
 
-import edu.colostate.cs.cs414.skynet_gym.domain.data.equipment.Equipment;
-import edu.colostate.cs.cs414.skynet_gym.domain.data.exercise.Exercise;
-import edu.colostate.cs.cs414.skynet_gym.domain.data.exercise.ExerciseType;
-import edu.colostate.cs.cs414.skynet_gym.domain.data.exercise.ExerciseTypeIf;
-import edu.colostate.cs.cs414.skynet_gym.domain.data.exercise.SetBasedExercise;
-import edu.colostate.cs.cs414.skynet_gym.domain.data.exercise.TimeBasedExercise;
-import edu.colostate.cs.cs414.skynet_gym.utility.file.ObjectFile;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.Equipment;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.Exercise;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.ExerciseType;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.ExerciseTypeIf;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.SetBasedExercise;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.TimeBasedExercise;
+import edu.colostate.cs.cs414.skynet_gym.services.store.ObjectFile;
 
 /**
  * ExerciseCtrl class provides static methods and holds the static instances

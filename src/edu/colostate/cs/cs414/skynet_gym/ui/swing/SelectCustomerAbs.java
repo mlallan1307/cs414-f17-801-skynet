@@ -21,7 +21,7 @@ import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 
 import edu.colostate.cs.cs414.skynet_gym.domain.control.CustomerCtrl;
-import edu.colostate.cs.cs414.skynet_gym.domain.people.customer.Customer;
+import edu.colostate.cs.cs414.skynet_gym.domain.people.other.Customer;
 import edu.colostate.cs.cs414.skynet_gym.ui.swing.MyListModel;
 
 /**

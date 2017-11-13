@@ -22,7 +22,7 @@ import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 
 import edu.colostate.cs.cs414.skynet_gym.domain.control.ExerciseCtrl;
-import edu.colostate.cs.cs414.skynet_gym.domain.data.exercise.ExerciseType;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.ExerciseType;
 
 /**
  * This panel is shown to create an exercise for the system.

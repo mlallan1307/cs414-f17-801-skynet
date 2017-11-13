@@ -1,10 +1,10 @@
 package edu.colostate.cs.cs414.skynet_gym.domain.control;
 
-import edu.colostate.cs.cs414.skynet_gym.domain.people.info.Address;
-import edu.colostate.cs.cs414.skynet_gym.domain.people.info.HealthInsurance;
-import edu.colostate.cs.cs414.skynet_gym.domain.people.info.PersonInformation;
-import edu.colostate.cs.cs414.skynet_gym.domain.people.manager.Manager;
-import edu.colostate.cs.cs414.skynet_gym.utility.file.ObjectFile;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.people.Address;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.people.HealthInsurance;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.people.PersonInformation;
+import edu.colostate.cs.cs414.skynet_gym.domain.people.user.Manager;
+import edu.colostate.cs.cs414.skynet_gym.services.store.ObjectFile;
 
 /**
  * ManagerCtrl class provides static methods and holds the static instance of

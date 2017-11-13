@@ -24,10 +24,10 @@ import com.jgoodies.forms.layout.RowSpec;
 
 import edu.colostate.cs.cs414.skynet_gym.domain.control.CustomerCtrl;
 import edu.colostate.cs.cs414.skynet_gym.domain.control.ExerciseCtrl;
-import edu.colostate.cs.cs414.skynet_gym.domain.data.equipment.Equipment;
-import edu.colostate.cs.cs414.skynet_gym.domain.data.exercise.Exercise;
-import edu.colostate.cs.cs414.skynet_gym.domain.data.exercise.ExerciseType;
-import edu.colostate.cs.cs414.skynet_gym.domain.people.customer.Customer;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.Equipment;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.Exercise;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.ExerciseType;
+import edu.colostate.cs.cs414.skynet_gym.domain.people.other.Customer;
 import edu.colostate.cs.cs414.skynet_gym.ui.swing.MyListModel;
 import edu.colostate.cs.cs414.skynet_gym.ui.swing.manager.ModifyCustomer;
 

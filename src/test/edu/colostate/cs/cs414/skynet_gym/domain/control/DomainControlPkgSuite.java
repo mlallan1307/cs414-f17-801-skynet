@@ -21,7 +21,6 @@ import edu.colostate.cs.cs414.skynet_gym.domain.control.TrainerCtrlTest;
 	TrainerCtrlTest.class,
 	ExerciseCtrlTest.class,
 	RoutineCtrlTest.class
-	
 })
 public class DomainControlPkgSuite {
 	public static void main(String args[]) {
