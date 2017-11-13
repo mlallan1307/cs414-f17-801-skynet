@@ -2,7 +2,6 @@ package edu.colostate.cs.cs414.skynet_gym.ui.swing.trainer;
 
 import javax.swing.JTabbedPane;
 
-import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.Equipment;
 import edu.colostate.cs.cs414.skynet_gym.ui.swing.common.SelectEquipmentAbs;
 
 /**
@@ -11,7 +10,7 @@ import edu.colostate.cs.cs414.skynet_gym.ui.swing.common.SelectEquipmentAbs;
  * @author Mike Allan
  *
  */
-public class SelectEquipmentExercise extends SelectEquipmentAbs {
+public class SelectEquipment extends SelectEquipmentAbs {
 
 	private ExerciseAbs myCaller;
 
@@ -24,7 +23,7 @@ public class SelectEquipmentExercise extends SelectEquipmentAbs {
 	 * Create the panel.
 	 * @param tabbedPane 
 	 */
-	public SelectEquipmentExercise(final JTabbedPane frame, ExerciseAbs caller) {
+	public SelectEquipment(final JTabbedPane frame, ExerciseAbs caller) {
 		super(frame);
 		if (caller == null) {
 			throw new IllegalArgumentException(
@@ -35,26 +34,12 @@ public class SelectEquipmentExercise extends SelectEquipmentAbs {
 
 	@Override
 	public void selectPressed() {
-		int index = matchingEquipment.getSelectedIndex();
+		int index = getSelectionList().getSelectedIndex();
 		
 		if (index >= 0 &&
-				index <= equipmentList.size()) {
-			setSelectedEquipment(equipmentList.get(index));
+				index <= getEquipmentList().size()) {
+			myCaller.setSelectedEquipment(getEquipmentList().get(index));
 		}
 	}
 
-
-	/**
-	 * @param selectedEquipment the selectedEquipment to set
-	 */
-	public void setSelectedEquipment(Equipment selectedEquipment) {
-		myCaller.setSelectedEquipment(selectedEquipment);
-	}
-	
-	/**
-	 * 
-	 */
-	public void clearSelectedEquipment() {
-		myCaller.setSelectedEquipment(null);
-	}
 }

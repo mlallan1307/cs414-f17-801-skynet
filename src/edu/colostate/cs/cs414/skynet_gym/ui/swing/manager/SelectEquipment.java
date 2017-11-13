@@ -12,7 +12,7 @@ import edu.colostate.cs.cs414.skynet_gym.ui.swing.common.SelectEquipmentAbs;
  * @author Mike Allan
  *
  */
-public class SelectEquipmentModify extends SelectEquipmentAbs {
+public class SelectEquipment extends SelectEquipmentAbs {
 
 	/**
 	 * 
@@ -23,18 +23,18 @@ public class SelectEquipmentModify extends SelectEquipmentAbs {
 	 * Create the panel.
 	 * @param tabbedPane 
 	 */
-	public SelectEquipmentModify(final JTabbedPane frame) {
+	public SelectEquipment(final JTabbedPane frame) {
 		super(frame);
 
 	}
 
 	@Override
 	public void selectPressed() {
-		int index = matchingEquipment.getSelectedIndex();
+		int index = getSelectionList().getSelectedIndex();
 		
 		if (index >= 0 &&
-				index <= equipmentList.size()) {
-			Equipment modEq = equipmentList.get(index);
+				index <= getEquipmentList().size()) {
+			Equipment modEq = getEquipmentList().get(index);
 			JPanel modEquipment = new ModifyEquipment(myFrame, modEq);
 			myFrame.addTab("Modify Equipment: " + modEq.getName(),
 					null,

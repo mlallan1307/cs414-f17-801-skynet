@@ -24,7 +24,6 @@ import com.jgoodies.forms.layout.RowSpec;
 
 import edu.colostate.cs.cs414.skynet_gym.domain.control.EquipmentCtrl;
 import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.Equipment;
-import edu.colostate.cs.cs414.skynet_gym.ui.swing.common.MyListModel;
 
 /**
  * This abstract class defines the select equipment functionality.
@@ -39,11 +38,11 @@ public abstract class SelectEquipmentAbs extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 2439525020625651411L;
-	protected JTextField name;
-	protected JSpinner quantity;
-	protected JList matchingEquipment;
-	protected ArrayList<Equipment> equipmentList;
-	protected JButton btnSelect;
+	private JTextField name;
+	private JSpinner quantity;
+	private JList matchingEquipment;
+	private ArrayList<Equipment> equipmentList;
+	private JButton btnSelect;
 	protected final JTabbedPane myFrame;
 
 	/**
@@ -117,7 +116,7 @@ public abstract class SelectEquipmentAbs extends JPanel {
 		submitBtn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				matchingEquipment.setModel(new MyListModel(matchingEquipment()));
+				matchingEquipment.setModel(new MyListModel(getMatchingEquipment()));
 			}
 		});
 		add(submitBtn, "5, 11, right, center");
@@ -127,7 +126,7 @@ public abstract class SelectEquipmentAbs extends JPanel {
 		add(lblTrainers, "3, 13");
 		
 		matchingEquipment = new JList();
-		matchingEquipment.setModel(new MyListModel(matchingEquipment()));
+		matchingEquipment.setModel(new MyListModel(getMatchingEquipment()));
 		matchingEquipment.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		matchingEquipment.setValueIsAdjusting(true);
 		add(matchingEquipment, "3, 15, 3, 7, fill, fill");
@@ -143,28 +142,27 @@ public abstract class SelectEquipmentAbs extends JPanel {
 		
 	}
 	
-	protected ArrayList<String> matchingEquipment(){
+	protected final JList getSelectionList(){
+		return matchingEquipment;
+	}
+	
+	protected final ArrayList<Equipment> getEquipmentList(){
+		return equipmentList;
+	}
+	
+	protected abstract void selectPressed();
+	
+	private ArrayList<String> getMatchingEquipment(){
 		ArrayList<String> rtn = new ArrayList<String>();
 		ArrayList<Equipment> equipment = EquipmentCtrl.searchEquipment(
 				this.name.getText(),
 				Integer.parseInt(quantity.getValue().toString()));
 		this.equipmentList = new ArrayList<Equipment>();
 		for (Equipment eq : equipment){
-			rtn.add(equipmentToString(eq));
+			rtn.add(eq.toStringShort());
 			this.equipmentList.add(eq);
 		}
 		return rtn;
 	}
-	
-	protected String equipmentToString(Equipment eq) {
-		String rtn = "";
-		
-		rtn += eq.getName() + " ";
-		rtn += String.valueOf(eq.getQuantity());
-		
-		return rtn;
-	}
-	
-	protected abstract void selectPressed();
 
 }

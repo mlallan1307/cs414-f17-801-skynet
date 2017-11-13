@@ -90,7 +90,7 @@ public class ModifyRoutine extends RoutineAbs {
 		
 		this.routineOrig = routineOrig; 
 		
-		JLabel lblCreateRoutine = new JLabel("Create Routine");
+		JLabel lblCreateRoutine = new JLabel("Modify Routine");
 		add(lblCreateRoutine, "3, 1, 7, 1, center, bottom");
 		
 		JSeparator separator = new JSeparator();

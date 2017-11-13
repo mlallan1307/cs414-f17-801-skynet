@@ -43,6 +43,10 @@ public class Routine implements Serializable{
 		return rtn;
 	}
 	
+	public String toStringShort() {
+		return (this.name);
+	}
+	
 	@Override
 	public boolean equals(Object o){
 		try {

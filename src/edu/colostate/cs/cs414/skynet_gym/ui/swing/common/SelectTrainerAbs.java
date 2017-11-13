@@ -20,36 +20,37 @@ import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 
-import edu.colostate.cs.cs414.skynet_gym.domain.control.CustomerCtrl;
-import edu.colostate.cs.cs414.skynet_gym.domain.people.other.Customer;
+import edu.colostate.cs.cs414.skynet_gym.domain.control.TrainerCtrl;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.Equipment;
+import edu.colostate.cs.cs414.skynet_gym.domain.people.user.Trainer;
+import edu.colostate.cs.cs414.skynet_gym.ui.swing.common.MyListModel;
 
 /**
- * This abstract class defines the select customer functionality.
- * Derived classes are responsible for implementing the "selectPressed" method.
+ * This panel is shown to select a trainer for the system.
  * 
  * @author Mike Allan
  *
  */
-public abstract class SelectCustomerAbs extends JPanel {
+public abstract class SelectTrainerAbs extends JPanel {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 4265670066705486028L;
+	private static final long serialVersionUID = -4527737459621083591L;
 	private JTextField firstName;
 	private JTextField lastName;
 	private JTextField phone;
 	private JTextField email;
-	private JList matchingCustomers;
-	private ArrayList<Customer> customerList;
-	private JButton btnSelect;
+	private JTextField username;
+	private JList matchingTrainers;
+	private ArrayList<Trainer> trainerList;
 	protected final JTabbedPane myFrame;
 
 	/**
 	 * Create the panel.
 	 * @param tabbedPane 
 	 */
-	public SelectCustomerAbs(final JTabbedPane frame) {
+	public SelectTrainerAbs(final JTabbedPane frame) {
 		setLayout(new FormLayout(new ColumnSpec[] {
 				ColumnSpec.decode("max(11dlu;default):grow"),
 				FormFactory.LABEL_COMPONENT_GAP_COLSPEC,
@@ -77,6 +78,8 @@ public abstract class SelectCustomerAbs extends JPanel {
 				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
 				RowSpec.decode("max(10dlu;default)"),
 				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,
@@ -91,9 +94,7 @@ public abstract class SelectCustomerAbs extends JPanel {
 		
 		this.myFrame = frame;
 		
-		customerList = new ArrayList<Customer>();
-		
-		JLabel lblCreateManagerAccount = new JLabel("Select Customer");
+		JLabel lblCreateManagerAccount = new JLabel("Select Trainer");
 		add(lblCreateManagerAccount, "1, 1, 7, 1, center, bottom");
 		
 		JSeparator separator = new JSeparator();
@@ -132,57 +133,65 @@ public abstract class SelectCustomerAbs extends JPanel {
 		add(email, "5, 13, fill, default");
 		email.setColumns(10);
 		
+		JLabel lblNewLabel_4 = new JLabel("Username");
+		add(lblNewLabel_4, "3, 15, right, default");
+		
+		username = new JTextField();
+		add(username, "5, 15, fill, default");
+		username.setColumns(10);
+		
 		JButton submitBtn = new JButton("Search");
 		submitBtn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				matchingCustomers.setModel(new MyListModel(getMatchingCustomers()));
+				matchingTrainers.setModel(new MyListModel(getMatchingTrainers()));
 			}
 		});
-		add(submitBtn, "5, 15, right, center");
+		add(submitBtn, "5, 17, right, center");
 		
-		JLabel lblTrainers = new JLabel("Customers:");
+		JLabel lblTrainers = new JLabel("Trainers: ");
 		lblTrainers.setFont(new Font("Tahoma", Font.BOLD, 12));
-		add(lblTrainers, "3, 17");
+		add(lblTrainers, "3, 19");
 		
-		matchingCustomers = new JList();
-		matchingCustomers.setModel(new MyListModel(getMatchingCustomers()));
-		matchingCustomers.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		matchingCustomers.setValueIsAdjusting(true);
-		add(matchingCustomers, "3, 19, 3, 7, fill, fill");
+		matchingTrainers = new JList();
+		matchingTrainers.setModel(new MyListModel(getMatchingTrainers()));
+		matchingTrainers.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		matchingTrainers.setValueIsAdjusting(true);
+		add(matchingTrainers, "3, 21, 3, 7, fill, fill");
 		
-		btnSelect = new JButton("Select");
-		btnSelect.addMouseListener(new MouseAdapter() {
+		JButton btnNewButton = new JButton("Modify");
+		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
 				selectPressed();
 			}
 		});
-		add(btnSelect, "5, 27, right, default");
+		add(btnNewButton, "5, 29, right, default");
 		
 	}
 	
 	protected final JList getSelectionList(){
-		return matchingCustomers;
+		return matchingTrainers;
 	}
 	
-	protected final ArrayList<Customer> getCustomerList(){
-		return customerList;
+	protected final ArrayList<Trainer> getTrainerList(){
+		return trainerList;
 	}
 	
 	protected abstract void selectPressed();
 	
-	private ArrayList<String> getMatchingCustomers(){
+	private ArrayList<String> getMatchingTrainers(){
 		ArrayList<String> rtn = new ArrayList<String>();
-		ArrayList<Customer> customers = CustomerCtrl.searchCustomers(
+		ArrayList<Trainer> trainers = TrainerCtrl.searchTrainers(
 				this.firstName.getText(),
 				this.lastName.getText(),
 				this.phone.getText(),
-				this.email.getText());
-		this.customerList = new ArrayList<Customer>();
-		for (Customer c : customers){
-			rtn.add(c.toStringShort());
-			this.customerList.add(c);
+				this.email.getText(),
+				this.username.getText());
+		this.trainerList = new ArrayList<Trainer>();
+		for (Trainer tr : trainers){
+			rtn.add(tr.toStringShort());
+			this.trainerList.add(tr);
 		}
 		return rtn;
 	}

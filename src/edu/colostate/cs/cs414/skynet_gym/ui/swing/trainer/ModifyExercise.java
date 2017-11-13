@@ -184,7 +184,7 @@ public class ModifyExercise extends ExerciseAbs {
 		add(selectedEquipmentName, "5, 23, fill, default");
 		selectedEquipmentName.setColumns(10);
 		
-		selectEquipmentPanel = new SelectEquipmentExercise(null, this);
+		selectEquipmentPanel = new SelectEquipment(null, this);
 		selectEquipmentPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
 		selectEquipmentPanel.setVisible(false);
 		add(selectEquipmentPanel, "3, 25, 7, 1, fill, fill");
@@ -249,7 +249,7 @@ public class ModifyExercise extends ExerciseAbs {
 		loadExerciseInfo();
 	}
 	
-	public void loadExerciseInfo() {
+	private void loadExerciseInfo() {
 		name.setText(exerciseOrig.getName());
 		if (exerciseOrig.getExerciseInfo().getType().equals(ExerciseType.TimeBased)) {
 			dMinutes.setValue(exerciseOrig.getExerciseInfo().getDuration().getSeconds()/60);

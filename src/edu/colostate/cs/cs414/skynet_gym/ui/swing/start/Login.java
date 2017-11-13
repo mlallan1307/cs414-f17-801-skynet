@@ -21,8 +21,8 @@ import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 
-import edu.colostate.cs.cs414.skynet_gym.domain.control.ManagerCtrl;
-import edu.colostate.cs.cs414.skynet_gym.domain.control.TrainerCtrl;
+import edu.colostate.cs.cs414.skynet_gym.domain.people.user.UserType;
+import edu.colostate.cs.cs414.skynet_gym.domain.utilities.AccountManager;
 import edu.colostate.cs.cs414.skynet_gym.ui.swing.manager.ManagerScreen;
 import edu.colostate.cs.cs414.skynet_gym.ui.swing.trainer.TrainerScreen;
 
@@ -110,17 +110,14 @@ public class Login extends JPanel {
 				// Check login
 				//frame.setPanel(new ManagerScreen(frame)); // DEBUG
 				//frame.setPanel(new TrainerScreen(frame)); // DEBUG
-				if (ManagerCtrl.login(
+				UserType user = AccountManager.login(
 						username.getText(),
-						String.valueOf(password.getPassword()))){
+						String.valueOf(password.getPassword()));
+				if (UserType.Manager.equals(user)){
 					frame.setPanel(new ManagerScreen(frame));
-				}
-				else if (TrainerCtrl.login(
-						username.getText(),
-						String.valueOf(password.getPassword()))){
+				} else if (UserType.Trainer.equals(user)) {
 					frame.setPanel(new TrainerScreen(frame));
-				}
-				else {
+				} else {
 					JOptionPane.showMessageDialog(null,
 					    "Invalid login",
 					    "Error",

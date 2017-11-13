@@ -56,6 +56,11 @@ public class Exercise implements Serializable {
 		return rtn;
 	}
 	
+	public String toStringShort() {
+		return (this.name + " " +
+				String.valueOf(this.exerciseInfo.getType()));
+	}
+	
 	@Override
 	public boolean equals(Object o){
 		try {

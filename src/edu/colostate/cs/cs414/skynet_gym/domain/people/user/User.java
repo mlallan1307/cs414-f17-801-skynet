@@ -43,6 +43,12 @@ public class User implements Serializable {
 				"[" + this.personInfo.toString() + "]");
 	}
 	
+	public String toStringShort() {
+		return (personInfo.getFirstName() + " " +
+				personInfo.getLastName()) + " " +
+				this.username;
+	}
+	
 	@Override
 	public boolean equals(Object o){
 		try {

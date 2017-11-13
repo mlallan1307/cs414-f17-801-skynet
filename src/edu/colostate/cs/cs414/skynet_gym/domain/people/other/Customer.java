@@ -38,6 +38,11 @@ public class Customer implements Serializable  {
 				"[" + membership.toString() + "]");
 	}
 	
+	public String toStringShort() {
+		return (personInfo.getFirstName() + " " +
+				personInfo.getLastName());
+	}
+	
 	@Override
 	public boolean equals(Object o){
 		try {

@@ -35,6 +35,11 @@ public class Equipment implements Serializable {
 				this.picture.getName());
 	}
 	
+	public String toStringShort() {
+		return (this.name + " " +
+				String.valueOf(this.quantity));
+	}
+	
 	@Override
 	public boolean equals(Object o){
 		try {
