@@ -19,6 +19,8 @@ import edu.colostate.cs.cs414.skynet_gym.domain.data.people.Qualification;
 import edu.colostate.cs.cs414.skynet_gym.domain.data.people.Schedule;
 import edu.colostate.cs.cs414.skynet_gym.domain.data.people.TimePeriod;
 import edu.colostate.cs.cs414.skynet_gym.domain.people.user.Trainer;
+import edu.colostate.cs.cs414.skynet_gym.domain.people.user.UserType;
+import edu.colostate.cs.cs414.skynet_gym.domain.utilities.AccountManager;
 
 public class TrainerCtrlTest {
 
@@ -1405,79 +1407,6 @@ public class TrainerCtrlTest {
 	}
 
 	@Test
-	public final void testLogin() {
-		assertFalse(TrainerCtrl.trainersExists());
-		TrainerCtrl.createTrainer(
-				username,
-				password,
-				firstName,
-				lastName,
-				driversLicenseNumber,
-				phone,
-				email,
-				hiN,
-				s1,
-				s2,
-				state,
-				city,
-				zip,
-				type,
-				schedule,
-				qualifications);
-		assertTrue(TrainerCtrl.trainersExists());
-		
-		assertTrue(TrainerCtrl.login(username, password));
-		assertFalse(TrainerCtrl.login("nope", password));
-		assertFalse(TrainerCtrl.login(username, "nope"));
-		assertFalse(TrainerCtrl.login("nope", "nope"));
-	}
-
-	@Test
-	public final void testRecoverUsername() {
-		assertFalse(TrainerCtrl.trainersExists());
-		TrainerCtrl.createTrainer(
-				username,
-				password,
-				firstName,
-				lastName,
-				driversLicenseNumber,
-				phone,
-				email,
-				hiN,
-				s1,
-				s2,
-				state,
-				city,
-				zip,
-				type,
-				schedule,
-				qualifications);
-		assertTrue(TrainerCtrl.trainersExists());
-		
-		assertEquals(username,
-				TrainerCtrl.recoverUsername(
-						firstName,
-						lastName,
-						driversLicenseNumber));
-		
-		assertTrue("" ==
-				TrainerCtrl.recoverUsername(
-						"nope",
-						lastName,
-						driversLicenseNumber));
-		assertTrue("" ==
-				TrainerCtrl.recoverUsername(
-						firstName,
-						"nope",
-						driversLicenseNumber));
-		assertTrue("" ==
-				TrainerCtrl.recoverUsername(
-						firstName,
-						lastName,
-						"nope"));
-	}
-
-	@Test
 	public final void testResetPassword() {
 		assertFalse(TrainerCtrl.trainersExists());
 		TrainerCtrl.createTrainer(
@@ -1499,14 +1428,16 @@ public class TrainerCtrlTest {
 				qualifications);
 		assertTrue(TrainerCtrl.trainersExists());
 		
-		assertFalse(TrainerCtrl.login(username, "pw2"));
+		assertTrue(AccountManager.login(username, "pw2")
+				== null);
 		assertTrue(TrainerCtrl.resetPassword(
 				firstName,
 				lastName,
 				driversLicenseNumber,
 				username,
 				"pw2"));
-		assertTrue(TrainerCtrl.login(username, "pw2"));
+		assertTrue(AccountManager.login(username, "pw2")
+				== UserType.Trainer);
 		
 	}
 

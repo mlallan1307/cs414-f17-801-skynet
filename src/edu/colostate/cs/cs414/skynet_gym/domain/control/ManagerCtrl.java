@@ -15,8 +15,7 @@ import edu.colostate.cs.cs414.skynet_gym.services.store.ObjectFile;
  */
 public final class ManagerCtrl{
 
-	private ManagerCtrl() {
-	}
+	private ManagerCtrl() {} // Construction disabled
 	
 	private static String serializedName = "manager";
 	private static Manager manager;
@@ -141,40 +140,19 @@ public final class ManagerCtrl{
 		return manager;
 	}
 	
-	/**
-	 * Use this to check if the login information is valid for the manager.
-	 * 
-	 * @param user is the attempted login username
-	 * @param pass is the attempted login password
-	 * 
-	 * @return true if login information is valid
-	 */
-	public static Boolean login(String user, String pass){
-		return manager.login(user, pass);
-	}
-	
-	public static String recoverUsername(
-			String firstName,
-			String lastName,
-			String driversLicenseNum) {
-		return manager.recoverUsername(
-				firstName,
-				lastName,
-				driversLicenseNum);
-	}
-	
 	public static boolean resetPassword(
 			String firstName,
 			String lastName,
 			String driversLicenseNum,
 			String user,
 			String pass) {
-		if (manager.resetPassword(
-				firstName,
-				lastName,
-				driversLicenseNum,
-				user,
-				pass)) {
+		if (managerExists() &&
+				manager.resetPassword(
+					firstName,
+					lastName,
+					driversLicenseNum,
+					user,
+					pass)) {
 			// Password changed
 			
 			// Save the state
@@ -185,11 +163,11 @@ public final class ManagerCtrl{
 		return false;
 	}
 	
-	protected static void setSerializedName(String name) {
+	public static void setSerializedName(String name) {
 		serializedName = name;
 	}
 	
-	protected static void clearData(){
+	public static void clearData(){
 		manager = null;
 		ObjectFile.removeFile(serializedName);
 	}

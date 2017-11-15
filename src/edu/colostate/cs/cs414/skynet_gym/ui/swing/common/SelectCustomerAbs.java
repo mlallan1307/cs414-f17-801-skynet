@@ -83,7 +83,7 @@ public abstract class SelectCustomerAbs extends JPanel {
 				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
+				RowSpec.decode("default:grow"),
 				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
@@ -93,8 +93,8 @@ public abstract class SelectCustomerAbs extends JPanel {
 		
 		customerList = new ArrayList<Customer>();
 		
-		JLabel lblCreateManagerAccount = new JLabel("Select Customer");
-		add(lblCreateManagerAccount, "1, 1, 7, 1, center, bottom");
+		JLabel lblPane = new JLabel("Select Customer");
+		add(lblPane, "1, 1, 7, 1, center, bottom");
 		
 		JSeparator separator = new JSeparator();
 		separator.setBackground(Color.BLACK);

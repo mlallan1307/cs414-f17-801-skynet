@@ -26,7 +26,8 @@ import edu.colostate.cs.cs414.skynet_gym.domain.people.user.Trainer;
 import edu.colostate.cs.cs414.skynet_gym.ui.swing.common.MyListModel;
 
 /**
- * This panel is shown to select a trainer for the system.
+ * This abstract class defines the select trainer functionality.
+ * Derived classes are responsible for implementing the "selectPressed" method.
  * 
  * @author Mike Allan
  *
@@ -86,7 +87,7 @@ public abstract class SelectTrainerAbs extends JPanel {
 				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
+				RowSpec.decode("default:grow"),
 				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
@@ -94,8 +95,8 @@ public abstract class SelectTrainerAbs extends JPanel {
 		
 		this.myFrame = frame;
 		
-		JLabel lblCreateManagerAccount = new JLabel("Select Trainer");
-		add(lblCreateManagerAccount, "1, 1, 7, 1, center, bottom");
+		JLabel lblPane = new JLabel("Select Trainer");
+		add(lblPane, "1, 1, 7, 1, center, bottom");
 		
 		JSeparator separator = new JSeparator();
 		separator.setBackground(Color.BLACK);

@@ -1,13 +1,18 @@
 package edu.colostate.cs.cs414.skynet_gym.ui.swing.trainer;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.SwingConstants;
 
 import edu.colostate.cs.cs414.skynet_gym.ui.swing.start.Launcher;
+import edu.colostate.cs.cs414.skynet_gym.ui.swing.start.Login;
 
 /**
  * This is the screen shown to a logged in trainer
@@ -43,18 +48,33 @@ public class TrainerScreen extends JPanel {
 		
 		JLabel lblYouAreLogged = new JLabel("You are logged in as a trainer!");
 		lblYouAreLogged.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		JButton btnLogout = new JButton("Logout");
+		btnLogout.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				frame.setPanel(new Login(frame));
+			}
+		});
+		
 		GroupLayout groupLayout_1 = new GroupLayout(Welcome);
 		groupLayout_1.setHorizontalGroup(
-			groupLayout_1.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, groupLayout_1.createSequentialGroup()
+			groupLayout_1.createParallelGroup(Alignment.TRAILING)
+				.addGroup(groupLayout_1.createSequentialGroup()
 					.addGap(429)
-					.addComponent(lblYouAreLogged, GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE)
+					.addComponent(lblYouAreLogged, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 					.addGap(422))
+				.addGroup(Alignment.LEADING, groupLayout_1.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(btnLogout)
+					.addContainerGap(897, Short.MAX_VALUE))
 		);
 		groupLayout_1.setVerticalGroup(
 			groupLayout_1.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout_1.createSequentialGroup()
-					.addGap(290)
+					.addContainerGap()
+					.addComponent(btnLogout)
+					.addGap(256)
 					.addComponent(lblYouAreLogged, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 					.addGap(315))
 		);

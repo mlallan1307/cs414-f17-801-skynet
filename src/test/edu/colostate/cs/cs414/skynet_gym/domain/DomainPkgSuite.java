@@ -9,12 +9,14 @@ import org.junit.runners.Suite.SuiteClasses;
 import test.edu.colostate.cs.cs414.skynet_gym.domain.control.DomainControlPkgSuite;
 import test.edu.colostate.cs.cs414.skynet_gym.domain.data.DomainDataPkgSuite;
 import test.edu.colostate.cs.cs414.skynet_gym.domain.people.DomainPeoplePkgSuite;
+import test.edu.colostate.cs.cs414.skynet_gym.domain.utilities.DomainUtilitiesPkgSuite;
 
 @RunWith(Suite.class)
 @SuiteClasses({
 	DomainControlPkgSuite.class,
 	DomainDataPkgSuite.class,
-	DomainPeoplePkgSuite.class
+	DomainPeoplePkgSuite.class,
+	DomainUtilitiesPkgSuite.class
 	
 })
 public class DomainPkgSuite {

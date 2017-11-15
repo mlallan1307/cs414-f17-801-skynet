@@ -24,7 +24,8 @@ import edu.colostate.cs.cs414.skynet_gym.domain.control.RoutineCtrl;
 import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.Routine;
 
 /**
- * This panel is shown to select a routine for the system.
+ * This abstract class defines the select routine functionality.
+ * Derived classes are responsible for implementing the "selectPressed" method.
  * 
  * @author Mike Allan
  *
@@ -75,8 +76,8 @@ public abstract class SelectRoutineAbs extends JPanel {
 		
 		routineList = new ArrayList<Routine>();
 		
-		JLabel lblCreateManagerAccount = new JLabel("Select Routine");
-		add(lblCreateManagerAccount, "1, 1, 7, 1, center, bottom");
+		JLabel lblPane = new JLabel("Select Routine");
+		add(lblPane, "1, 1, 7, 1, center, bottom");
 		
 		JSeparator separator = new JSeparator();
 		separator.setBackground(Color.BLACK);

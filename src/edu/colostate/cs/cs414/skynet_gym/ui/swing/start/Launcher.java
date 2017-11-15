@@ -7,12 +7,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import edu.colostate.cs.cs414.skynet_gym.domain.control.CustomerCtrl;
-import edu.colostate.cs.cs414.skynet_gym.domain.control.EquipmentCtrl;
-import edu.colostate.cs.cs414.skynet_gym.domain.control.ExerciseCtrl;
-import edu.colostate.cs.cs414.skynet_gym.domain.control.ManagerCtrl;
-import edu.colostate.cs.cs414.skynet_gym.domain.control.RoutineCtrl;
-import edu.colostate.cs.cs414.skynet_gym.domain.control.TrainerCtrl;
+import edu.colostate.cs.cs414.skynet_gym.domain.utilities.InitializeSystem;
 
 /**
  * This is the main UI launcher that contains the panels
@@ -44,9 +39,22 @@ public class Launcher {
 	 * Create the application.
 	 */
 	public Launcher() {
-		initialize();
+		frame = new JFrame();
+		frame.setBounds(100, 100, 600, 600);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		if (InitializeSystem.initialize()) {
+			setPanel(new Login(this));
+		} else {
+			setPanel(new CreateManager(this));
+		}
 	}
 	
+	/**
+	 * Sets the bounds on this frame
+	 * 
+	 * @param dimension containing the desired width and height
+	 */
 	public void setBounds(Dimension dimension) {
 		int offset = 100;
 		frame.setBounds(
@@ -56,36 +64,18 @@ public class Launcher {
 				dimension.height+offset);
 	}
 	
-	protected void setPanel(JPanel panel) {
+	/**
+	 * Replaces frame contents with the given panel
+	 * 
+	 * @param panel - The new panel
+	 */
+	public void setPanel(JPanel panel) {
 		frame.getContentPane().removeAll();
 		frame.getContentPane().repaint();
 		frame.getContentPane().revalidate();
 		frame.getContentPane().add(panel, BorderLayout.CENTER);
 		frame.getContentPane().repaint();
 		frame.getContentPane().revalidate();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 600, 600);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		ManagerCtrl.initialize();
-		TrainerCtrl.initialize();
-		CustomerCtrl.initialize();
-		EquipmentCtrl.initialize();
-		ExerciseCtrl.initialize();
-		RoutineCtrl.initialize();
-		
-		if (!ManagerCtrl.managerExists()) {
-			setPanel(new CreateManager(this));
-		} else {
-			setPanel(new Login(this));
-		}
-		
 	}
 	
 }

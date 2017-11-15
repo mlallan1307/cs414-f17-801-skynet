@@ -20,8 +20,7 @@ import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 
-import edu.colostate.cs.cs414.skynet_gym.domain.control.ManagerCtrl;
-import edu.colostate.cs.cs414.skynet_gym.domain.control.TrainerCtrl;
+import edu.colostate.cs.cs414.skynet_gym.domain.utilities.AccountManager;
 
 /**
  * This is the password reset pane
@@ -120,8 +119,6 @@ public class ResetPassword extends JPanel {
 		driversLicenseNum.setColumns(10);
 		add(driversLicenseNum, "6, 12, fill, default");
 		
-		
-		
 		JLabel lblUsername_1 = new JLabel("Username");
 		add(lblUsername_1, "4, 14, right, default");
 		
@@ -143,29 +140,19 @@ public class ResetPassword extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				// Check login
-				Boolean resetWorked = ManagerCtrl.resetPassword(
+				Boolean resetWorked = AccountManager.resetPassword(
 						firstName.getText(),
 						lastName.getText(),
 						driversLicenseNum.getText(),
 						username.getText(),
 						String.valueOf(password.getPassword()));
-				
-				if (!resetWorked) {
-					resetWorked = TrainerCtrl.resetPassword(
-							firstName.getText(),
-							lastName.getText(),
-							driversLicenseNum.getText(),
-							username.getText(),
-							String.valueOf(password.getPassword()));
-				}
 				if (resetWorked) {
 					JOptionPane.showMessageDialog(null,
 						    "Password Reset",
 						    "Reset password",
 						    JOptionPane.INFORMATION_MESSAGE);
 					frame.setPanel(new Login(frame));
-				}
-				else {
+				} else {
 					JOptionPane.showMessageDialog(null,
 					    "Invalid information",
 					    "Reset password",

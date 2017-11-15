@@ -77,8 +77,8 @@ public class User implements Serializable {
 				driversLicenseNum == null) {
 			return "";
 		}
-		if (firstName.equals(this.personInfo.getFirstName()) &&
-				lastName.equals(this.personInfo.getLastName()) &&
+		if (firstName.equalsIgnoreCase(this.personInfo.getFirstName()) &&
+				lastName.equalsIgnoreCase(this.personInfo.getLastName()) &&
 				driversLicenseNum.equals(this.personInfo.getDriversLicenseNumber())) {
 			return username;
 		}
@@ -99,8 +99,8 @@ public class User implements Serializable {
 				pass == null) {
 			return false;
 		}
-		if (firstName.equals(this.personInfo.getFirstName()) &&
-				lastName.equals(this.personInfo.getLastName()) &&
+		if (firstName.equalsIgnoreCase(this.personInfo.getFirstName()) &&
+				lastName.equalsIgnoreCase(this.personInfo.getLastName()) &&
 				driversLicenseNum.equals(this.personInfo.getDriversLicenseNumber()) &&
 				user.equals(this.username)) {
 			this.setPassword(pass);

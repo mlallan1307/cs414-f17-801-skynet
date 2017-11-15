@@ -24,7 +24,8 @@ import edu.colostate.cs.cs414.skynet_gym.domain.control.ExerciseCtrl;
 import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.Exercise;
 
 /**
- * This panel is shown to select an exercise for the system.
+ * This abstract class defines the select exercise functionality.
+ * Derived classes are responsible for implementing the "selectPressed" method.
  * 
  * @author Mike Allan
  *
@@ -76,8 +77,8 @@ public abstract class SelectExerciseAbs extends JPanel {
 		
 		exerciseList = new ArrayList<Exercise>();
 		
-		JLabel lblCreateManagerAccount = new JLabel("Select Exercise");
-		add(lblCreateManagerAccount, "1, 1, 7, 1, center, bottom");
+		JLabel lblPane = new JLabel("Select Exercise");
+		add(lblPane, "1, 1, 7, 1, center, bottom");
 		
 		JSeparator separator = new JSeparator();
 		separator.setBackground(Color.BLACK);

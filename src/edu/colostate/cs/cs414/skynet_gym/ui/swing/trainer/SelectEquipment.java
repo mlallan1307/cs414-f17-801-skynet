@@ -2,6 +2,7 @@ package edu.colostate.cs.cs414.skynet_gym.ui.swing.trainer;
 
 import javax.swing.JTabbedPane;
 
+import edu.colostate.cs.cs414.skynet_gym.ui.swing.common.ExerciseAbs;
 import edu.colostate.cs.cs414.skynet_gym.ui.swing.common.SelectEquipmentAbs;
 
 /**

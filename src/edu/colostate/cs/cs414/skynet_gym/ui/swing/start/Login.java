@@ -128,9 +128,6 @@ public class Login extends JPanel {
 		});
 		add(btnNewButton, "1, 13, 9, 1, center, center");
 		
-		
-		frame.setBounds(getLayout().preferredLayoutSize(this));
-		
 		JButton btnRecoverUsername = new JButton("Recover Username");
 		btnRecoverUsername.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnRecoverUsername.addMouseListener(new MouseAdapter() {
@@ -153,6 +150,8 @@ public class Login extends JPanel {
 		});
 		btnResetPw.setForeground(UIManager.getColor("Button.foreground"));
 		add(btnResetPw, "1, 19, 9, 1, center, center");
+		
+		frame.setBounds(getLayout().preferredLayoutSize(this));
 	}
 
 }

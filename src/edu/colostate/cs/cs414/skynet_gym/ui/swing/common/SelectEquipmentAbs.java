@@ -79,7 +79,7 @@ public abstract class SelectEquipmentAbs extends JPanel {
 				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
+				RowSpec.decode("default:grow"),
 				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
@@ -87,8 +87,8 @@ public abstract class SelectEquipmentAbs extends JPanel {
 		myFrame = frame;
 		equipmentList = new ArrayList<Equipment>();
 		
-		JLabel lblCreateManagerAccount = new JLabel("Select Equipment");
-		add(lblCreateManagerAccount, "1, 1, 7, 1, center, bottom");
+		JLabel lblPane = new JLabel("Select Equipment");
+		add(lblPane, "1, 1, 7, 1, center, bottom");
 		
 		JSeparator separator = new JSeparator();
 		separator.setBackground(Color.BLACK);
