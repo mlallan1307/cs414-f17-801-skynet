@@ -36,11 +36,7 @@ UC04- Create Customer
 
 7a. Driver's license number is already associated with a customer.
 
-1.	System notifies manager that this customer already exists and asks if the manager would like to go to **UC05**.
-
- 1a. If yes, switch to **UC05**.
-
- 1b. If no, dismiss notification.
+1.	System notifies manager that this customer already exists.
  
 **Special Requirements:**
 

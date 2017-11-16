@@ -1,0 +1,4 @@
+var enumedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1data_1_1objects_1_1_exercise_type =
+[
+    [ "SetBased", "enumedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1data_1_1objects_1_1_exercise_type.html#a7c27ff7a14d41ed09e9d6d52298d9306", null ]
+];

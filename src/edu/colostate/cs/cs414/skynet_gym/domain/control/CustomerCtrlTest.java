@@ -11,11 +11,11 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import edu.colostate.cs.cs414.skynet_gym.domain.data.routine.Routine;
-import edu.colostate.cs.cs414.skynet_gym.domain.people.customer.Customer;
-import edu.colostate.cs.cs414.skynet_gym.domain.people.info.Address;
-import edu.colostate.cs.cs414.skynet_gym.domain.people.info.HealthInsurance;
-import edu.colostate.cs.cs414.skynet_gym.domain.people.info.PersonInformation;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.Routine;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.people.Address;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.people.HealthInsurance;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.people.PersonInformation;
+import edu.colostate.cs.cs414.skynet_gym.domain.people.other.Customer;
 
 public class CustomerCtrlTest {
 

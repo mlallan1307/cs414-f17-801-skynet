@@ -2,13 +2,13 @@ package edu.colostate.cs.cs414.skynet_gym.domain.control;
 
 import java.util.ArrayList;
 
-import edu.colostate.cs.cs414.skynet_gym.domain.people.info.Address;
-import edu.colostate.cs.cs414.skynet_gym.domain.people.info.HealthInsurance;
-import edu.colostate.cs.cs414.skynet_gym.domain.people.info.PersonInformation;
-import edu.colostate.cs.cs414.skynet_gym.domain.people.info.Qualification;
-import edu.colostate.cs.cs414.skynet_gym.domain.people.trainer.Trainer;
-import edu.colostate.cs.cs414.skynet_gym.utility.data.Schedule;
-import edu.colostate.cs.cs414.skynet_gym.utility.file.ObjectFile;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.people.Address;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.people.HealthInsurance;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.people.PersonInformation;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.people.Qualification;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.people.Schedule;
+import edu.colostate.cs.cs414.skynet_gym.domain.people.user.Trainer;
+import edu.colostate.cs.cs414.skynet_gym.services.store.ObjectFile;
 
 /**
  * TrainerCtrl class provides static methods and holds the static instances
@@ -19,8 +19,7 @@ import edu.colostate.cs.cs414.skynet_gym.utility.file.ObjectFile;
  */
 public class TrainerCtrl {
 
-	private TrainerCtrl() {
-	}
+	private TrainerCtrl() {} // Construction disabled
 	
 	private static String serializedName = "trainers";
 	private static ArrayList<Trainer> trainers = new ArrayList<Trainer>();
@@ -340,39 +339,6 @@ public class TrainerCtrl {
 		return false;
 	}
 	
-	/**
-	 * Use this to check if the login information is valid for a trainer.
-	 * 
-	 * @param user is the attempted login username
-	 * @param pass is the attempted login password
-	 * 
-	 * @return true if login information is valid for a trainer
-	 */
-	public static Boolean login(String user, String pass){
-		for (Trainer t : trainers) {
-			if (t.login(user, pass)) {
-				return true;
-			}
-		}
-		return false;
-	}
-	
-	public static String recoverUsername(
-			String firstName,
-			String lastName,
-			String driversLicenseNum) {
-		for (Trainer t : trainers) {
-			String rtn = t.recoverUsername(
-					firstName,
-					lastName,
-					driversLicenseNum);
-			if (rtn != "") {
-				return rtn;
-			}
-		}
-		return "";
-	}
-	
 	public static Boolean resetPassword(
 			String firstName,
 			String lastName,
@@ -444,11 +410,11 @@ public class TrainerCtrl {
 		return trainers;
 	}
 	
-	protected static void setSerializedName(String name) {
+	public static void setSerializedName(String name) {
 		serializedName = name;
 	}
 	
-	protected static void clearData(){
+	public static void clearData(){
 		trainers.clear();
 		ObjectFile.removeFile(serializedName);
 	}

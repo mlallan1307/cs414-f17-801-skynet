@@ -11,7 +11,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import edu.colostate.cs.cs414.skynet_gym.domain.data.equipment.Equipment;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.Equipment;
 
 public class EquipmentCtrlTest {
 

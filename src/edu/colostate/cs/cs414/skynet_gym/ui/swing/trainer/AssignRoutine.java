@@ -23,9 +23,9 @@ import com.jgoodies.forms.layout.RowSpec;
 
 import edu.colostate.cs.cs414.skynet_gym.domain.control.CustomerCtrl;
 import edu.colostate.cs.cs414.skynet_gym.domain.control.RoutineCtrl;
-import edu.colostate.cs.cs414.skynet_gym.domain.data.routine.Routine;
-import edu.colostate.cs.cs414.skynet_gym.domain.people.customer.Customer;
-import edu.colostate.cs.cs414.skynet_gym.ui.swing.MyListModel;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.Routine;
+import edu.colostate.cs.cs414.skynet_gym.domain.people.other.Customer;
+import edu.colostate.cs.cs414.skynet_gym.ui.swing.common.MyListModel;
 
 /**
  * This panel is shown to create a routine for the system.

@@ -37,11 +37,7 @@ UC02- Create Trainer
 
 7a. Driver's license number is already associated with a trainer.
 
-1. System notifies manager that this trainer already exists and asks if the manager would like to go to **UC03**.
-
- 1a. If yes, switch to **UC03**.
-
- 1b. If no, dismiss notification.
+1. System notifies manager that this trainer already exists.
 
 8a. Desired username is in use.
 

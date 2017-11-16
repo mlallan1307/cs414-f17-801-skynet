@@ -10,9 +10,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import edu.colostate.cs.cs414.skynet_gym.domain.people.info.Address;
-import edu.colostate.cs.cs414.skynet_gym.domain.people.info.HealthInsurance;
-import edu.colostate.cs.cs414.skynet_gym.domain.people.info.PersonInformation;
+import edu.colostate.cs.cs414.skynet_gym.domain.people.user.UserType;
+import edu.colostate.cs.cs414.skynet_gym.domain.utilities.AccountManager;
 
 /**
  * @author Skynet
@@ -26,8 +25,6 @@ public class ManagerCtrlTest {
 	private final String city  = "city";
 	private final String zip   = "zip";
 	private final String type  = "type";
-	private Address address;
-	private HealthInsurance hi;
 	private final String hiN  = "hi Name";
 	
 	private final String firstName = "fName";
@@ -35,7 +32,6 @@ public class ManagerCtrlTest {
 	private final String driversLicenseNumber = "dlNum";
 	private final String phone     = "ph";
 	private final String email     = "em";
-	private PersonInformation pi;
 	
 	private final String username = "username";
 	private final String password = "password";
@@ -47,23 +43,6 @@ public class ManagerCtrlTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		address = new Address(
-				s1,
-				s2,
-				state,
-				city,
-				zip,
-				type);
-		hi = new HealthInsurance(hiN);
-		pi = new PersonInformation(
-				firstName,
-				lastName,
-				driversLicenseNumber,
-				phone,
-				email,
-				hi,
-				address);
-		
 		// Set test data to be in a different file than normal
 		ManagerCtrl.setSerializedName(testFileName);
 		ManagerCtrl.clearData();
@@ -460,35 +439,6 @@ public class ManagerCtrlTest {
 		
 	}
 
-	/**
-	 * Test method for {@link edu.colostate.cs.cs414.skynet_gym.domain.control.ManagerCtrl#login(java.lang.String, java.lang.String)}.
-	 */
-	@Test
-	public final void testLogin() {
-		assertFalse(ManagerCtrl.managerExists());
-		ManagerCtrl.createManager(
-				username,
-				password,
-				firstName,
-				lastName,
-				driversLicenseNumber,
-				phone,
-				email,
-				hiN,
-				s1,
-				s2,
-				state,
-				city,
-				zip,
-				type);
-		assertTrue(ManagerCtrl.login(username, password));
-		
-		assertFalse(ManagerCtrl.login("not username", password));
-		assertFalse(ManagerCtrl.login(username, "not password"));
-		assertFalse(ManagerCtrl.login("not username", "not password"));
-	}
-	
-
 	@Test
 	public final void testGetManager() {
 		assertFalse(ManagerCtrl.managerExists());
@@ -513,47 +463,6 @@ public class ManagerCtrlTest {
 	}
 
 	@Test
-	public final void testRecoverUsername() {
-		assertFalse(ManagerCtrl.managerExists());
-		ManagerCtrl.createManager(
-				username,
-				password,
-				firstName,
-				lastName,
-				driversLicenseNumber,
-				phone,
-				email,
-				hiN,
-				s1,
-				s2,
-				state,
-				city,
-				zip,
-				type);
-		assertTrue(ManagerCtrl.managerExists());
-		assertTrue(ManagerCtrl.recoverUsername(
-				firstName,
-				lastName,
-				driversLicenseNumber).equals(username));
-		assertFalse(ManagerCtrl.recoverUsername(
-				null,
-				lastName,
-				driversLicenseNumber).equals(username));
-		assertFalse(ManagerCtrl.recoverUsername(
-				firstName,
-				null,
-				driversLicenseNumber).equals(username));
-		assertFalse(ManagerCtrl.recoverUsername(
-				firstName,
-				lastName,
-				null).equals(username));
-		assertFalse(ManagerCtrl.recoverUsername(
-				null,
-				null,
-				null).equals(username));
-	}
-
-	@Test
 	public final void testResetPassword() {
 		assertFalse(ManagerCtrl.managerExists());
 		ManagerCtrl.createManager(
@@ -573,15 +482,18 @@ public class ManagerCtrlTest {
 				type);
 		assertTrue(ManagerCtrl.managerExists());
 		
-		assertFalse(ManagerCtrl.getManager().isPassword("newPassword"));
+		assertTrue(AccountManager.login(username, "newPassword")
+				== null);
 		assertTrue(ManagerCtrl.resetPassword(
 				firstName,
 				lastName,
 				driversLicenseNumber,
 				username,
 				"newPassword"));
-		assertTrue(ManagerCtrl.getManager().isPassword("newPassword"));
-		assertFalse(ManagerCtrl.getManager().isPassword(password));
+		assertTrue(AccountManager.login(username, "newPassword")
+				== UserType.Manager);
+		assertTrue(AccountManager.login(username, password)
+				== null);
 	}
 
 }
