@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.2">
-  <zoom_level>8</zoom_level>
+  <zoom_level>7</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>504</x>
-      <y>48</y>
-      <w>80</w>
-      <h>24</h>
+      <x>364</x>
+      <y>0</y>
+      <w>84</w>
+      <h>21</h>
     </coordinates>
-    <panel_attributes>:Launcher</panel_attributes>
+    <panel_attributes>:InitializeSystem 1</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>536</x>
-      <y>64</y>
-      <w>24</w>
-      <h>128</h>
+      <x>399</x>
+      <y>14</y>
+      <w>21</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
@@ -26,22 +26,22 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>248</x>
-      <y>192</y>
-      <w>304</w>
-      <h>32</h>
+      <x>203</x>
+      <y>126</y>
+      <w>210</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 Initialize()</panel_attributes>
-    <additional_attributes>360.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>280.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>728</x>
-      <y>64</y>
-      <w>24</w>
-      <h>160</h>
+      <x>567</x>
+      <y>14</y>
+      <w>21</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
@@ -49,10 +49,10 @@ Initialize()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>696</x>
-      <y>48</y>
-      <w>80</w>
-      <h>24</h>
+      <x>539</x>
+      <y>0</y>
+      <w>70</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>:ManagerCtrl 1</panel_attributes>
     <additional_attributes/>
@@ -60,10 +60,10 @@ Initialize()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>544</x>
-      <y>200</y>
-      <w>200</w>
-      <h>32</h>
+      <x>406</x>
+      <y>133</y>
+      <w>175</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 initialize()</panel_attributes>
@@ -72,10 +72,10 @@ initialize()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>816</x>
-      <y>48</y>
-      <w>72</w>
-      <h>24</h>
+      <x>644</x>
+      <y>0</y>
+      <w>63</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>:TrainerCtrl 1</panel_attributes>
     <additional_attributes/>
@@ -83,10 +83,10 @@ initialize()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>848</x>
-      <y>64</y>
-      <w>24</w>
-      <h>288</h>
+      <x>672</x>
+      <y>14</y>
+      <w>21</w>
+      <h>252</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;340.0</additional_attributes>
@@ -94,22 +94,22 @@ initialize()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>744</x>
-      <y>280</y>
-      <w>512</w>
-      <h>32</h>
+      <x>581</x>
+      <y>203</y>
+      <w>679</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 Manager instance</panel_attributes>
-    <additional_attributes>10.0;20.0;620.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;950.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>536</x>
-      <y>176</y>
-      <w>16</w>
-      <h>624</h>
+      <x>399</x>
+      <y>112</y>
+      <w>14</w>
+      <h>784</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -117,21 +117,21 @@ Manager instance</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>536</x>
-      <y>800</y>
-      <w>24</w>
-      <h>88</h>
+      <x>399</x>
+      <y>889</y>
+      <w>21</w>
+      <h>98</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>728</x>
-      <y>208</y>
-      <w>16</w>
-      <h>112</h>
+      <x>567</x>
+      <y>140</y>
+      <w>14</w>
+      <h>98</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -139,54 +139,54 @@ Manager instance</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>728</x>
-      <y>312</y>
-      <w>24</w>
-      <h>296</h>
+      <x>567</x>
+      <y>231</y>
+      <w>21</w>
+      <h>518</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;350.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;720.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>848</x>
+      <x>672</x>
+      <y>252</y>
+      <w>14</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>672</x>
       <y>336</y>
-      <w>16</w>
-      <h>104</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>848</x>
-      <y>432</y>
-      <w>24</w>
-      <h>456</h>
+      <w>21</w>
+      <h>651</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;550.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;910.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>976</x>
-      <y>552</y>
-      <w>24</w>
-      <h>336</h>
+      <x>770</x>
+      <y>441</y>
+      <w>21</w>
+      <h>546</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;400.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;760.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>976</x>
-      <y>64</y>
-      <w>24</w>
-      <h>408</h>
+      <x>770</x>
+      <y>14</y>
+      <w>21</w>
+      <h>357</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;490.0</additional_attributes>
@@ -194,10 +194,10 @@ Manager instance</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>944</x>
-      <y>48</y>
-      <w>88</w>
-      <h>24</h>
+      <x>742</x>
+      <y>0</y>
+      <w>77</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>:CustomerCtrl 1</panel_attributes>
     <additional_attributes/>
@@ -205,10 +205,10 @@ Manager instance</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1216</x>
-      <y>48</y>
-      <w>72</w>
-      <h>24</h>
+      <x>1225</x>
+      <y>0</y>
+      <w>63</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>:ObjectFile 1</panel_attributes>
     <additional_attributes/>
@@ -216,10 +216,10 @@ Manager instance</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1240</x>
-      <y>64</y>
-      <w>24</w>
-      <h>216</h>
+      <x>1246</x>
+      <y>14</y>
+      <w>21</w>
+      <h>189</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;250.0</additional_attributes>
@@ -227,10 +227,10 @@ Manager instance</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1240</x>
-      <y>264</y>
-      <w>16</w>
-      <h>88</h>
+      <x>1246</x>
+      <y>189</y>
+      <w>14</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -238,21 +238,21 @@ Manager instance</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1240</x>
-      <y>344</y>
-      <w>24</w>
-      <h>56</h>
+      <x>1246</x>
+      <y>224</y>
+      <w>21</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>544</x>
-      <y>328</y>
-      <w>320</w>
-      <h>32</h>
+      <x>406</x>
+      <y>245</y>
+      <w>280</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 initialize()</panel_attributes>
@@ -261,22 +261,22 @@ initialize()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>744</x>
-      <y>256</y>
-      <w>512</w>
-      <h>32</h>
+      <x>581</x>
+      <y>182</y>
+      <w>679</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 loadObjectFile(serializeName)</panel_attributes>
-    <additional_attributes>620.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>950.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>736</x>
-      <y>240</y>
-      <w>16</w>
-      <h>64</h>
+      <x>574</x>
+      <y>168</y>
+      <w>14</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -284,10 +284,10 @@ loadObjectFile(serializeName)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>736</x>
-      <y>216</y>
-      <w>120</w>
-      <h>56</h>
+      <x>574</x>
+      <y>147</y>
+      <w>105</w>
+      <h>49</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 loadState()</panel_attributes>
@@ -296,34 +296,34 @@ loadState()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>864</x>
-      <y>376</y>
-      <w>392</w>
-      <h>32</h>
+      <x>686</x>
+      <y>287</y>
+      <w>574</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 loadObjectFile(serializeName)</panel_attributes>
-    <additional_attributes>470.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>800.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>864</x>
-      <y>400</y>
-      <w>392</w>
-      <h>32</h>
+      <x>686</x>
+      <y>308</y>
+      <w>574</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 ArrayList&lt;Trainer&gt;</panel_attributes>
-    <additional_attributes>10.0;20.0;470.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;800.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>856</x>
-      <y>360</y>
-      <w>16</w>
-      <h>64</h>
+      <x>679</x>
+      <y>273</y>
+      <w>14</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -331,10 +331,10 @@ ArrayList&lt;Trainer&gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>856</x>
-      <y>336</y>
-      <w>120</w>
-      <h>56</h>
+      <x>679</x>
+      <y>252</y>
+      <w>105</w>
+      <h>49</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 loadState()</panel_attributes>
@@ -343,10 +343,10 @@ loadState()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1240</x>
-      <y>384</y>
-      <w>16</w>
-      <h>88</h>
+      <x>1246</x>
+      <y>294</y>
+      <w>14</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -354,21 +354,21 @@ loadState()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1240</x>
-      <y>464</y>
-      <w>24</w>
-      <h>56</h>
+      <x>1246</x>
+      <y>329</y>
+      <w>21</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>976</x>
-      <y>456</y>
-      <w>16</w>
-      <h>104</h>
+      <x>770</x>
+      <y>357</y>
+      <w>14</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -376,46 +376,46 @@ loadState()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>544</x>
-      <y>448</y>
-      <w>448</w>
-      <h>32</h>
+      <x>406</x>
+      <y>350</y>
+      <w>378</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 initialize()</panel_attributes>
-    <additional_attributes>540.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>520.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>992</x>
-      <y>520</y>
-      <w>264</w>
-      <h>32</h>
+      <x>784</x>
+      <y>413</y>
+      <w>476</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 ArrayList&lt;Customer&gt;</panel_attributes>
-    <additional_attributes>10.0;20.0;310.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;660.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>992</x>
-      <y>496</y>
-      <w>264</w>
-      <h>32</h>
+      <x>784</x>
+      <y>392</y>
+      <w>476</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 loadObjectFile(serializeName)</panel_attributes>
-    <additional_attributes>310.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>660.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>984</x>
-      <y>456</y>
-      <w>120</w>
-      <h>56</h>
+      <x>777</x>
+      <y>357</y>
+      <w>105</w>
+      <h>49</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 loadState()</panel_attributes>
@@ -424,10 +424,10 @@ loadState()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>984</x>
-      <y>480</y>
-      <w>16</w>
-      <h>64</h>
+      <x>777</x>
+      <y>378</y>
+      <w>14</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -435,10 +435,10 @@ loadState()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1240</x>
-      <y>504</y>
-      <w>16</w>
-      <h>88</h>
+      <x>1246</x>
+      <y>399</y>
+      <w>14</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -446,21 +446,21 @@ loadState()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1240</x>
-      <y>584</y>
-      <w>24</w>
-      <h>304</h>
+      <x>1246</x>
+      <y>434</y>
+      <w>21</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;360.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>728</x>
-      <y>592</y>
-      <w>16</w>
-      <h>168</h>
+      <x>567</x>
+      <y>735</y>
+      <w>14</w>
+      <h>147</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -468,10 +468,10 @@ loadState()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>248</x>
-      <y>624</y>
-      <w>520</w>
-      <h>160</h>
+      <x>7</x>
+      <y>763</y>
+      <w>595</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -479,10 +479,10 @@ loadState()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>248</x>
-      <y>624</y>
-      <w>40</w>
-      <h>24</h>
+      <x>7</x>
+      <y>763</y>
+      <w>35</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>Alt</panel_attributes>
     <additional_attributes/>
@@ -490,10 +490,10 @@ loadState()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>544</x>
-      <y>592</y>
-      <w>200</w>
-      <h>32</h>
+      <x>406</x>
+      <y>735</y>
+      <w>175</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 managerExists()</panel_attributes>
@@ -502,10 +502,10 @@ managerExists()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>544</x>
-      <y>632</y>
-      <w>200</w>
-      <h>32</h>
+      <x>406</x>
+      <y>770</y>
+      <w>175</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 True</panel_attributes>
@@ -514,10 +514,10 @@ True</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>544</x>
-      <y>712</y>
-      <w>200</w>
-      <h>32</h>
+      <x>406</x>
+      <y>840</y>
+      <w>175</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 False</panel_attributes>
@@ -526,47 +526,502 @@ False</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>728</x>
-      <y>752</y>
-      <w>24</w>
-      <h>136</h>
+      <x>567</x>
+      <y>875</y>
+      <w>21</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>240</x>
-      <y>688</y>
-      <w>544</w>
-      <h>24</h>
+      <x>0</x>
+      <y>819</y>
+      <w>616</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;660.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;860.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>240</x>
-      <y>656</y>
-      <w>312</w>
-      <h>32</h>
+      <x>0</x>
+      <y>784</y>
+      <w>210</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 loginScreen()</panel_attributes>
-    <additional_attributes>10.0;20.0;370.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;280.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>240</x>
-      <y>736</y>
-      <w>312</w>
-      <h>32</h>
+      <x>0</x>
+      <y>854</y>
+      <w>210</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 createManagerScreen()</panel_attributes>
-    <additional_attributes>10.0;20.0;370.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;280.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>196</x>
+      <y>112</y>
+      <w>14</w>
+      <h>784</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>196</x>
+      <y>889</y>
+      <w>21</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>196</x>
+      <y>14</y>
+      <w>21</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>168</x>
+      <y>0</y>
+      <w>70</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>:Launcher</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>0</x>
+      <y>119</y>
+      <w>210</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+Initialize()</panel_attributes>
+    <additional_attributes>280.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>203</x>
+      <y>777</y>
+      <w>210</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+True</panel_attributes>
+    <additional_attributes>10.0;20.0;280.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>203</x>
+      <y>847</y>
+      <w>210</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+False</panel_attributes>
+    <additional_attributes>10.0;20.0;280.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>868</x>
+      <y>539</y>
+      <w>21</w>
+      <h>448</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;620.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>868</x>
+      <y>455</y>
+      <w>14</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>875</x>
+      <y>476</y>
+      <w>14</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>875</x>
+      <y>455</y>
+      <w>105</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+loadState()</panel_attributes>
+    <additional_attributes>20.0;50.0;60.0;50.0;60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>882</x>
+      <y>511</y>
+      <w>378</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+ArrayList&lt;Equipment&gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;520.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>882</x>
+      <y>490</y>
+      <w>378</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+loadObjectFile(serializeName)</panel_attributes>
+    <additional_attributes>520.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>868</x>
+      <y>14</y>
+      <w>21</w>
+      <h>455</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;630.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>840</x>
+      <y>0</y>
+      <w>77</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>:EquipmentCtrl 1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>966</x>
+      <y>637</y>
+      <w>21</w>
+      <h>350</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;480.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>966</x>
+      <y>553</y>
+      <w>14</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>973</x>
+      <y>574</y>
+      <w>14</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>973</x>
+      <y>553</y>
+      <w>105</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+loadState()</panel_attributes>
+    <additional_attributes>20.0;50.0;60.0;50.0;60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>980</x>
+      <y>609</y>
+      <w>280</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+ArrayList&lt;Exercise&gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;380.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>980</x>
+      <y>588</y>
+      <w>280</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+loadObjectFile(serializeName)</panel_attributes>
+    <additional_attributes>380.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>966</x>
+      <y>14</y>
+      <w>21</w>
+      <h>553</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;770.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>938</x>
+      <y>0</y>
+      <w>77</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>:ExerciseCtrl 1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1064</x>
+      <y>728</y>
+      <w>21</w>
+      <h>259</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;350.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1064</x>
+      <y>644</y>
+      <w>14</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1071</x>
+      <y>665</y>
+      <w>14</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1071</x>
+      <y>644</y>
+      <w>105</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+loadState()</panel_attributes>
+    <additional_attributes>20.0;50.0;60.0;50.0;60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1078</x>
+      <y>700</y>
+      <w>182</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+ArrayList&lt;Routine&gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;240.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1078</x>
+      <y>679</y>
+      <w>182</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+loadObjectFile(serializeName)</panel_attributes>
+    <additional_attributes>240.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1064</x>
+      <y>14</y>
+      <w>21</w>
+      <h>644</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;900.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1036</x>
+      <y>0</y>
+      <w>77</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>:RoutineCtrl 1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1246</x>
+      <y>532</y>
+      <w>21</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1246</x>
+      <y>630</y>
+      <w>21</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1246</x>
+      <y>721</y>
+      <w>21</w>
+      <h>266</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;360.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>406</x>
+      <y>448</y>
+      <w>476</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+initialize()</panel_attributes>
+    <additional_attributes>660.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>406</x>
+      <y>546</y>
+      <w>574</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+initialize()</panel_attributes>
+    <additional_attributes>800.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>406</x>
+      <y>637</y>
+      <w>672</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+initialize()</panel_attributes>
+    <additional_attributes>940.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1246</x>
+      <y>497</y>
+      <w>14</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1246</x>
+      <y>595</y>
+      <w>14</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1246</x>
+      <y>686</y>
+      <w>14</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
   </element>
 </diagram>

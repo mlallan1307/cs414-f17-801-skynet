@@ -2,6 +2,9 @@ var classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1control_1_1
 [
     [ "setUp", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1control_1_1_customer_ctrl_test.html#a58db37737c35690fbf89ce1a0e3c7799", null ],
     [ "tearDown", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1control_1_1_customer_ctrl_test.html#a5ef0b7aa1c6a9fce9beeb2dce419aa54", null ],
+    [ "testAssignRoutines", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1control_1_1_customer_ctrl_test.html#a42ebdb363b3d9c297459a5d770eb13d8", null ],
+    [ "testAssignRoutinesInvalid", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1control_1_1_customer_ctrl_test.html#a127543096e5651e913b45ba68974c775", null ],
+    [ "testAssignRoutinesNull", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1control_1_1_customer_ctrl_test.html#ac1d384cae2e25f4c494ae642bcec3ff3", null ],
     [ "testCreateCustomer", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1control_1_1_customer_ctrl_test.html#aec8fc0e95f5d8273533c0a7df9fc2472", null ],
     [ "testCreateCustomerDuplicateCheck", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1control_1_1_customer_ctrl_test.html#a9f1f1faee403165f46d2a9439835e955", null ],
     [ "testCreateCustomerEmptyFields", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1control_1_1_customer_ctrl_test.html#a1bbe44c6b862137b2a9f2868bd5b9e3d", null ],

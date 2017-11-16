@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLHierarchy</id>
+    <coordinates>
+      <x>60</x>
+      <y>20</y>
+      <w>220</w>
+      <h>560</h>
+    </coordinates>
+    <panel_attributes>type=Package
+UI
+	Swing
+		Common
+		Start
+		Manager
+		Trainer
+Domain
+	Control
+	Utilities
+	Data
+		Objects
+		People
+	People
+		User
+		Other
+Services
+	Store</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

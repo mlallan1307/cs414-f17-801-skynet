@@ -34,11 +34,7 @@ UC06- Create Equipment
 
 6a. Equipment name is already in use.
 
-1.	System notifies manager that this equipment exists and asks if the manager would like to go to **UC07**.
-
- 1a. If yes, switch to **UC07**.
- 
- 1b. If no, dismiss notification.
+1.	System notifies manager that this equipment exists.
  
 **Special Requirements:**
 

@@ -10,8 +10,6 @@ var classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1control_1_1
     [ "testExistsWithDLN", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1control_1_1_trainer_ctrl_test.html#a24ba53afbdc9208c9291a73b46eeaece", null ],
     [ "testExistsWithUsername", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1control_1_1_trainer_ctrl_test.html#a1747d7b5a1c9681d9dd72bd305198632", null ],
     [ "testInitialize", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1control_1_1_trainer_ctrl_test.html#ae514b55ac938d1e063493cbd3d46469c", null ],
-    [ "testLogin", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1control_1_1_trainer_ctrl_test.html#a6afc0828155ce6baf3d7360353971d5e", null ],
-    [ "testRecoverUsername", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1control_1_1_trainer_ctrl_test.html#a5e0a60c00b9620a8f75359c0d4e962b1", null ],
     [ "testReplaceTrainer", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1control_1_1_trainer_ctrl_test.html#ae88dfbb17a56dbb18d493e6bed007869", null ],
     [ "testReplaceTrainerDLNDuplicate", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1control_1_1_trainer_ctrl_test.html#aa431bf52e52fef60742af37a9d7dab1b", null ],
     [ "testReplaceTrainerDoesNotExist", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1control_1_1_trainer_ctrl_test.html#addf46158670bed7a21229979fc402670", null ],
