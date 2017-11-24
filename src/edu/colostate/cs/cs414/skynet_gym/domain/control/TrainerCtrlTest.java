@@ -89,7 +89,7 @@ public class TrainerCtrlTest {
 	@Test
 	public final void testTrainersExists() {
 		assertFalse(TrainerCtrl.trainersExists());
-		TrainerCtrl.createTrainer(
+		Trainer t = TrainerCtrl.buildTrainer(
 				username,
 				password,
 				firstName,
@@ -106,6 +106,7 @@ public class TrainerCtrlTest {
 				type,
 				schedule,
 				qualifications);
+		TrainerCtrl.addTrainer(t);
 		assertTrue(TrainerCtrl.trainersExists());
 	}
 
@@ -115,7 +116,7 @@ public class TrainerCtrlTest {
 		// file does not exist so this is tries to load but fails
 		TrainerCtrl.initialize();
 		assertFalse(TrainerCtrl.trainersExists());
-		TrainerCtrl.createTrainer(
+		Trainer t = TrainerCtrl.buildTrainer(
 				username,
 				password,
 				firstName,
@@ -132,6 +133,7 @@ public class TrainerCtrlTest {
 				type,
 				schedule,
 				qualifications);
+		TrainerCtrl.addTrainer(t);
 		assertTrue(TrainerCtrl.trainersExists());
 		// manager exists so this returns
 		TrainerCtrl.initialize();
@@ -141,7 +143,7 @@ public class TrainerCtrlTest {
 	@Test
 	public final void testCreateTrainer() {
 		assertFalse(TrainerCtrl.trainersExists());
-		TrainerCtrl.createTrainer(
+		Trainer t = TrainerCtrl.buildTrainer(
 				username,
 				password,
 				firstName,
@@ -158,16 +160,17 @@ public class TrainerCtrlTest {
 				type,
 				schedule,
 				qualifications);
+		TrainerCtrl.addTrainer(t);
 		assertTrue(TrainerCtrl.trainersExists());
 		assertEquals(username, TrainerCtrl.getTrainers().get(0).getUsername());
 	}
 	
 	@Test
-	public final void testCreateTrainerEmptyFields() {
+	public final void testBuildTrainerEmptyFields() {
 		assertFalse(TrainerCtrl.trainersExists());
 		
 		try {
-			TrainerCtrl.createTrainer(
+			TrainerCtrl.buildTrainer(
 					"",
 					password,
 					firstName,
@@ -189,29 +192,7 @@ public class TrainerCtrlTest {
 		}
 		assertFalse(TrainerCtrl.trainersExists());
 		try {
-			TrainerCtrl.createTrainer(
-					username,
-					"",
-					firstName,
-					lastName,
-					driversLicenseNumber,
-					phone,
-					email,
-					hiN,
-					s1,
-					s2,
-					state,
-					city,
-					zip,
-					type,
-					schedule,
-					qualifications);
-			fail("Expected to throw");
-		} catch (IllegalArgumentException e) {
-		}
-		assertFalse(TrainerCtrl.trainersExists());
-		try {
-			TrainerCtrl.createTrainer(
+			TrainerCtrl.buildTrainer(
 					username,
 					password,
 					"",
@@ -233,7 +214,7 @@ public class TrainerCtrlTest {
 		}
 		assertFalse(TrainerCtrl.trainersExists());
 		try {
-			TrainerCtrl.createTrainer(
+			TrainerCtrl.buildTrainer(
 					username,
 					password,
 					firstName,
@@ -255,7 +236,7 @@ public class TrainerCtrlTest {
 		}
 		assertFalse(TrainerCtrl.trainersExists());
 		try {
-			TrainerCtrl.createTrainer(
+			TrainerCtrl.buildTrainer(
 					username,
 					password,
 					firstName,
@@ -277,7 +258,7 @@ public class TrainerCtrlTest {
 		}
 		assertFalse(TrainerCtrl.trainersExists());
 		try {
-			TrainerCtrl.createTrainer(
+			TrainerCtrl.buildTrainer(
 					username,
 					password,
 					firstName,
@@ -299,7 +280,7 @@ public class TrainerCtrlTest {
 		}
 		assertFalse(TrainerCtrl.trainersExists());
 		try {
-			TrainerCtrl.createTrainer(
+			TrainerCtrl.buildTrainer(
 					username,
 					password,
 					firstName,
@@ -321,7 +302,7 @@ public class TrainerCtrlTest {
 		}
 		assertFalse(TrainerCtrl.trainersExists());
 		try {
-			TrainerCtrl.createTrainer(
+			TrainerCtrl.buildTrainer(
 					username,
 					password,
 					firstName,
@@ -343,7 +324,7 @@ public class TrainerCtrlTest {
 		}
 		assertFalse(TrainerCtrl.trainersExists());
 		try {
-			TrainerCtrl.createTrainer(
+			TrainerCtrl.buildTrainer(
 					username,
 					password,
 					firstName,
@@ -365,7 +346,7 @@ public class TrainerCtrlTest {
 		}
 		assertFalse(TrainerCtrl.trainersExists());
 		try {
-			TrainerCtrl.createTrainer(
+			TrainerCtrl.buildTrainer(
 					username,
 					password,
 					firstName,
@@ -387,7 +368,7 @@ public class TrainerCtrlTest {
 		}
 		assertFalse(TrainerCtrl.trainersExists());
 		try {
-			TrainerCtrl.createTrainer(
+			TrainerCtrl.buildTrainer(
 					username,
 					password,
 					firstName,
@@ -409,7 +390,7 @@ public class TrainerCtrlTest {
 		}
 		assertFalse(TrainerCtrl.trainersExists());
 		try {
-			TrainerCtrl.createTrainer(
+			TrainerCtrl.buildTrainer(
 					username,
 					password,
 					firstName,
@@ -431,7 +412,7 @@ public class TrainerCtrlTest {
 		}
 		assertFalse(TrainerCtrl.trainersExists());
 		try {
-			TrainerCtrl.createTrainer(
+			TrainerCtrl.buildTrainer(
 					username,
 					password,
 					firstName,
@@ -453,7 +434,7 @@ public class TrainerCtrlTest {
 		}
 		assertFalse(TrainerCtrl.trainersExists());
 		try {
-			TrainerCtrl.createTrainer(
+			TrainerCtrl.buildTrainer(
 					username,
 					password,
 					firstName,
@@ -475,7 +456,7 @@ public class TrainerCtrlTest {
 		}
 		assertFalse(TrainerCtrl.trainersExists());
 		try {
-			TrainerCtrl.createTrainer(
+			TrainerCtrl.buildTrainer(
 					username,
 					password,
 					firstName,
@@ -499,9 +480,30 @@ public class TrainerCtrlTest {
 		
 		
 		// TESTING NOT REQUIRED FIELDS
-		
 		try {
-			TrainerCtrl.createTrainer(
+			TrainerCtrl.buildTrainer(
+					username,
+					"",
+					firstName,
+					lastName,
+					driversLicenseNumber,
+					phone,
+					email,
+					hiN,
+					s1,
+					s2,
+					state,
+					city,
+					zip,
+					type,
+					schedule,
+					qualifications);
+		} catch (IllegalArgumentException e) {
+			fail("Expected to NOT throw");
+		}
+		assertFalse(TrainerCtrl.trainersExists());
+		try {
+			TrainerCtrl.buildTrainer(
 					username,
 					password,
 					firstName,
@@ -521,7 +523,8 @@ public class TrainerCtrlTest {
 		} catch (IllegalArgumentException e) {
 			fail("Expected to NOT throw");
 		}
-		assertTrue(TrainerCtrl.trainersExists());
+		assertFalse(TrainerCtrl.trainersExists());
+		
 	}
 	
 	@Test
@@ -529,7 +532,7 @@ public class TrainerCtrlTest {
 		
 		assertFalse(TrainerCtrl.trainersExists());
 		try {
-			TrainerCtrl.createTrainer(
+			TrainerCtrl.buildTrainer(
 					username,
 					password,
 					firstName,
@@ -551,7 +554,7 @@ public class TrainerCtrlTest {
 		}
 		assertFalse(TrainerCtrl.trainersExists());
 		try {
-			TrainerCtrl.createTrainer(
+			TrainerCtrl.buildTrainer(
 					username,
 					password,
 					firstName,
@@ -577,7 +580,7 @@ public class TrainerCtrlTest {
 	@Test
 	public final void testCreateTrainerDLNDuplicate() {
 		assertFalse(TrainerCtrl.trainersExists());
-		TrainerCtrl.createTrainer(
+		Trainer t = TrainerCtrl.buildTrainer(
 				username,
 				password,
 				firstName,
@@ -594,11 +597,12 @@ public class TrainerCtrlTest {
 				type,
 				schedule,
 				qualifications);
+		TrainerCtrl.addTrainer(t);
 		assertTrue(TrainerCtrl.trainersExists());
 		assertEquals(1, TrainerCtrl.getTrainers().size());
 		
 		try {
-		TrainerCtrl.createTrainer(
+			Trainer t2 = TrainerCtrl.buildTrainer(
 				"new",
 				"new",
 				"new",
@@ -615,6 +619,7 @@ public class TrainerCtrlTest {
 				"new",
 				schedule,
 				qualifications);
+			TrainerCtrl.addTrainer(t2);
 			fail("Expected to throw");
 		} catch(IllegalArgumentException e) {
 		}
@@ -624,7 +629,7 @@ public class TrainerCtrlTest {
 	@Test
 	public final void testCreateTrainerUsernameDuplicate() {
 		assertFalse(TrainerCtrl.trainersExists());
-		TrainerCtrl.createTrainer(
+		Trainer t = TrainerCtrl.buildTrainer(
 				username,
 				password,
 				firstName,
@@ -641,11 +646,12 @@ public class TrainerCtrlTest {
 				type,
 				schedule,
 				qualifications);
+		TrainerCtrl.addTrainer(t);
 		assertTrue(TrainerCtrl.trainersExists());
 		assertEquals(1, TrainerCtrl.getTrainers().size());
 		
 		try {
-		TrainerCtrl.createTrainer(
+			Trainer t2 = TrainerCtrl.buildTrainer(
 				username,
 				"new",
 				"new",
@@ -662,6 +668,7 @@ public class TrainerCtrlTest {
 				"new",
 				schedule,
 				qualifications);
+			TrainerCtrl.addTrainer(t2);
 			fail("Expected to throw");
 		} catch(IllegalArgumentException e) {
 		}
@@ -671,7 +678,7 @@ public class TrainerCtrlTest {
 	@Test
 	public final void testReplaceTrainer() {
 		assertFalse(TrainerCtrl.trainersExists());
-		TrainerCtrl.createTrainer(
+		Trainer t = TrainerCtrl.buildTrainer(
 				username,
 				password,
 				firstName,
@@ -688,10 +695,12 @@ public class TrainerCtrlTest {
 				type,
 				schedule,
 				qualifications);
+		TrainerCtrl.addTrainer(t);
 		assertTrue(TrainerCtrl.trainersExists());
 		
-		TrainerCtrl.replaceTrainer(
+		Trainer t2 = TrainerCtrl.buildTrainer(
 				username,
+				"",
 				"newName",
 				lastName,
 				driversLicenseNumber,
@@ -705,7 +714,9 @@ public class TrainerCtrlTest {
 				zip,
 				type,
 				schedule,
-				qualifications,
+				qualifications);
+		TrainerCtrl.replaceTrainer(
+				t2,
 				TrainerCtrl.getTrainers().get(0));
 		assertEquals(1, TrainerCtrl.getTrainers().size());
 		assertEquals("newName",
@@ -714,381 +725,9 @@ public class TrainerCtrlTest {
 	}
 	
 	@Test
-	public final void testReplaceTrainerEmptyFields() {
-		assertFalse(TrainerCtrl.trainersExists());
-		TrainerCtrl.createTrainer(
-				username,
-				password,
-				firstName,
-				lastName,
-				driversLicenseNumber,
-				phone,
-				email,
-				hiN,
-				s1,
-				s2,
-				state,
-				city,
-				zip,
-				type,
-				schedule,
-				qualifications);
-		assertTrue(TrainerCtrl.trainersExists());
-		
-		try {
-			TrainerCtrl.replaceTrainer(
-					"",
-					firstName,
-					lastName,
-					driversLicenseNumber,
-					phone,
-					email,
-					hiN,
-					s1,
-					s2,
-					state,
-					city,
-					zip,
-					type,
-					schedule,
-					qualifications,
-					TrainerCtrl.getTrainers().get(0));
-			fail("Expected to throw");
-		} catch(IllegalArgumentException e) {
-		}
-		assertEquals(1, TrainerCtrl.getTrainers().size());
-
-		try {
-			TrainerCtrl.replaceTrainer(
-					username,
-					"",
-					lastName,
-					driversLicenseNumber,
-					phone,
-					email,
-					hiN,
-					s1,
-					s2,
-					state,
-					city,
-					zip,
-					type,
-					schedule,
-					qualifications,
-					TrainerCtrl.getTrainers().get(0));
-			fail("Expected to throw");
-		} catch(IllegalArgumentException e) {
-		}
-		assertEquals(1, TrainerCtrl.getTrainers().size());
-
-		try {
-			TrainerCtrl.replaceTrainer(
-					username,
-					firstName,
-					"",
-					driversLicenseNumber,
-					phone,
-					email,
-					hiN,
-					s1,
-					s2,
-					state,
-					city,
-					zip,
-					type,
-					schedule,
-					qualifications,
-					TrainerCtrl.getTrainers().get(0));
-			fail("Expected to throw");
-		} catch(IllegalArgumentException e) {
-		}
-		assertEquals(1, TrainerCtrl.getTrainers().size());
-
-		try {
-			TrainerCtrl.replaceTrainer(
-					username,
-					firstName,
-					lastName,
-					"",
-					phone,
-					email,
-					hiN,
-					s1,
-					s2,
-					state,
-					city,
-					zip,
-					type,
-					schedule,
-					qualifications,
-					TrainerCtrl.getTrainers().get(0));
-			fail("Expected to throw");
-		} catch(IllegalArgumentException e) {
-		}
-		assertEquals(1, TrainerCtrl.getTrainers().size());
-
-		try {
-			TrainerCtrl.replaceTrainer(
-					username,
-					firstName,
-					lastName,
-					driversLicenseNumber,
-					"",
-					email,
-					hiN,
-					s1,
-					s2,
-					state,
-					city,
-					zip,
-					type,
-					schedule,
-					qualifications,
-					TrainerCtrl.getTrainers().get(0));
-			fail("Expected to throw");
-		} catch(IllegalArgumentException e) {
-		}
-		assertEquals(1, TrainerCtrl.getTrainers().size());
-
-		try {
-			TrainerCtrl.replaceTrainer(
-					username,
-					firstName,
-					lastName,
-					driversLicenseNumber,
-					phone,
-					"",
-					hiN,
-					s1,
-					s2,
-					state,
-					city,
-					zip,
-					type,
-					schedule,
-					qualifications,
-					TrainerCtrl.getTrainers().get(0));
-			fail("Expected to throw");
-		} catch(IllegalArgumentException e) {
-		}
-		assertEquals(1, TrainerCtrl.getTrainers().size());
-
-		try {
-			TrainerCtrl.replaceTrainer(
-					username,
-					firstName,
-					lastName,
-					driversLicenseNumber,
-					phone,
-					email,
-					"",
-					s1,
-					s2,
-					state,
-					city,
-					zip,
-					type,
-					schedule,
-					qualifications,
-					TrainerCtrl.getTrainers().get(0));
-			fail("Expected to throw");
-		} catch(IllegalArgumentException e) {
-		}
-		assertEquals(1, TrainerCtrl.getTrainers().size());
-
-		try {
-			TrainerCtrl.replaceTrainer(
-					username,
-					firstName,
-					lastName,
-					driversLicenseNumber,
-					phone,
-					email,
-					hiN,
-					"",
-					s2,
-					state,
-					city,
-					zip,
-					type,
-					schedule,
-					qualifications,
-					TrainerCtrl.getTrainers().get(0));
-			fail("Expected to throw");
-		} catch(IllegalArgumentException e) {
-		}
-		assertEquals(1, TrainerCtrl.getTrainers().size());
-
-		try {
-			TrainerCtrl.replaceTrainer(
-					username,
-					firstName,
-					lastName,
-					driversLicenseNumber,
-					phone,
-					email,
-					hiN,
-					s1,
-					s2,
-					"",
-					city,
-					zip,
-					type,
-					schedule,
-					qualifications,
-					TrainerCtrl.getTrainers().get(0));
-			fail("Expected to throw");
-		} catch(IllegalArgumentException e) {
-		}
-		assertEquals(1, TrainerCtrl.getTrainers().size());
-
-		try {
-			TrainerCtrl.replaceTrainer(
-					username,
-					firstName,
-					lastName,
-					driversLicenseNumber,
-					phone,
-					email,
-					hiN,
-					s1,
-					s2,
-					state,
-					"",
-					zip,
-					type,
-					schedule,
-					qualifications,
-					TrainerCtrl.getTrainers().get(0));
-			fail("Expected to throw");
-		} catch(IllegalArgumentException e) {
-		}
-		assertEquals(1, TrainerCtrl.getTrainers().size());
-
-		try {
-			TrainerCtrl.replaceTrainer(
-					username,
-					firstName,
-					lastName,
-					driversLicenseNumber,
-					phone,
-					email,
-					hiN,
-					s1,
-					s2,
-					state,
-					city,
-					"",
-					type,
-					schedule,
-					qualifications,
-					TrainerCtrl.getTrainers().get(0));
-			fail("Expected to throw");
-		} catch(IllegalArgumentException e) {
-		}
-		assertEquals(1, TrainerCtrl.getTrainers().size());
-
-		try {
-			TrainerCtrl.replaceTrainer(
-					username,
-					firstName,
-					lastName,
-					driversLicenseNumber,
-					phone,
-					email,
-					hiN,
-					s1,
-					s2,
-					state,
-					city,
-					zip,
-					"",
-					schedule,
-					qualifications,
-					TrainerCtrl.getTrainers().get(0));
-			fail("Expected to throw");
-		} catch(IllegalArgumentException e) {
-		}
-		assertEquals(1, TrainerCtrl.getTrainers().size());
-
-		try {
-			TrainerCtrl.replaceTrainer(
-					username,
-					firstName,
-					lastName,
-					driversLicenseNumber,
-					phone,
-					email,
-					hiN,
-					s1,
-					s2,
-					state,
-					city,
-					zip,
-					type,
-					new Schedule(),
-					qualifications,
-					TrainerCtrl.getTrainers().get(0));
-			fail("Expected to throw");
-		} catch(IllegalArgumentException e) {
-		}
-		assertEquals(1, TrainerCtrl.getTrainers().size());
-
-		try {
-			TrainerCtrl.replaceTrainer(
-					username,
-					firstName,
-					lastName,
-					driversLicenseNumber,
-					phone,
-					email,
-					hiN,
-					s1,
-					s2,
-					state,
-					city,
-					zip,
-					type,
-					schedule,
-					new ArrayList<Qualification>(),
-					TrainerCtrl.getTrainers().get(0));
-			fail("Expected to throw");
-		} catch(IllegalArgumentException e) {
-		}
-		assertEquals(1, TrainerCtrl.getTrainers().size());
-
-		
-		// TESTING NOT REQUIRED FIELDS
-		
-		try {
-			TrainerCtrl.replaceTrainer(
-					username,
-					firstName,
-					lastName,
-					driversLicenseNumber,
-					phone,
-					email,
-					hiN,
-					s1,
-					"",
-					state,
-					city,
-					zip,
-					type,
-					schedule,
-					qualifications,
-					TrainerCtrl.getTrainers().get(0));
-		} catch(IllegalArgumentException e) {
-			fail("Expected to NOT throw");
-		}
-		assertEquals(1, TrainerCtrl.getTrainers().size());
-
-	}
-	
-	@Test
 	public final void testReplaceTrainerNull() {
 		assertFalse(TrainerCtrl.trainersExists());
-		TrainerCtrl.createTrainer(
+		Trainer t = TrainerCtrl.buildTrainer(
 				username,
 				password,
 				firstName,
@@ -1105,32 +744,13 @@ public class TrainerCtrlTest {
 				type,
 				schedule,
 				qualifications);
+		TrainerCtrl.addTrainer(t);
 		assertTrue(TrainerCtrl.trainersExists());
 		
 		try {
-			TrainerCtrl.replaceTrainer(
+			Trainer t2 = TrainerCtrl.buildTrainer(
 					username,
-					firstName,
-					lastName,
-					driversLicenseNumber,
-					phone,
-					email,
-					hiN,
-					s1,
-					s2,
-					state,
-					city,
-					zip,
-					type,
-					null,
-					qualifications,
-					TrainerCtrl.getTrainers().get(0));
-			fail("Expected to throw");
-		} catch(IllegalArgumentException e) {
-		}
-		try {
-			TrainerCtrl.replaceTrainer(
-					username,
+					"",
 					firstName,
 					lastName,
 					driversLicenseNumber,
@@ -1144,29 +764,9 @@ public class TrainerCtrlTest {
 					zip,
 					type,
 					schedule,
-					null,
-					TrainerCtrl.getTrainers().get(0));
-			fail("Expected to throw");
-		} catch(IllegalArgumentException e) {
-		}
-		
-		try {
+					qualifications);
 			TrainerCtrl.replaceTrainer(
-					username,
-					firstName,
-					lastName,
-					driversLicenseNumber,
-					phone,
-					email,
-					hiN,
-					s1,
-					s2,
-					state,
-					city,
-					zip,
-					type,
-					schedule,
-					qualifications,
+					t2,
 					null);
 			fail("Expected to throw");
 		} catch(IllegalArgumentException e) {
@@ -1177,7 +777,7 @@ public class TrainerCtrlTest {
 	@Test
 	public final void testReplaceTrainerDLNDuplicate() {
 		assertFalse(TrainerCtrl.trainersExists());
-		TrainerCtrl.createTrainer(
+		Trainer t = TrainerCtrl.buildTrainer(
 				username,
 				password,
 				firstName,
@@ -1194,9 +794,10 @@ public class TrainerCtrlTest {
 				type,
 				schedule,
 				qualifications);
+		TrainerCtrl.addTrainer(t);
 		assertTrue(TrainerCtrl.trainersExists());
 		
-		TrainerCtrl.createTrainer(
+		Trainer t2 = TrainerCtrl.buildTrainer(
 				"new",
 				"new",
 				"new",
@@ -1213,12 +814,14 @@ public class TrainerCtrlTest {
 				"new",
 				schedule,
 				qualifications);
+		TrainerCtrl.addTrainer(t2);
 		assertTrue(TrainerCtrl.trainersExists());
 		assertEquals(2, TrainerCtrl.getTrainers().size());
 		
 		try {
-			TrainerCtrl.replaceTrainer(
+			Trainer t3 = TrainerCtrl.buildTrainer(
 					"new uname",
+					password,
 					firstName,
 					lastName,
 					"dlnum DUP",
@@ -1232,7 +835,9 @@ public class TrainerCtrlTest {
 					zip,
 					type,
 					schedule,
-					qualifications,
+					qualifications);
+			TrainerCtrl.replaceTrainer(
+					t3,
 					TrainerCtrl.getTrainers().get(0));
 			fail("Expected to throw");
 		} catch(IllegalArgumentException e) {
@@ -1242,7 +847,7 @@ public class TrainerCtrlTest {
 	@Test
 	public final void testReplaceTrainerUsernameDuplicate() {
 		assertFalse(TrainerCtrl.trainersExists());
-		TrainerCtrl.createTrainer(
+		Trainer t = TrainerCtrl.buildTrainer(
 				username,
 				password,
 				firstName,
@@ -1259,9 +864,10 @@ public class TrainerCtrlTest {
 				type,
 				schedule,
 				qualifications);
+		TrainerCtrl.addTrainer(t);
 		assertTrue(TrainerCtrl.trainersExists());
 		
-		TrainerCtrl.createTrainer(
+		Trainer t2 = TrainerCtrl.buildTrainer(
 				"uname DUP",
 				"new",
 				"new",
@@ -1278,12 +884,14 @@ public class TrainerCtrlTest {
 				"new",
 				schedule,
 				qualifications);
+		TrainerCtrl.addTrainer(t2);
 		assertTrue(TrainerCtrl.trainersExists());
 		assertEquals(2, TrainerCtrl.getTrainers().size());
 		
 		try {
-			TrainerCtrl.replaceTrainer(
+			Trainer t3 = TrainerCtrl.buildTrainer(
 					"uname DUP",
+					password,
 					firstName,
 					lastName,
 					"new DLNUM",
@@ -1297,7 +905,9 @@ public class TrainerCtrlTest {
 					zip,
 					type,
 					schedule,
-					qualifications,
+					qualifications);
+			TrainerCtrl.replaceTrainer(
+					t3,
 					TrainerCtrl.getTrainers().get(0));
 			fail("Expected to throw");
 		} catch(IllegalArgumentException e) {
@@ -1307,7 +917,7 @@ public class TrainerCtrlTest {
 	@Test
 	public final void testReplaceTrainerDoesNotExist() {
 		assertFalse(TrainerCtrl.trainersExists());
-		TrainerCtrl.createTrainer(
+		Trainer t = TrainerCtrl.buildTrainer(
 				username,
 				password,
 				firstName,
@@ -1324,18 +934,31 @@ public class TrainerCtrlTest {
 				type,
 				schedule,
 				qualifications);
+		TrainerCtrl.addTrainer(t);
 		assertTrue(TrainerCtrl.trainersExists());
 		
-		Trainer tmp = new Trainer(
+		Trainer tmp = TrainerCtrl.buildTrainer(
 				"random uname",
 				password,
-				pi,
+				firstName,
+				lastName,
+				driversLicenseNumber,
+				phone,
+				email,
+				hiN,
+				s1,
+				s2,
+				state,
+				city,
+				zip,
+				type,
 				schedule,
 				qualifications);
 		
 		try {
-			TrainerCtrl.replaceTrainer(
+			Trainer t2 = TrainerCtrl.buildTrainer(
 					"new uname",
+					password,
 					firstName,
 					lastName,
 					"new DLNUM",
@@ -1349,7 +972,9 @@ public class TrainerCtrlTest {
 					zip,
 					type,
 					schedule,
-					qualifications,
+					qualifications);
+			TrainerCtrl.replaceTrainer(
+					t2,
 					tmp);
 			fail("Expected to throw");
 		} catch(IllegalArgumentException e) {
@@ -1359,7 +984,7 @@ public class TrainerCtrlTest {
 	@Test
 	public final void testExistsWithDLN() {
 		assertFalse(TrainerCtrl.trainersExists());
-		TrainerCtrl.createTrainer(
+		Trainer t = TrainerCtrl.buildTrainer(
 				username,
 				password,
 				firstName,
@@ -1376,6 +1001,7 @@ public class TrainerCtrlTest {
 				type,
 				schedule,
 				qualifications);
+		TrainerCtrl.addTrainer(t);
 		assertTrue(TrainerCtrl.trainersExists());
 		
 		assertTrue(TrainerCtrl.existsWithDLN(driversLicenseNumber));
@@ -1384,7 +1010,7 @@ public class TrainerCtrlTest {
 	@Test
 	public final void testExistsWithUsername() {
 		assertFalse(TrainerCtrl.trainersExists());
-		TrainerCtrl.createTrainer(
+		Trainer t = TrainerCtrl.buildTrainer(
 				username,
 				password,
 				firstName,
@@ -1401,6 +1027,7 @@ public class TrainerCtrlTest {
 				type,
 				schedule,
 				qualifications);
+		TrainerCtrl.addTrainer(t);
 		assertTrue(TrainerCtrl.trainersExists());
 		
 		assertTrue(TrainerCtrl.existsWithUsername(username));
@@ -1409,7 +1036,7 @@ public class TrainerCtrlTest {
 	@Test
 	public final void testResetPassword() {
 		assertFalse(TrainerCtrl.trainersExists());
-		TrainerCtrl.createTrainer(
+		Trainer t = TrainerCtrl.buildTrainer(
 				username,
 				password,
 				firstName,
@@ -1426,6 +1053,7 @@ public class TrainerCtrlTest {
 				type,
 				schedule,
 				qualifications);
+		TrainerCtrl.addTrainer(t);
 		assertTrue(TrainerCtrl.trainersExists());
 		
 		assertTrue(AccountManager.login(username, "pw2")
@@ -1444,42 +1072,48 @@ public class TrainerCtrlTest {
 	@Test
 	public final void testSearchTrainers() {
 		assertFalse(TrainerCtrl.trainersExists());
-		TrainerCtrl.createTrainer(
-				"aab",
-				password,
-				"aab",
-				"aab",
-				driversLicenseNumber,
-				"aab",
-				"aab",
-				hiN,
-				s1,
-				s2,
-				state,
-				city,
-				zip,
-				type,
-				schedule,
-				qualifications);
+		{
+			Trainer t = TrainerCtrl.buildTrainer(
+					"aab",
+					password,
+					"aab",
+					"aab",
+					driversLicenseNumber,
+					"aab",
+					"aab",
+					hiN,
+					s1,
+					s2,
+					state,
+					city,
+					zip,
+					type,
+					schedule,
+					qualifications);
+			TrainerCtrl.addTrainer(t);
+		}
 		assertTrue(TrainerCtrl.trainersExists());
 		
-		TrainerCtrl.createTrainer(
-				"abc",
-				password,
-				"abc",
-				"abc",
-				"dln2",
-				"abc",
-				"abc",
-				hiN,
-				s1,
-				s2,
-				state,
-				city,
-				zip,
-				type,
-				schedule,
-				qualifications);
+		{
+			Trainer t = TrainerCtrl.buildTrainer(
+					"abc",
+					password,
+					"abc",
+					"abc",
+					"dln2",
+					"abc",
+					"abc",
+					hiN,
+					s1,
+					s2,
+					state,
+					city,
+					zip,
+					type,
+					schedule,
+					qualifications);
+			TrainerCtrl.addTrainer(t);
+		}
 		assertEquals(2, TrainerCtrl.getTrainers().size());
 		
 		assertEquals(2, TrainerCtrl.searchTrainers(

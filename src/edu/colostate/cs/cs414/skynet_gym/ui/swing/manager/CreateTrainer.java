@@ -4,6 +4,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 
 import edu.colostate.cs.cs414.skynet_gym.domain.control.TrainerCtrl;
+import edu.colostate.cs.cs414.skynet_gym.domain.people.user.Trainer;
 import edu.colostate.cs.cs414.skynet_gym.ui.swing.common.MyListModel;
 import edu.colostate.cs.cs414.skynet_gym.ui.swing.common.TrainerAbs;
 
@@ -33,7 +34,7 @@ public class CreateTrainer extends TrainerAbs {
 	@Override
 	protected void submitPressed() {
 		try {
-			TrainerCtrl.createTrainer(
+			Trainer trainer = TrainerCtrl.buildTrainer(
 					lUsername.getText(),
 					String.valueOf(lPassword.getPassword()),
 					gNameFirst.getText(), // PersonInformation
@@ -50,6 +51,7 @@ public class CreateTrainer extends TrainerAbs {
 					aType.getText(),
 					schedule,
 					qualifications);
+			TrainerCtrl.addTrainer(trainer);
 			JOptionPane.showMessageDialog(null,
 				    "Trainer Created Successfully",
 				    "Success",

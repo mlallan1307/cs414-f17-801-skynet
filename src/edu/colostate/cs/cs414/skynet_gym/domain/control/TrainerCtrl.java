@@ -66,9 +66,8 @@ public class TrainerCtrl {
 	}
 	
 	/**
-	 * 
-	 * Create trainer instance to add to static list.
-	 * Collects all the information needed by the used classes.
+	 * Collects all the information needed by the used classes to create a
+	 * trainer
 	 * 
 	 * @param username
 	 * @param password
@@ -86,10 +85,11 @@ public class TrainerCtrl {
 	 * @param type
 	 * @param schedule
 	 * @param qualifications
+	 * @return new Trainer instance
 	 * 
 	 * @throws IllegalArgumentException if an empty string is passed
 	 */
-	public static void createTrainer(
+	public static Trainer buildTrainer(
 			String username,
 			String password,
 			String firstName, // PersonInformation
@@ -109,7 +109,6 @@ public class TrainerCtrl {
 		
 		// Throw if a required field is empty
 		if (username.isEmpty() ||
-				password.isEmpty() ||
 				firstName.isEmpty() ||
 				lastName.isEmpty() ||
 				driversLicenseNumber.isEmpty() ||
@@ -125,15 +124,6 @@ public class TrainerCtrl {
 				qualifications == null || qualifications.isEmpty()) {
 			throw new IllegalArgumentException(
 					"Fields are empty. Please fill out all fields.");
-		}
-		
-		if (existsWithDLN(driversLicenseNumber)) {
-			throw new IllegalArgumentException(
-					"User already exists: drivers license is the same");
-		}
-		if (existsWithUsername(username)) {
-			throw new IllegalArgumentException(
-					"User already exists: username is taken");
 		}
 		
 		Address address = new Address(
@@ -164,54 +154,53 @@ public class TrainerCtrl {
 				schedule,
 				qualifications);
 		
-		trainers.add(trainer);
-		
-		// Save the state
-		saveState();
-		
+		return trainer;
 	}
 	
 	/**
 	 * 
-	 * Create trainer instance to add to static list.
+	 * Add trainer instance to add to static list.
 	 * Collects all the information needed by the used classes.
+	 * 
+	 * @param trainer to add
+	 * 
+	 * @throws IllegalArgumentException if password if empty or this is a
+	 * 		duplicate
+	 */
+	public static void addTrainer(final Trainer trainer) {
+		
+		if (trainer.isPassword("")) {
+			throw new IllegalArgumentException(
+					"Password can not be empty");
+		}
+			
+		if (existsWithDLN(trainer.getPersonInfo().getDriversLicenseNumber())) {
+			throw new IllegalArgumentException(
+					"User already exists: drivers license is the same");
+		}
+		if (existsWithUsername(trainer.getUsername())) {
+			throw new IllegalArgumentException(
+					"User already exists: username is taken");
+		}
+		
+		trainers.add(trainer);
+		
+		// Save the state
+		saveState();
+	}
+	
+	/**
+	 * 
+	 * Replace an existing trainer with new information
 	 * Removes the trainer it is replacing
 	 * 
-	 * @param username
-	 * @param firstName
-	 * @param lastName
-	 * @param driversLicenseNumber
-	 * @param phone
-	 * @param email
-	 * @param healthInsuranceProviderName
-	 * @param street1
-	 * @param street2
-	 * @param provOrState
-	 * @param city
-	 * @param zipCode
-	 * @param type
-	 * @param schedule
-	 * @param qualifications
-	 * @param existingTrainer
+	 * @param trainer, the new trainer instance
+	 * @param existingTrainer, the current trainer
 	 * 
 	 * @throws IllegalArgumentException if an empty string is passed
 	 */
 	public static void replaceTrainer(
-			String username,
-			String firstName, // PersonInformation
-			String lastName,
-			String driversLicenseNumber,
-			String phone,
-			String email,
-			String healthInsuranceProviderName, // HealthInsurance
-			String street1, // Address
-			String street2,
-			String provOrState,
-			String city,
-			String zipCode,
-			String type,
-			Schedule schedule,
-			ArrayList<Qualification> qualifications,
+			final Trainer trainer,
 			final Trainer existingTrainer){
 		
 		if (existingTrainer == null ||
@@ -220,71 +209,34 @@ public class TrainerCtrl {
 					"Can't find the given trainer.");
 		}
 		
-		// Throw if a required field is empty
-		if (username.isEmpty() ||
-				firstName.isEmpty() ||
-				lastName.isEmpty() ||
-				driversLicenseNumber.isEmpty() ||
-				phone.isEmpty() ||
-				email.isEmpty() ||
-				healthInsuranceProviderName.isEmpty() ||
-				street1.isEmpty() ||
-				provOrState.isEmpty() ||
-				city.isEmpty() ||
-				zipCode.isEmpty() ||
-				type.isEmpty() ||
-				schedule == null || schedule.isEmpty() ||
-				qualifications == null || qualifications.isEmpty()) {
-			throw new IllegalArgumentException(
-					"Fields are empty. Please fill out all fields.");
-		}
-		
 		// Validate that given drivers license is not associated with another trainer
-		if (!driversLicenseNumber.equals(existingTrainer.getPersonInfo().getDriversLicenseNumber()) &&
-				existsWithDLN(driversLicenseNumber)) {
+		if (!trainer.getPersonInfo().getDriversLicenseNumber().equals(
+				existingTrainer.getPersonInfo().getDriversLicenseNumber()
+				) &&
+				existsWithDLN(trainer.getPersonInfo().getDriversLicenseNumber())) {
 			throw new IllegalArgumentException(
 					"User already exists: drivers license is the same");
 		}
-		if (!username.equals(existingTrainer.getUsername()) &&
-				existsWithUsername(username)) {
+		if (!trainer.getUsername().equals(existingTrainer.getUsername()) &&
+				existsWithUsername(trainer.getUsername())) {
 			throw new IllegalArgumentException(
 					"User already exists: username is taken");
 		}
 		
-		Address address = new Address(
-				street1,
-				street2,
-				provOrState,
-				city,
-				zipCode,
-				type);
-		
-		HealthInsurance healthInsurance = new HealthInsurance(
-				healthInsuranceProviderName);
-		
-		PersonInformation personInfo = new PersonInformation(
-				firstName,
-				lastName,
-				driversLicenseNumber,
-				phone,
-				email,
-				healthInsurance,
-				address);
-		
-		// Create manager
+		// 
 		int index = trainers.indexOf(existingTrainer);
 		Trainer currentTrainer = trainers.get(index);
-		if (!username.equals(currentTrainer.getUsername())) {
-			currentTrainer.setUsername(username);
+		if (!trainer.getUsername().equals(currentTrainer.getUsername())) {
+			currentTrainer.setUsername(trainer.getUsername());
 		}
-		if (!personInfo.equals(currentTrainer.getPersonInfo())) {
-			currentTrainer.setPersonInfo(personInfo);
+		if (!trainer.getPersonInfo().equals(currentTrainer.getPersonInfo())) {
+			currentTrainer.setPersonInfo(trainer.getPersonInfo());
 		}
-		if (!schedule.equals(currentTrainer.getSchedule())) {
-			currentTrainer.setSchedule(schedule);
+		if (!trainer.getSchedule().equals(currentTrainer.getSchedule())) {
+			currentTrainer.setSchedule(trainer.getSchedule());
 		}
-		if (!qualifications.equals(currentTrainer.getQualifications())) {
-			currentTrainer.setQualifications(qualifications);;
+		if (!trainer.getQualifications().equals(currentTrainer.getQualifications())) {
+			currentTrainer.setQualifications(trainer.getQualifications());
 		}
 		
 		trainers.set(index, currentTrainer);

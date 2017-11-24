@@ -19,6 +19,7 @@ import edu.colostate.cs.cs414.skynet_gym.domain.data.people.PersonInformation;
 import edu.colostate.cs.cs414.skynet_gym.domain.data.people.Qualification;
 import edu.colostate.cs.cs414.skynet_gym.domain.data.people.Schedule;
 import edu.colostate.cs.cs414.skynet_gym.domain.data.people.TimePeriod;
+import edu.colostate.cs.cs414.skynet_gym.domain.people.user.Trainer;
 import edu.colostate.cs.cs414.skynet_gym.domain.people.user.UserType;
 
 public class AccountManagerTest {
@@ -108,7 +109,7 @@ public class AccountManagerTest {
 				type);
 		assertTrue(ManagerCtrl.managerExists());
 		assertFalse(TrainerCtrl.trainersExists());
-		TrainerCtrl.createTrainer(
+		Trainer t = TrainerCtrl.buildTrainer(
 				"trainR",
 				password,
 				firstName,
@@ -125,7 +126,8 @@ public class AccountManagerTest {
 				type,
 				schedule,
 				qualifications);
-		TrainerCtrl.createTrainer(
+		TrainerCtrl.addTrainer(t);
+		Trainer t2 = TrainerCtrl.buildTrainer(
 				"trainR2",
 				password,
 				firstName,
@@ -142,6 +144,7 @@ public class AccountManagerTest {
 				type,
 				schedule,
 				qualifications);
+		TrainerCtrl.addTrainer(t2);
 		assertTrue(TrainerCtrl.trainersExists());
 		assertEquals(2, TrainerCtrl.getTrainers().size());
 		
@@ -187,7 +190,7 @@ public class AccountManagerTest {
 				type);
 		assertTrue(ManagerCtrl.managerExists());
 		assertFalse(TrainerCtrl.trainersExists());
-		TrainerCtrl.createTrainer(
+		Trainer t = TrainerCtrl.buildTrainer(
 				"trainR",
 				password,
 				firstName,
@@ -204,7 +207,8 @@ public class AccountManagerTest {
 				type,
 				schedule,
 				qualifications);
-		TrainerCtrl.createTrainer(
+		TrainerCtrl.addTrainer(t);
+		Trainer t2 = TrainerCtrl.buildTrainer(
 				"trainR2",
 				password,
 				firstName,
@@ -221,6 +225,7 @@ public class AccountManagerTest {
 				type,
 				schedule,
 				qualifications);
+		TrainerCtrl.addTrainer(t2);
 		assertTrue(TrainerCtrl.trainersExists());
 		assertEquals(2, TrainerCtrl.getTrainers().size());
 		
@@ -277,7 +282,7 @@ public class AccountManagerTest {
 				type);
 		assertTrue(ManagerCtrl.managerExists());
 		assertFalse(TrainerCtrl.trainersExists());
-		TrainerCtrl.createTrainer(
+		Trainer t = TrainerCtrl.buildTrainer(
 				"trainR",
 				password,
 				firstName,
@@ -294,7 +299,8 @@ public class AccountManagerTest {
 				type,
 				schedule,
 				qualifications);
-		TrainerCtrl.createTrainer(
+		TrainerCtrl.addTrainer(t);
+		Trainer t2 = TrainerCtrl.buildTrainer(
 				"trainR2",
 				password,
 				firstName,
@@ -311,6 +317,7 @@ public class AccountManagerTest {
 				type,
 				schedule,
 				qualifications);
+		TrainerCtrl.addTrainer(t2);
 		assertTrue(TrainerCtrl.trainersExists());
 		assertEquals(2, TrainerCtrl.getTrainers().size());
 		
