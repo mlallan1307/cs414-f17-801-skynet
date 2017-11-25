@@ -50,13 +50,15 @@ public class ModifyExercise extends ExerciseAbs {
 						"Invalid: Exercise type unknown");
 			}
 			commitEdits();
-			ExerciseCtrl.replaceExercise(
+			Exercise exercise = ExerciseCtrl.buildExercise(
 					name.getText(),
 					exerciseType,
 					getSelectedEquipment(),
 					getDuration(),
 					getSets(),
-					getReps(),
+					getReps());
+			ExerciseCtrl.replaceExercise(
+					exercise,
 					exerciseOrig);
 			JOptionPane.showMessageDialog(null,
 				    "Exercise Updated Successfully",

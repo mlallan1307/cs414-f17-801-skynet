@@ -13,6 +13,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.Equipment;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.Exercise;
 import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.ExerciseType;
 import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.ExerciseTypeIf;
 import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.SetBasedExercise;
@@ -67,13 +68,14 @@ public class ExerciseCtrlTest {
 	@Test
 	public final void testExerciseExist() {
 		assertFalse(ExerciseCtrl.exercisesExist());
-		ExerciseCtrl.createExercise(
+		Exercise e = ExerciseCtrl.buildExercise(
 				name,
 				ExerciseType.SetBased,
 				equipment,
 				duration,
 				numberOfSets,
 				numberOfReps);
+		ExerciseCtrl.addExercise(e);
 		assertTrue(ExerciseCtrl.exercisesExist());
 	}
 
@@ -83,13 +85,14 @@ public class ExerciseCtrlTest {
 		// file does not exist so this is tries to load but fails
 		ExerciseCtrl.initialize();
 		assertFalse(ExerciseCtrl.exercisesExist());
-		ExerciseCtrl.createExercise(
+		Exercise e = ExerciseCtrl.buildExercise(
 				name,
 				ExerciseType.SetBased,
 				equipment,
 				duration,
 				numberOfSets,
 				numberOfReps);
+		ExerciseCtrl.addExercise(e);
 		assertTrue(ExerciseCtrl.exercisesExist());
 		// equipment exists so this returns
 		ExerciseCtrl.initialize();
@@ -97,46 +100,50 @@ public class ExerciseCtrlTest {
 	}
 
 	@Test
-	public final void testCreateExercise() {
+	public final void testAddExercise() {
 		assertFalse(ExerciseCtrl.exercisesExist());
-		ExerciseCtrl.createExercise(
+		Exercise e = ExerciseCtrl.buildExercise(
 				name,
 				ExerciseType.SetBased,
 				equipment,
 				duration,
 				numberOfSets,
 				numberOfReps);
+		ExerciseCtrl.addExercise(e);
 		assertEquals(1, ExerciseCtrl.getExercises().size());
-		ExerciseCtrl.createExercise(
+		Exercise e2 = ExerciseCtrl.buildExercise(
 				"newName",
 				ExerciseType.TimeBased,
 				equipment,
 				duration,
 				numberOfSets,
 				numberOfReps);
+		ExerciseCtrl.addExercise(e2);
 		assertEquals(2, ExerciseCtrl.getExercises().size());
 	}
 	
 	@Test
-	public final void testCreateExerciseDuplicateCheck() {
-		ExerciseCtrl.createExercise(
+	public final void testBuildExerciseDuplicateCheck() {
+		Exercise ex = ExerciseCtrl.buildExercise(
 				name,
 				ExerciseType.SetBased,
 				equipment,
 				duration,
 				numberOfSets,
 				numberOfReps);
+		ExerciseCtrl.addExercise(ex);
 		assertEquals(1, ExerciseCtrl.getExercises().size());
 		
 		try {
 			// duplicated based on name
-			ExerciseCtrl.createExercise(
+			Exercise e2 = ExerciseCtrl.buildExercise(
 					name,
 					ExerciseType.SetBased,
 					equipment,
 					duration,
 					numberOfSets,
 					numberOfReps);
+			ExerciseCtrl.addExercise(e2);
 			fail("Expected to throw");
 		} catch (IllegalArgumentException e) {
 		}
@@ -144,11 +151,11 @@ public class ExerciseCtrlTest {
 	}
 	
 	@Test
-	public final void testCreateExerciseEmptyFields() {
+	public final void testBuildExerciseEmptyFields() {
 		
 		try {
 			// empty field test
-			ExerciseCtrl.createExercise(
+			ExerciseCtrl.buildExercise(
 					"",
 					ExerciseType.SetBased,
 					equipment,
@@ -162,7 +169,7 @@ public class ExerciseCtrlTest {
 		
 		try {
 			// Duration 0
-			ExerciseCtrl.createExercise(
+			ExerciseCtrl.buildExercise(
 					name,
 					ExerciseType.TimeBased,
 					equipment,
@@ -176,7 +183,7 @@ public class ExerciseCtrlTest {
 		
 		try {
 			// Sets 0 
-			ExerciseCtrl.createExercise(
+			ExerciseCtrl.buildExercise(
 					name,
 					ExerciseType.SetBased,
 					equipment,
@@ -190,7 +197,7 @@ public class ExerciseCtrlTest {
 		
 		try {
 			// Reps 0 
-			ExerciseCtrl.createExercise(
+			ExerciseCtrl.buildExercise(
 					name,
 					ExerciseType.SetBased,
 					equipment,
@@ -204,10 +211,10 @@ public class ExerciseCtrlTest {
 	}
 	
 	@Test
-	public final void testCreateExerciseNull() {
+	public final void testBuildExerciseNull() {
 		assertEquals(0, ExerciseCtrl.getExercises().size());
 		try {
-			ExerciseCtrl.createExercise(
+			ExerciseCtrl.buildExercise(
 					name,
 					null,
 					equipment,
@@ -220,7 +227,7 @@ public class ExerciseCtrlTest {
 		assertEquals(0, ExerciseCtrl.getExercises().size());
 		
 		try {
-			ExerciseCtrl.createExercise(
+			ExerciseCtrl.buildExercise(
 					name,
 					ExerciseType.TimeBased,
 					equipment,
@@ -233,13 +240,14 @@ public class ExerciseCtrlTest {
 		assertEquals(0, ExerciseCtrl.getExercises().size());
 		
 		try {
-			ExerciseCtrl.createExercise(
+			Exercise ex = ExerciseCtrl.buildExercise(
 					name,
 					ExerciseType.SetBased,
 					null,
 					duration,
 					numberOfSets,
 					numberOfReps);
+			ExerciseCtrl.addExercise(ex);
 		} catch (IllegalArgumentException e) {
 			fail("Expected to NOT throw");
 		}
@@ -249,22 +257,25 @@ public class ExerciseCtrlTest {
 	@Test
 	public final void testReplaceExercise() {
 		assertFalse(ExerciseCtrl.exercisesExist());
-		ExerciseCtrl.createExercise(
+		Exercise e = ExerciseCtrl.buildExercise(
 				name,
 				ExerciseType.SetBased,
 				equipment,
 				null,
 				numberOfSets,
 				numberOfReps);
+		ExerciseCtrl.addExercise(e);
 		assertTrue(ExerciseCtrl.exercisesExist());
 		
-		ExerciseCtrl.replaceExercise(
+		Exercise e2 = ExerciseCtrl.buildExercise(
 				"newName",
 				ExerciseType.SetBased,
 				equipment,
 				null,
 				numberOfSets,
-				numberOfReps,
+				numberOfReps);
+		ExerciseCtrl.replaceExercise(
+				e2,
 				ExerciseCtrl.getExercises().get(0));
 		
 		assertEquals("newName",
@@ -272,13 +283,15 @@ public class ExerciseCtrlTest {
 						.get(0)
 						.getName());
 		
-		ExerciseCtrl.replaceExercise(
+		Exercise e3 = ExerciseCtrl.buildExercise(
 				"newName",
 				ExerciseType.SetBased,
 				equipment,
 				null,
 				numberOfSets+1,
-				numberOfReps,
+				numberOfReps);
+		ExerciseCtrl.replaceExercise(
+				e3,
 				ExerciseCtrl.getExercises().get(0));
 		
 		assertEquals(numberOfSets+1,
@@ -290,124 +303,54 @@ public class ExerciseCtrlTest {
 	@Test
 	public final void testReplaceExerciseNull() {
 		try {
-			ExerciseCtrl.replaceExercise(
+			Exercise ex = ExerciseCtrl.buildExercise(
 					name,
 					ExerciseType.SetBased,
 					equipment,
 					null,
 					numberOfSets,
-					numberOfReps,
-					null);
+					numberOfReps);
+			ExerciseCtrl.replaceExercise(ex, null);
 			fail("Expected to throw");
 		} catch (IllegalArgumentException e) {
 		}
-	}
-	
-	@Test
-	public final void testReplaceExerciseEmptyFields() {
-		
-		ExerciseCtrl.createExercise(
-				name,
-				ExerciseType.SetBased,
-				equipment,
-				null,
-				numberOfSets,
-				numberOfReps);
-		assertTrue(ExerciseCtrl.exercisesExist());
-		
-		try {
-			// empty field test
-			ExerciseCtrl.replaceExercise(
-					"",
-					ExerciseType.SetBased,
-					equipment,
-					null,
-					numberOfSets,
-					numberOfReps,
-					ExerciseCtrl.getExercises().get(0));
-			fail("Expected to throw");
-		} catch (IllegalArgumentException e) {
-		}
-		assertEquals(1, ExerciseCtrl.getExercises().size());
-		
-		try {
-			// empty field test
-			ExerciseCtrl.replaceExercise(
-					name,
-					ExerciseType.SetBased,
-					equipment,
-					null,
-					0,
-					numberOfReps,
-					ExerciseCtrl.getExercises().get(0));
-			fail("Expected to throw");
-		} catch (IllegalArgumentException e) {
-		}
-		assertEquals(1, ExerciseCtrl.getExercises().size());
-		
-		try {
-			// empty field test
-			ExerciseCtrl.replaceExercise(
-					name,
-					ExerciseType.SetBased,
-					equipment,
-					null,
-					numberOfSets,
-					0,
-					ExerciseCtrl.getExercises().get(0));
-			fail("Expected to throw");
-		} catch (IllegalArgumentException e) {
-		}
-		assertEquals(1, ExerciseCtrl.getExercises().size());
-		
-		try {
-			// empty field test
-			ExerciseCtrl.replaceExercise(
-					name,
-					ExerciseType.TimeBased,
-					equipment,
-					Duration.ZERO,
-					numberOfSets,
-					numberOfReps,
-					ExerciseCtrl.getExercises().get(0));
-			fail("Expected to throw");
-		} catch (IllegalArgumentException e) {
-		}
-		assertEquals(1, ExerciseCtrl.getExercises().size());
-		
 	}
 	
 	@Test
 	public final void testReplaceExerciseNameDuplicate() {
 		
 		assertFalse(ExerciseCtrl.exercisesExist());
-		ExerciseCtrl.createExercise(
+		Exercise ex = ExerciseCtrl.buildExercise(
 				name,
 				ExerciseType.SetBased,
 				equipment,
 				null,
 				numberOfSets,
 				numberOfReps);
+		ExerciseCtrl.addExercise(ex);
 		assertTrue(ExerciseCtrl.exercisesExist());
 		assertEquals(1, ExerciseCtrl.getExercises().size());
 		
-		ExerciseCtrl.createExercise(
+		Exercise e2 = ExerciseCtrl.buildExercise(
 				"nameDup",
 				ExerciseType.SetBased,
 				equipment,
 				null,
 				numberOfSets,
 				numberOfReps);
+		ExerciseCtrl.addExercise(e2);
 		assertEquals(2, ExerciseCtrl.getExercises().size());
 		
 		try {
-			ExerciseCtrl.replaceExercise(
+			Exercise e3 = ExerciseCtrl.buildExercise(
 					"nameDup",
 					ExerciseType.SetBased,
 					equipment,
 					null,
 					numberOfSets,
-					numberOfReps,
+					numberOfReps);
+			ExerciseCtrl.replaceExercise(
+					e3,
 					ExerciseCtrl.getExercises().get(0));
 			fail("Expected to throw");
 		} catch (IllegalArgumentException e) {
@@ -418,13 +361,14 @@ public class ExerciseCtrlTest {
 	@Test
 	public final void testExistsWithName() {
 		assertFalse(ExerciseCtrl.exercisesExist());
-		ExerciseCtrl.createExercise(
+		Exercise e = ExerciseCtrl.buildExercise(
 				name,
 				ExerciseType.SetBased,
 				equipment,
 				null,
 				numberOfSets,
 				numberOfReps);
+		ExerciseCtrl.addExercise(e);
 		assertTrue(ExerciseCtrl.exercisesExist());
 		assertEquals(1, ExerciseCtrl.getExercises().size());
 		assertTrue(ExerciseCtrl.existsWithName(name));
@@ -434,23 +378,25 @@ public class ExerciseCtrlTest {
 	@Test
 	public final void testSearchExercise() {
 		assertFalse(ExerciseCtrl.exercisesExist());
-		ExerciseCtrl.createExercise(
+		Exercise e = ExerciseCtrl.buildExercise(
 				"aab",
 				ExerciseType.SetBased,
 				equipment,
 				null,
 				numberOfSets,
 				numberOfReps);
+		ExerciseCtrl.addExercise(e);
 		assertTrue(ExerciseCtrl.exercisesExist());
 		assertEquals(1, ExerciseCtrl.getExercises().size());
 		
-		ExerciseCtrl.createExercise(
+		Exercise e2 = ExerciseCtrl.buildExercise(
 				"abc",
 				ExerciseType.SetBased,
 				equipment,
 				null,
 				numberOfSets,
 				numberOfReps);
+		ExerciseCtrl.addExercise(e2);
 		assertEquals(2, ExerciseCtrl.getExercises().size());
 		
 		assertEquals(2, ExerciseCtrl.searchExercises(

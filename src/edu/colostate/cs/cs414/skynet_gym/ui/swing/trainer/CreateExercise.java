@@ -4,6 +4,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 
 import edu.colostate.cs.cs414.skynet_gym.domain.control.ExerciseCtrl;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.Exercise;
 import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.ExerciseType;
 import edu.colostate.cs.cs414.skynet_gym.ui.swing.common.ExerciseAbs;
 
@@ -42,13 +43,14 @@ public class CreateExercise extends ExerciseAbs {
 						"Invalid: Exercise type unknown");
 			}
 			commitEdits();
-			ExerciseCtrl.createExercise(
+			Exercise exercise = ExerciseCtrl.buildExercise(
 					name.getText(),
 					exerciseType,
 					selectedEquipment,
 					getDuration(),
 					getSets(),
 					getReps());
+			ExerciseCtrl.addExercise(exercise);
 			JOptionPane.showMessageDialog(null,
 				    "Equipment Created Successfully",
 				    "Success",
