@@ -66,9 +66,8 @@ public final class CustomerCtrl {
 	}
 	
 	/**
-	 * 
-	 * Create customer instance to add to static list.
-	 * Collects all the information needed by the used classes.
+	 * Collects all the information needed by the used classes to create a new
+	 * Customer
 	 * 
 	 * @param firstName
 	 * @param lastName
@@ -82,10 +81,11 @@ public final class CustomerCtrl {
 	 * @param city
 	 * @param zipCode
 	 * @param type
+	 * @return new customer instance
 	 * 
 	 * @throws IllegalArgumentException if an empty string is passed
 	 */
-	public static void createCustomer(
+	public static Customer buildCustomer(
 			String firstName, // PersonInformation
 			String lastName,
 			String driversLicenseNumber,
@@ -115,11 +115,6 @@ public final class CustomerCtrl {
 					"Fields are empty. Please fill out all fields.");
 		}
 		
-		if (existsWithDLN(driversLicenseNumber)) {
-			throw new IllegalArgumentException(
-					"User already exists: drivers license is the same");
-		}
-		
 		Address address = new Address(
 				street1,
 				street2,
@@ -143,48 +138,42 @@ public final class CustomerCtrl {
 		// Create manager
 		Customer c = new Customer(personInfo);
 		
-		customers.add(c);
-		
-		// Save the state
-		saveState();
-		
+		return c;
 	}
 	
 	/**
+	 * Add customer instance to add to static list.
 	 * 
-	 * Create customer instance to add to static list.
-	 * Collects all the information needed by the used classes.
-	 * Replaces and existing customer entry in the static list.
+	 * @param customer
 	 * 
-	 * @param firstName
-	 * @param lastName
-	 * @param driversLicenseNumber
-	 * @param phone
-	 * @param email
-	 * @param healthInsuranceProviderName
-	 * @param street1
-	 * @param street2
-	 * @param provOrState
-	 * @param city
-	 * @param zipCode
-	 * @param type
+	 * @throws IllegalArgumentException if the give customer is a duplicate
+	 */
+	public static void addCustomer(
+			final Customer customer){
+		
+		if (existsWithDLN(customer.getPersonInfo().getDriversLicenseNumber())) {
+			throw new IllegalArgumentException(
+					"User already exists: drivers license is the same");
+		}
+		
+		customers.add(customer);
+		
+		// Save the state
+		saveState();
+	}
+	
+	/**
+	 * Replace an existing customer entry in the static list.
 	 * 
-	 * @throws IllegalArgumentException if an empty string is passed
+	 * @param newCustomer
+	 * @param existingCustomer
+	 * 
+	 * @throws IllegalArgumentException the existing customer can't be found
+	 * 		or the new customer is a duplicate
 	 */
 	public static void replaceCustomer(
-			String firstName, // PersonInformation
-			String lastName,
-			String driversLicenseNumber,
-			String phone,
-			String email,
-			String healthInsuranceProviderName, // HealthInsurance
-			String street1, // Address
-			String street2,
-			String provOrState,
-			String city,
-			String zipCode,
-			String type,
-			Customer existingCustomer){
+			final Customer newCustomer,
+			final Customer existingCustomer){
 		
 		if (existingCustomer == null ||
 				!customers.contains(existingCustomer)) {
@@ -192,54 +181,20 @@ public final class CustomerCtrl {
 					"Can't find the given customer.");
 		}
 		
-		// Throw if a required field is empty
-		if (firstName.isEmpty() ||
-				lastName.isEmpty() ||
-				driversLicenseNumber.isEmpty() ||
-				phone.isEmpty() ||
-				email.isEmpty() ||
-				healthInsuranceProviderName.isEmpty() ||
-				street1.isEmpty() ||
-				provOrState.isEmpty() ||
-				city.isEmpty() ||
-				zipCode.isEmpty() ||
-				type.isEmpty()) {
-			throw new IllegalArgumentException(
-					"Fields are empty. Please fill out all fields.");
-		}
-		
 		// Validate that given drivers license is not associated with another customer
-		if (!driversLicenseNumber.equals(existingCustomer.getPersonInfo().getDriversLicenseNumber()) &&
-				existsWithDLN(driversLicenseNumber)) {
+		if (!newCustomer.getPersonInfo().getDriversLicenseNumber().equals(
+				existingCustomer.getPersonInfo().getDriversLicenseNumber()
+				) &&
+				existsWithDLN(newCustomer.getPersonInfo().getDriversLicenseNumber())) {
 			throw new IllegalArgumentException(
 					"User already exists: drivers license is the same");
 		}
 		
-		Address address = new Address(
-				street1,
-				street2,
-				provOrState,
-				city,
-				zipCode,
-				type);
-		
-		HealthInsurance healthInsurance = new HealthInsurance(
-				healthInsuranceProviderName);
-		
-		PersonInformation personInfo = new PersonInformation(
-				firstName,
-				lastName,
-				driversLicenseNumber,
-				phone,
-				email,
-				healthInsurance,
-				address);
-		
 		// Create customer
 		int index = customers.indexOf(existingCustomer);
 		Customer currentCustomer = customers.get(index);
-		if (!personInfo.equals(currentCustomer.getPersonInfo())) {
-			currentCustomer.setPersonInfo(personInfo);
+		if (!newCustomer.getPersonInfo().equals(currentCustomer.getPersonInfo())) {
+			currentCustomer.setPersonInfo(newCustomer.getPersonInfo());
 		}
 		
 		customers.set(index, currentCustomer);
@@ -250,6 +205,7 @@ public final class CustomerCtrl {
 	}
 	
 	/**
+	 * Checks if the given drivers license number is already in the static list
 	 * 
 	 * @param driversLicenseNum
 	 * @return true of the given drivers license is associated with an existing
@@ -266,6 +222,17 @@ public final class CustomerCtrl {
 		return false;
 	}
 
+	/**
+	 * Gets a subset of the static list of customers based on the given search
+	 * information
+	 * 
+	 * @param firstName
+	 * @param lastName
+	 * @param phone
+	 * @param email
+	 * 
+	 * @return array of matching customers
+	 */
 	public static ArrayList<Customer> searchCustomers(
 			String firstName,
 			String lastName,
@@ -303,6 +270,14 @@ public final class CustomerCtrl {
 		return rtn;
 	}
 	
+	/**
+	 * Associates routines with a given customer
+	 * 
+	 * @param c, the customer getting assigned routines 
+	 * @param routines
+	 * 
+	 * @throws IllegalArgumentException if the given customer is invalid
+	 */
 	public static void assignRoutines(
 			Customer c,
 			ArrayList<Routine> routines) {
@@ -320,6 +295,10 @@ public final class CustomerCtrl {
 		saveState();
 	}
 	
+	/**
+	 * 
+	 * @return customers, data member
+	 */
 	public static final ArrayList<Customer> getCustomers() {
 		return customers;
 	}

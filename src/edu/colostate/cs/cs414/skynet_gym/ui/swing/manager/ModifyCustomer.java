@@ -39,7 +39,7 @@ public class ModifyCustomer extends CustomerAbs {
 	@Override
 	protected void submitPressed() {
 		try {
-			CustomerCtrl.replaceCustomer(
+			Customer c = CustomerCtrl.buildCustomer(
 					gNameFirst.getText(), // PersonInformation
 					gNameLast.getText(),
 					gDriversLicense.getText(),
@@ -51,7 +51,9 @@ public class ModifyCustomer extends CustomerAbs {
 					aStateProv.getText(),
 					aCity.getText(),
 					aZipcode.getText(),
-					aType.getText(),
+					aType.getText());
+			CustomerCtrl.replaceCustomer(
+					c,
 					customerOrig);
 			JOptionPane.showMessageDialog(null,
 				    "Customer Updated Successfully",

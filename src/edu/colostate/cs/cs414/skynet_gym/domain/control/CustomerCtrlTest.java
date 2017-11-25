@@ -75,7 +75,7 @@ public class CustomerCtrlTest {
 	@Test
 	public final void testCustomersExist() {
 		assertFalse(CustomerCtrl.customersExist());
-		CustomerCtrl.createCustomer(
+		Customer c = CustomerCtrl.buildCustomer(
 				firstName,
 				lastName,
 				driversLicenseNumber,
@@ -88,6 +88,7 @@ public class CustomerCtrlTest {
 				city,
 				zip,
 				type);
+		CustomerCtrl.addCustomer(c);
 		assertTrue(CustomerCtrl.customersExist());
 	}
 
@@ -97,7 +98,7 @@ public class CustomerCtrlTest {
 		// file does not exist so this is tries to load but fails
 		CustomerCtrl.initialize();
 		assertFalse(CustomerCtrl.customersExist());
-		CustomerCtrl.createCustomer(
+		Customer c = CustomerCtrl.buildCustomer(
 				firstName,
 				lastName,
 				driversLicenseNumber,
@@ -110,6 +111,7 @@ public class CustomerCtrlTest {
 				city,
 				zip,
 				type);
+		CustomerCtrl.addCustomer(c);
 		assertTrue(CustomerCtrl.customersExist());
 		// customers exists so this returns
 		CustomerCtrl.initialize();
@@ -117,9 +119,9 @@ public class CustomerCtrlTest {
 	}
 
 	@Test
-	public final void testCreateCustomer() {
+	public final void testAddCustomer() {
 		assertFalse(CustomerCtrl.customersExist());
-		CustomerCtrl.createCustomer(
+		Customer c = CustomerCtrl.buildCustomer(
 				firstName,
 				lastName,
 				driversLicenseNumber,
@@ -132,12 +134,13 @@ public class CustomerCtrlTest {
 				city,
 				zip,
 				type);
+		CustomerCtrl.addCustomer(c);
 		assertTrue(CustomerCtrl.customersExist());
 	}
 	
 	@Test
-	public final void testCreateCustomerDuplicateCheck() {
-		CustomerCtrl.createCustomer(
+	public final void testAddCustomerDuplicateCheck() {
+		Customer c = CustomerCtrl.buildCustomer(
 				firstName,
 				lastName,
 				driversLicenseNumber,
@@ -150,11 +153,12 @@ public class CustomerCtrlTest {
 				city,
 				zip,
 				type);
+		CustomerCtrl.addCustomer(c);
 		assertEquals(1, CustomerCtrl.asStringList().size());
 		
 		try {
 			// duplicated based on drivers license
-			CustomerCtrl.createCustomer(
+			Customer c2 = CustomerCtrl.buildCustomer(
 					"new",
 					"new",
 					driversLicenseNumber,
@@ -167,6 +171,7 @@ public class CustomerCtrlTest {
 					"new",
 					"new",
 					"new");
+			CustomerCtrl.addCustomer(c2);
 			fail("Expected to throw");
 		} catch (IllegalArgumentException e) {
 		}
@@ -174,11 +179,11 @@ public class CustomerCtrlTest {
 	}
 	
 	@Test
-	public final void testCreateCustomerEmptyFields() {
+	public final void testBuildCustomerEmptyFields() {
 		
 		try {
 			// empty field test
-			CustomerCtrl.createCustomer(
+			CustomerCtrl.buildCustomer(
 					"",
 					lastName,
 					"newDl",
@@ -198,7 +203,7 @@ public class CustomerCtrlTest {
 		
 		try {
 			// empty field test
-			CustomerCtrl.createCustomer(
+			CustomerCtrl.buildCustomer(
 					firstName,
 					"",
 					"newDl",
@@ -218,7 +223,7 @@ public class CustomerCtrlTest {
 		
 		try {
 			// empty field test
-			CustomerCtrl.createCustomer(
+			CustomerCtrl.buildCustomer(
 					firstName,
 					lastName,
 					"",
@@ -238,7 +243,7 @@ public class CustomerCtrlTest {
 		
 		try {
 			// empty field test
-			CustomerCtrl.createCustomer(
+			CustomerCtrl.buildCustomer(
 					firstName,
 					lastName,
 					"newDl",
@@ -258,7 +263,7 @@ public class CustomerCtrlTest {
 		
 		try {
 			// empty field test
-			CustomerCtrl.createCustomer(
+			CustomerCtrl.buildCustomer(
 					firstName,
 					lastName,
 					"newDl",
@@ -278,7 +283,7 @@ public class CustomerCtrlTest {
 		
 		try {
 			// empty field test
-			CustomerCtrl.createCustomer(
+			CustomerCtrl.buildCustomer(
 					firstName,
 					lastName,
 					"newDl",
@@ -298,7 +303,7 @@ public class CustomerCtrlTest {
 		
 		try {
 			// empty field test
-			CustomerCtrl.createCustomer(
+			CustomerCtrl.buildCustomer(
 					firstName,
 					lastName,
 					"newDl",
@@ -318,7 +323,7 @@ public class CustomerCtrlTest {
 		
 		try {
 			// empty field test
-			CustomerCtrl.createCustomer(
+			CustomerCtrl.buildCustomer(
 					firstName,
 					lastName,
 					"newDl",
@@ -338,7 +343,7 @@ public class CustomerCtrlTest {
 		
 		try {
 			// empty field test
-			CustomerCtrl.createCustomer(
+			CustomerCtrl.buildCustomer(
 					firstName,
 					lastName,
 					"newDl",
@@ -358,7 +363,7 @@ public class CustomerCtrlTest {
 		
 		try {
 			// empty field test
-			CustomerCtrl.createCustomer(
+			CustomerCtrl.buildCustomer(
 					firstName,
 					lastName,
 					"newDl",
@@ -378,7 +383,7 @@ public class CustomerCtrlTest {
 		
 		try {
 			// empty field test
-			CustomerCtrl.createCustomer(
+			CustomerCtrl.buildCustomer(
 					firstName,
 					lastName,
 					"newDl",
@@ -402,7 +407,7 @@ public class CustomerCtrlTest {
 		
 		try {
 			// empty field test
-			CustomerCtrl.createCustomer(
+			CustomerCtrl.buildCustomer(
 					firstName,
 					lastName,
 					"newDl",
@@ -418,15 +423,14 @@ public class CustomerCtrlTest {
 		} catch (IllegalArgumentException e) {
 			fail("Expected to NOT throw");
 		}
-		assertEquals(1, CustomerCtrl.asStringList().size());
+		assertEquals(0, CustomerCtrl.asStringList().size());
 		
 	}
 
 	@Test
 	public final void testReplaceCustomer() {
 		assertFalse(CustomerCtrl.customersExist());
-		Customer c = new Customer(pi);
-		CustomerCtrl.createCustomer(
+		Customer c = CustomerCtrl.buildCustomer(
 				firstName,
 				lastName,
 				driversLicenseNumber,
@@ -439,9 +443,10 @@ public class CustomerCtrlTest {
 				city,
 				zip,
 				type);
+		CustomerCtrl.addCustomer(c);
 		assertTrue(CustomerCtrl.customersExist());
 		
-		CustomerCtrl.replaceCustomer(
+		Customer c2 = CustomerCtrl.buildCustomer(
 				"newFirstName",
 				lastName,
 				driversLicenseNumber,
@@ -453,8 +458,10 @@ public class CustomerCtrlTest {
 				state,
 				city,
 				zip,
-				type,
-				c);
+				type);
+		CustomerCtrl.replaceCustomer(
+				c2,
+				CustomerCtrl.getCustomers().get(0));
 		
 		assertEquals("newFirstName",
 				CustomerCtrl.getCustomers()
@@ -466,50 +473,10 @@ public class CustomerCtrlTest {
 	@Test
 	public final void testReplaceCustomerNull() {
 		try {
-		CustomerCtrl.replaceCustomer(
-				firstName,
-				lastName,
-				driversLicenseNumber,
-				phone,
-				email,
-				hiN,
-				s1,
-				s2,
-				state,
-				city,
-				zip,
-				type,
-				null);
-			fail("Expected to throw");
-		} catch (IllegalArgumentException e) {
-		}
-	}
-	
-	@Test
-	public final void testReplaceCustomerEmptyFields() {
-		
-		Customer c = new Customer(pi);
-		CustomerCtrl.createCustomer(
-				firstName,
-				lastName,
-				driversLicenseNumber,
-				phone,
-				email,
-				hiN,
-				s1,
-				s2,
-				state,
-				city,
-				zip,
-				type);
-		assertTrue(CustomerCtrl.customersExist());
-		
-		try {
-			// empty field test
-			CustomerCtrl.replaceCustomer(
-					"",
+			Customer c = CustomerCtrl.buildCustomer(
+					firstName,
 					lastName,
-					"newDl",
+					driversLicenseNumber,
 					phone,
 					email,
 					hiN,
@@ -518,250 +485,18 @@ public class CustomerCtrlTest {
 					state,
 					city,
 					zip,
-					type,
-					c);
+					type);
+			CustomerCtrl.replaceCustomer(c, null);
 			fail("Expected to throw");
 		} catch (IllegalArgumentException e) {
 		}
-		assertEquals(1, CustomerCtrl.asStringList().size());
-		
-		try {
-			// empty field test
-			CustomerCtrl.replaceCustomer(
-					firstName,
-					"",
-					"newDl",
-					phone,
-					email,
-					hiN,
-					s1,
-					s2,
-					state,
-					city,
-					zip,
-					type,
-					c);
-			fail("Expected to throw");
-		} catch (IllegalArgumentException e) {
-		}
-		assertEquals(1, CustomerCtrl.asStringList().size());
-		
-		try {
-			// empty field test
-			CustomerCtrl.replaceCustomer(
-					firstName,
-					lastName,
-					"",
-					phone,
-					email,
-					hiN,
-					s1,
-					s2,
-					state,
-					city,
-					zip,
-					type,
-					c);
-			fail("Expected to throw");
-		} catch (IllegalArgumentException e) {
-		}
-		assertEquals(1, CustomerCtrl.asStringList().size());
-		
-		try {
-			// empty field test
-			CustomerCtrl.replaceCustomer(
-					firstName,
-					lastName,
-					"newDl",
-					"",
-					email,
-					hiN,
-					s1,
-					s2,
-					state,
-					city,
-					zip,
-					type,
-					c);
-			fail("Expected to throw");
-		} catch (IllegalArgumentException e) {
-		}
-		assertEquals(1, CustomerCtrl.asStringList().size());
-		
-		try {
-			// empty field test
-			CustomerCtrl.replaceCustomer(
-					firstName,
-					lastName,
-					"newDl",
-					phone,
-					"",
-					hiN,
-					s1,
-					s2,
-					state,
-					city,
-					zip,
-					type,
-					c);
-			fail("Expected to throw");
-		} catch (IllegalArgumentException e) {
-		}
-		assertEquals(1, CustomerCtrl.asStringList().size());
-		
-		try {
-			// empty field test
-			CustomerCtrl.replaceCustomer(
-					firstName,
-					lastName,
-					"newDl",
-					phone,
-					email,
-					"",
-					s1,
-					s2,
-					state,
-					city,
-					zip,
-					type,
-					c);
-			fail("Expected to throw");
-		} catch (IllegalArgumentException e) {
-		}
-		assertEquals(1, CustomerCtrl.asStringList().size());
-		
-		try {
-			// empty field test
-			CustomerCtrl.replaceCustomer(
-					firstName,
-					lastName,
-					"newDl",
-					phone,
-					email,
-					hiN,
-					"",
-					s2,
-					state,
-					city,
-					zip,
-					type,
-					c);
-			fail("Expected to throw");
-		} catch (IllegalArgumentException e) {
-		}
-		assertEquals(1, CustomerCtrl.asStringList().size());
-		
-		try {
-			// empty field test
-			CustomerCtrl.replaceCustomer(
-					firstName,
-					lastName,
-					"newDl",
-					phone,
-					email,
-					hiN,
-					s1,
-					"",
-					state,
-					city,
-					zip,
-					type,
-					c);
-		} catch (IllegalArgumentException e) {
-			fail("Expected to NOT throw");
-		}
-		assertEquals(1, CustomerCtrl.asStringList().size());
-		
-		try {
-			// empty field test
-			CustomerCtrl.replaceCustomer(
-					firstName,
-					lastName,
-					"newDl",
-					phone,
-					email,
-					hiN,
-					s1,
-					s2,
-					"",
-					city,
-					zip,
-					type,
-					c);
-			fail("Expected to throw");
-		} catch (IllegalArgumentException e) {
-		}
-		assertEquals(1, CustomerCtrl.asStringList().size());
-		
-		try {
-			// empty field test
-			CustomerCtrl.replaceCustomer(
-					firstName,
-					lastName,
-					"newDl",
-					phone,
-					email,
-					hiN,
-					s1,
-					s2,
-					state,
-					"",
-					zip,
-					type,
-					c);
-			fail("Expected to throw");
-		} catch (IllegalArgumentException e) {
-		}
-		assertEquals(1, CustomerCtrl.asStringList().size());
-		
-		try {
-			// empty field test
-			CustomerCtrl.replaceCustomer(
-					firstName,
-					lastName,
-					"newDl",
-					phone,
-					email,
-					hiN,
-					s1,
-					s2,
-					state,
-					city,
-					"",
-					type,
-					c);
-			fail("Expected to throw");
-		} catch (IllegalArgumentException e) {
-		}
-		assertEquals(1, CustomerCtrl.asStringList().size());
-		
-		try {
-			// empty field test
-			CustomerCtrl.replaceCustomer(
-					firstName,
-					lastName,
-					"newDl",
-					phone,
-					email,
-					hiN,
-					s1,
-					s2,
-					state,
-					city,
-					zip,
-					"",
-					c);
-			fail("Expected to throw");
-		} catch (IllegalArgumentException e) {
-		}
-		assertEquals(1, CustomerCtrl.asStringList().size());
 	}
 	
 	@Test
 	public final void testReplaceCustomerDLNDuplicate() {
 		
 		assertFalse(CustomerCtrl.customersExist());
-		CustomerCtrl.createCustomer(
+		Customer c = CustomerCtrl.buildCustomer(
 				firstName,
 				lastName,
 				driversLicenseNumber,
@@ -774,10 +509,11 @@ public class CustomerCtrlTest {
 				city,
 				zip,
 				type);
+		CustomerCtrl.addCustomer(c);
 		assertTrue(CustomerCtrl.customersExist());
 		assertEquals(1, CustomerCtrl.getCustomers().size());
 		
-		CustomerCtrl.createCustomer(
+		Customer c2 = CustomerCtrl.buildCustomer(
 				firstName,
 				lastName,
 				"DupDLN",
@@ -790,10 +526,11 @@ public class CustomerCtrlTest {
 				city,
 				zip,
 				type);
+		CustomerCtrl.addCustomer(c2);
 		assertEquals(2, CustomerCtrl.getCustomers().size());
 		
 		try {
-			CustomerCtrl.replaceCustomer(
+			Customer c3 = CustomerCtrl.buildCustomer(
 					firstName,
 					lastName,
 					"DupDLN",
@@ -805,7 +542,9 @@ public class CustomerCtrlTest {
 					state,
 					city,
 					zip,
-					type,
+					type);
+			CustomerCtrl.replaceCustomer(
+					c3, 
 					CustomerCtrl.getCustomers().get(0));
 			fail("Expected to throw");
 		} catch (IllegalArgumentException e) {
@@ -816,7 +555,7 @@ public class CustomerCtrlTest {
 	@Test
 	public final void testExistsWithDLN() {
 		assertFalse(CustomerCtrl.customersExist());
-		CustomerCtrl.createCustomer(
+		Customer c = CustomerCtrl.buildCustomer(
 				firstName,
 				lastName,
 				driversLicenseNumber,
@@ -829,6 +568,7 @@ public class CustomerCtrlTest {
 				city,
 				zip,
 				type);
+		CustomerCtrl.addCustomer(c);
 		assertTrue(CustomerCtrl.customersExist());
 		assertEquals(1, CustomerCtrl.getCustomers().size());
 		assertTrue(CustomerCtrl.existsWithDLN(driversLicenseNumber));
@@ -837,7 +577,7 @@ public class CustomerCtrlTest {
 	@Test
 	public final void testSearchCustomers() {
 		assertFalse(CustomerCtrl.customersExist());
-		CustomerCtrl.createCustomer(
+		Customer c = CustomerCtrl.buildCustomer(
 				"aac",
 				"aac",
 				"d1",
@@ -850,10 +590,11 @@ public class CustomerCtrlTest {
 				city,
 				zip,
 				type);
+		CustomerCtrl.addCustomer(c);
 		assertTrue(CustomerCtrl.customersExist());
 		assertEquals(1, CustomerCtrl.getCustomers().size());
 		
-		CustomerCtrl.createCustomer(
+		Customer c2 = CustomerCtrl.buildCustomer(
 				"abc",
 				"abc",
 				"d2",
@@ -866,6 +607,7 @@ public class CustomerCtrlTest {
 				city,
 				zip,
 				type);
+		CustomerCtrl.addCustomer(c2);
 		assertEquals(2, CustomerCtrl.getCustomers().size());
 		
 		assertEquals(2, CustomerCtrl.searchCustomers(
@@ -923,7 +665,7 @@ public class CustomerCtrlTest {
 	
 	@Test
 	public final void testAssignRoutines() {
-		CustomerCtrl.createCustomer(
+		Customer c = CustomerCtrl.buildCustomer(
 				firstName,
 				lastName,
 				driversLicenseNumber,
@@ -936,6 +678,7 @@ public class CustomerCtrlTest {
 				city,
 				zip,
 				type);
+		CustomerCtrl.addCustomer(c);
 		assertTrue(CustomerCtrl.customersExist());
 		ArrayList<Routine> rts = new ArrayList<Routine>();
 		rts.add(routine);
@@ -951,7 +694,7 @@ public class CustomerCtrlTest {
 	
 	@Test
 	public final void testAssignRoutinesInvalid() {
-		CustomerCtrl.createCustomer(
+		Customer c = CustomerCtrl.buildCustomer(
 				firstName,
 				lastName,
 				driversLicenseNumber,
@@ -964,22 +707,28 @@ public class CustomerCtrlTest {
 				city,
 				zip,
 				type);
+		CustomerCtrl.addCustomer(c);
 		assertTrue(CustomerCtrl.customersExist());
 		ArrayList<Routine> rts = new ArrayList<Routine>();
 		rts.add(routine);
 		
-		Customer c = new Customer(new PersonInformation(
+		Customer c2 = CustomerCtrl.buildCustomer(
 				"newName",
 				lastName,
 				driversLicenseNumber,
 				phone,
 				email,
-				hi,
-				address));
+				hiN,
+				s1,
+				s2,
+				state,
+				city,
+				zip,
+				type);
 		
 		try {
 			CustomerCtrl.assignRoutines(
-					c,
+					c2,
 					rts);
 			fail("Expected to throw");
 		} catch (IllegalArgumentException e) {
@@ -989,7 +738,7 @@ public class CustomerCtrlTest {
 	
 	@Test
 	public final void testAssignRoutinesNull() {
-		CustomerCtrl.createCustomer(
+		Customer c = CustomerCtrl.buildCustomer(
 				firstName,
 				lastName,
 				driversLicenseNumber,
@@ -1002,6 +751,7 @@ public class CustomerCtrlTest {
 				city,
 				zip,
 				type);
+		CustomerCtrl.addCustomer(c);
 		assertTrue(CustomerCtrl.customersExist());
 		
 		assertEquals(0, CustomerCtrl.getCustomers().get(0).getRoutines().size());
