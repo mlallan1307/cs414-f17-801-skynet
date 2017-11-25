@@ -4,6 +4,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 
 import edu.colostate.cs.cs414.skynet_gym.domain.control.RoutineCtrl;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.Routine;
 import edu.colostate.cs.cs414.skynet_gym.ui.swing.common.RoutineAbs;
 
 /**
@@ -31,9 +32,10 @@ public class CreateRoutine extends RoutineAbs {
 	@Override
 	protected void submitPressed() {
 		try {
-			RoutineCtrl.createRoutine(
+			Routine routine = RoutineCtrl.buildRoutine(
 					name.getText(),
 					selectedExercises);
+			RoutineCtrl.addRoutine(routine);
 			JOptionPane.showMessageDialog(null,
 				    "Routine Created Successfully",
 				    "Success",

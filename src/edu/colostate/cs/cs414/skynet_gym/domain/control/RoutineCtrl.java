@@ -63,27 +63,21 @@ public final class RoutineCtrl {
 	}
 	
 	/**
-	 * 
-	 * Create Routine to add to static list.
-	 * Collects all the information needed by the used classes.
+	 * Collects all the information needed by the used classes to create a new
+	 * Routine
 	 * 
 	 * @param name
 	 * @param exercises
-	 * 
-	 * @throws IllegalArgumentException if given invalid argument
+	 * @param existingRoutine
+	 * @return new Routine
 	 */
-	public static void createRoutine(
+	public static Routine buildRoutine(
 			String name,
 			ArrayList<Exercise> exercises){
 		
-		// Throw if a required field is invalid
 		if (name.isEmpty()) {
 			throw new IllegalArgumentException(
 					"Invalid: The name field is empty.");
-		}
-		if (existsWithName(name)) {
-			throw new IllegalArgumentException(
-					"Invalid: An Exercise with that name already exists");
 		}
 		if (exercises == null){
 			throw new IllegalArgumentException(
@@ -94,7 +88,25 @@ public final class RoutineCtrl {
 				name,
 				exercises);
 		
-		routines.add(r);
+		return r;
+	};
+	
+	/**
+	 * Add Routine to add to static list.
+	 * 
+	 * @param routine the routine to add
+	 * 
+	 * @throws IllegalArgumentException if given routine is a duplicate
+	 */
+	public static void addRoutine(
+			final Routine routine){
+		
+		if (existsWithName(routine.getName())) {
+			throw new IllegalArgumentException(
+					"Invalid: An Exercise with that name already exists");
+		}
+		
+		routines.add(routine);
 		
 		// Save the state
 		saveState();
@@ -102,35 +114,16 @@ public final class RoutineCtrl {
 	}
 	
 	/**
-	 * 
-	 * Create exercise to add to static list.
-	 * Collects all the information needed by the used classes.
 	 * Replaces an existing exercise in the static list.
 	 * 
-	 * @param name
-	 * @param exerciseType
-	 * @param equipment
-	 * @param duration
-	 * @param numberOfSets
-	 * @param repsPerSet
+	 * @param routine the replacement routine
 	 * @param existingExercise
 	 * 
 	 * @throws IllegalArgumentException if given invalid argument
 	 */
 	public static void replaceRoutine(
-			String name,
-			ArrayList<Exercise> exercises,
-			Routine existingRoutine){
-	
-		// Throw if a required field is invalid
-		if (name.isEmpty()) {
-			throw new IllegalArgumentException(
-					"Invalid: The name field is empty.");
-		}
-		if (exercises == null){
-			throw new IllegalArgumentException(
-					"Invalid: exercise list is null");
-		}
+			final Routine routine,
+			final Routine existingRoutine){
 		
 		if (existingRoutine == null ||
 				!routines.contains(existingRoutine)) {
@@ -139,8 +132,8 @@ public final class RoutineCtrl {
 		}
 		
 		// Validate that given name is not associated with another routine
-		if (!name.equals(existingRoutine.getName()) &&
-				existsWithName(name)) {
+		if (!routine.getName().equals(existingRoutine.getName()) &&
+				existsWithName(routine.getName())) {
 			throw new IllegalArgumentException(
 					"A Routine with that name already exists");
 		}
@@ -148,11 +141,11 @@ public final class RoutineCtrl {
 		// Update routines
 		int index = routines.indexOf(existingRoutine);
 		Routine updatedRoutine = routines.get(index);
-		if (!name.equals(existingRoutine.getName())) {
-			updatedRoutine.setName(name);
+		if (!routine.getName().equals(existingRoutine.getName())) {
+			updatedRoutine.setName(routine.getName());
 		}
-		if (!existingRoutine.getExercises().equals(exercises)) {
-			updatedRoutine.setExercises(exercises);
+		if (!existingRoutine.getExercises().equals(routine.getExercises())) {
+			updatedRoutine.setExercises(routine.getExercises());
 		}
 		
 		routines.set(index, updatedRoutine);

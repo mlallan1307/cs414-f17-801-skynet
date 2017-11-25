@@ -16,6 +16,7 @@ import org.junit.Test;
 import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.Equipment;
 import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.Exercise;
 import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.ExerciseTypeIf;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.Routine;
 import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.SetBasedExercise;
 
 public class RoutineCtrlTest {
@@ -74,9 +75,10 @@ public class RoutineCtrlTest {
 	@Test
 	public final void testRoutineExist() {
 		assertFalse(RoutineCtrl.routinesExist());
-		RoutineCtrl.createRoutine(
+		Routine r = RoutineCtrl.buildRoutine(
 				name,
 				ale);
+		RoutineCtrl.addRoutine(r);
 		assertTrue(RoutineCtrl.routinesExist());
 	}
 
@@ -86,9 +88,10 @@ public class RoutineCtrlTest {
 		// file does not exist so this is tries to load but fails
 		RoutineCtrl.initialize();
 		assertFalse(RoutineCtrl.routinesExist());
-		RoutineCtrl.createRoutine(
+		Routine r = RoutineCtrl.buildRoutine(
 				name,
 				ale);
+		RoutineCtrl.addRoutine(r);
 		assertTrue(RoutineCtrl.routinesExist());
 		// equipment exists so this returns
 		RoutineCtrl.initialize();
@@ -96,30 +99,34 @@ public class RoutineCtrlTest {
 	}
 
 	@Test
-	public final void testCreateRoutine() {
+	public final void testBuildRoutine() {
 		assertFalse(RoutineCtrl.routinesExist());
-		RoutineCtrl.createRoutine(
+		Routine r = RoutineCtrl.buildRoutine(
 				name,
 				ale);
+		RoutineCtrl.addRoutine(r);
 		assertEquals(1, RoutineCtrl.getRoutines().size());
-		RoutineCtrl.createRoutine(
+		Routine r2 = RoutineCtrl.buildRoutine(
 				"newName",
 				ale);
+		RoutineCtrl.addRoutine(r2);
 		assertEquals(2, RoutineCtrl.getRoutines().size());
 	}
 	
 	@Test
 	public final void testCreateRoutineDuplicateCheck() {
-		RoutineCtrl.createRoutine(
+		Routine r = RoutineCtrl.buildRoutine(
 				name,
 				ale);
+		RoutineCtrl.addRoutine(r);
 		assertEquals(1, RoutineCtrl.getRoutines().size());
 		
 		try {
 			// duplicated based on name
-			RoutineCtrl.createRoutine(
+			Routine r2 = RoutineCtrl.buildRoutine(
 					name,
 					ale);
+			RoutineCtrl.addRoutine(r2);
 			fail("Expected to throw");
 		} catch (IllegalArgumentException e) {
 		}
@@ -127,11 +134,11 @@ public class RoutineCtrlTest {
 	}
 	
 	@Test
-	public final void testCreateRoutineEmptyFields() {
+	public final void testBuildRoutineEmptyFields() {
 		
 		try {
 			// empty field test
-			RoutineCtrl.createRoutine(
+			RoutineCtrl.buildRoutine(
 					"",
 					ale);
 			fail("Expected to throw");
@@ -146,7 +153,7 @@ public class RoutineCtrlTest {
 		assertEquals(0, RoutineCtrl.getRoutines().size());
 		try {
 			// Duration 0
-			RoutineCtrl.createRoutine(
+			RoutineCtrl.buildRoutine(
 					name,
 					null);
 			fail("Expected to throw");
@@ -159,14 +166,17 @@ public class RoutineCtrlTest {
 	@Test
 	public final void testReplaceRoutine() {
 		assertFalse(RoutineCtrl.routinesExist());
-		RoutineCtrl.createRoutine(
+		Routine r = RoutineCtrl.buildRoutine(
 				name,
 				ale);
+		RoutineCtrl.addRoutine(r);
 		assertTrue(RoutineCtrl.routinesExist());
 		
-		RoutineCtrl.replaceRoutine(
+		Routine r2 = RoutineCtrl.buildRoutine(
 				"newName",
-				ale,
+				ale);
+		RoutineCtrl.replaceRoutine(
+				r2, 
 				RoutineCtrl.getRoutines().get(0));
 		
 		assertEquals("newName",
@@ -178,9 +188,11 @@ public class RoutineCtrlTest {
 		ale.add(new Exercise("newExName", exerciseInfo));
 		assertEquals(2, ale.size());
 		
-		RoutineCtrl.replaceRoutine(
+		Routine r3 = RoutineCtrl.buildRoutine(
 				"newName",
-				ale,
+				ale);
+		RoutineCtrl.replaceRoutine(
+				r3, 
 				RoutineCtrl.getRoutines().get(0));
 		
 		assertEquals(2,
@@ -192,69 +204,40 @@ public class RoutineCtrlTest {
 	@Test
 	public final void testReplaceRoutineNull() {
 		try {
-			RoutineCtrl.replaceRoutine(
+			Routine r = RoutineCtrl.buildRoutine(
 					name,
-					ale,
+					ale);
+			RoutineCtrl.replaceRoutine(
+					r, 
 					null);
 			fail("Expected to throw");
 		} catch (IllegalArgumentException e) {
 		}
-		
-		RoutineCtrl.createRoutine(
-				name,
-				ale);
-		assertTrue(RoutineCtrl.routinesExist());
-		
-		try {
-			RoutineCtrl.replaceRoutine(
-					name,
-					null,
-					RoutineCtrl.getRoutines().get(0));
-			fail("Expected to throw");
-		} catch (IllegalArgumentException e) {
-		}
-	}
-	
-	@Test
-	public final void testReplaceRoutineEmptyFields() {
-		
-		RoutineCtrl.createRoutine(
-				name,
-				ale);
-		assertTrue(RoutineCtrl.routinesExist());
-		
-		try {
-			// empty field test
-			RoutineCtrl.replaceRoutine(
-					"",
-					ale,
-					RoutineCtrl.getRoutines().get(0));
-			fail("Expected to throw");
-		} catch (IllegalArgumentException e) {
-		}
-		assertEquals(1, RoutineCtrl.getRoutines().size());
-		
 	}
 	
 	@Test
 	public final void testReplaceRoutineNameDuplicate() {
 		
 		assertFalse(RoutineCtrl.routinesExist());
-		RoutineCtrl.createRoutine(
+		Routine r = RoutineCtrl.buildRoutine(
 				name,
 				ale);
+		RoutineCtrl.addRoutine(r);
 		assertTrue(RoutineCtrl.routinesExist());
 		assertEquals(1, RoutineCtrl.getRoutines().size());
 		
-		RoutineCtrl.createRoutine(
+		Routine r2 = RoutineCtrl.buildRoutine(
 				"nameDup",
 				ale);
+		RoutineCtrl.addRoutine(r2);
 		assertEquals(2, RoutineCtrl.getRoutines().size());
 		
 		try {
-			RoutineCtrl.replaceRoutine(
+			Routine r3 = RoutineCtrl.buildRoutine(
 					"nameDup",
-					ale,
+					ale);
+			RoutineCtrl.replaceRoutine(
+					r3,
 					RoutineCtrl.getRoutines().get(0));
 			fail("Expected to throw");
 		} catch (IllegalArgumentException e) {
@@ -265,9 +248,10 @@ public class RoutineCtrlTest {
 	@Test
 	public final void testExistsWithName() {
 		assertFalse(RoutineCtrl.routinesExist());
-		RoutineCtrl.createRoutine(
+		Routine r = RoutineCtrl.buildRoutine(
 				name,
 				ale);
+		RoutineCtrl.addRoutine(r);
 		assertTrue(RoutineCtrl.routinesExist());
 		assertEquals(1, RoutineCtrl.getRoutines().size());
 		assertTrue(RoutineCtrl.existsWithName(name));
@@ -277,15 +261,17 @@ public class RoutineCtrlTest {
 	@Test
 	public final void testSearchRoutine() {
 		assertFalse(RoutineCtrl.routinesExist());
-		RoutineCtrl.createRoutine(
+		Routine r = RoutineCtrl.buildRoutine(
 				"aab",
 				ale);
+		RoutineCtrl.addRoutine(r);
 		assertTrue(RoutineCtrl.routinesExist());
 		assertEquals(1, RoutineCtrl.getRoutines().size());
 		
-		RoutineCtrl.createRoutine(
+		Routine r2= RoutineCtrl.buildRoutine(
 				"abc",
 				ale);
+		RoutineCtrl.addRoutine(r2);
 		assertEquals(2, RoutineCtrl.getRoutines().size());
 		
 		assertEquals(2, RoutineCtrl.searchRoutines(
