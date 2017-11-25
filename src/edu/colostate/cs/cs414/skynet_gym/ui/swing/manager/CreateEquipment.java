@@ -4,6 +4,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 
 import edu.colostate.cs.cs414.skynet_gym.domain.control.EquipmentCtrl;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.Equipment;
 import edu.colostate.cs.cs414.skynet_gym.ui.swing.common.EquipmentAbs;
 
 /**
@@ -31,10 +32,11 @@ public class CreateEquipment extends EquipmentAbs {
 	@Override
 	protected void submitPressed() {
 		try {
-			EquipmentCtrl.createEquipment(
+			Equipment eq = EquipmentCtrl.buildEquipment(
 					name.getText(),
 					Integer.parseInt(quantity.getValue().toString()),
 					picture);
+			EquipmentCtrl.addEquipment(eq);
 			JOptionPane.showMessageDialog(null,
 				    "Equipment Created Successfully",
 				    "Success",

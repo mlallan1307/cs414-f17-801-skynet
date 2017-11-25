@@ -47,10 +47,11 @@ public class EquipmentCtrlTest {
 	@Test
 	public final void testEquipmentExist() {
 		assertFalse(EquipmentCtrl.equipmentExists());
-		EquipmentCtrl.createEquipment(
+		Equipment eq = EquipmentCtrl.buildEquipment(
 				name,
 				quantity,
 				picture);
+		EquipmentCtrl.addEquipment(eq);
 		assertTrue(EquipmentCtrl.equipmentExists());
 	}
 
@@ -60,10 +61,11 @@ public class EquipmentCtrlTest {
 		// file does not exist so this is tries to load but fails
 		EquipmentCtrl.initialize();
 		assertFalse(EquipmentCtrl.equipmentExists());
-		EquipmentCtrl.createEquipment(
+		Equipment eq = EquipmentCtrl.buildEquipment(
 				name,
 				quantity,
 				picture);
+		EquipmentCtrl.addEquipment(eq);
 		assertTrue(EquipmentCtrl.equipmentExists());
 		// equipment exists so this returns
 		EquipmentCtrl.initialize();
@@ -71,29 +73,32 @@ public class EquipmentCtrlTest {
 	}
 
 	@Test
-	public final void testCreateEquipment() {
+	public final void testBuildEquipment() {
 		assertFalse(EquipmentCtrl.equipmentExists());
-		EquipmentCtrl.createEquipment(
+		Equipment eq = EquipmentCtrl.buildEquipment(
 				name,
 				quantity,
 				picture);
+		EquipmentCtrl.addEquipment(eq);
 		assertTrue(EquipmentCtrl.equipmentExists());
 	}
 	
 	@Test
-	public final void testCreateEquipmentDuplicateCheck() {
-		EquipmentCtrl.createEquipment(
+	public final void testAddEquipmentDuplicateCheck() {
+		Equipment eq = EquipmentCtrl.buildEquipment(
 				name,
 				quantity,
 				picture);
+		EquipmentCtrl.addEquipment(eq);
 		assertEquals(1, EquipmentCtrl.asStringList().size());
 		
 		try {
 			// duplicated based on name
-			EquipmentCtrl.createEquipment(
+			Equipment eq2 = EquipmentCtrl.buildEquipment(
 					name,
 					1,
 					picture);
+			EquipmentCtrl.addEquipment(eq2);
 			fail("Expected to throw");
 		} catch (IllegalArgumentException e) {
 		}
@@ -101,11 +106,11 @@ public class EquipmentCtrlTest {
 	}
 	
 	@Test
-	public final void testCreateEquipmentEmptyFields() {
+	public final void testBuildEquipmentEmptyFields() {
 		
 		try {
 			// empty field test
-			EquipmentCtrl.createEquipment(
+			EquipmentCtrl.buildEquipment(
 					"",
 					1,
 					picture);
@@ -116,7 +121,7 @@ public class EquipmentCtrlTest {
 		
 		try {
 			// default negative
-			EquipmentCtrl.createEquipment(
+			EquipmentCtrl.buildEquipment(
 					name,
 					-1,
 					picture);
@@ -127,7 +132,7 @@ public class EquipmentCtrlTest {
 		
 		try {
 			// file non-existant
-			EquipmentCtrl.createEquipment(
+			EquipmentCtrl.buildEquipment(
 					name,
 					quantity,
 					new File("doesNotExist"));
@@ -139,11 +144,11 @@ public class EquipmentCtrlTest {
 	}
 	
 	@Test
-	public final void testCreateEquipmentNull() {
+	public final void testBuildEquipmentNull() {
 		assertEquals(0, EquipmentCtrl.asStringList().size());
 		try {
 			// file null
-			EquipmentCtrl.createEquipment(
+			EquipmentCtrl.buildEquipment(
 					name,
 					quantity,
 					null);
@@ -156,31 +161,32 @@ public class EquipmentCtrlTest {
 	@Test
 	public final void testReplaceEquipment() {
 		assertFalse(EquipmentCtrl.equipmentExists());
-		Equipment eq = new Equipment(
+		Equipment eq = EquipmentCtrl.buildEquipment(
 				name,
 				quantity,
 				picture);
-		EquipmentCtrl.createEquipment(
-				name,
-				quantity,
-				picture);
+		EquipmentCtrl.addEquipment(eq);
 		assertTrue(EquipmentCtrl.equipmentExists());
 		
-		EquipmentCtrl.replaceEquipment(
+		Equipment eq2 = EquipmentCtrl.buildEquipment(
 				"newName",
 				quantity,
-				picture,
-				eq);
+				picture);
+		EquipmentCtrl.replaceEquipment(
+				eq2,
+				EquipmentCtrl.getEquipment().get(0));
 		
 		assertEquals("newName",
 				EquipmentCtrl.getEquipment()
 						.get(0)
 						.getName());
 		
-		EquipmentCtrl.replaceEquipment(
+		Equipment eq3 = EquipmentCtrl.buildEquipment(
 				"newName",
 				quantity+1,
-				picture,
+				picture);
+		EquipmentCtrl.replaceEquipment(
+				eq3,
 				EquipmentCtrl.getEquipment().get(0));
 		
 		assertEquals(quantity+1,
@@ -192,10 +198,12 @@ public class EquipmentCtrlTest {
 	@Test
 	public final void testReplaceEquipmentNull() {
 		try {
+			Equipment eq = EquipmentCtrl.buildEquipment(
+					name,
+					quantity,
+					picture);
 			EquipmentCtrl.replaceEquipment(
-				name,
-				quantity,
-				picture,
+				eq,
 				null);
 			fail("Expected to throw");
 		} catch (IllegalArgumentException e) {
@@ -203,78 +211,27 @@ public class EquipmentCtrlTest {
 	}
 	
 	@Test
-	public final void testReplaceEquipmentEmptyFields() {
-		
-		Equipment eq = new Equipment(
-				name,
-				quantity,
-				picture);
-		EquipmentCtrl.createEquipment(
-				name,
-				quantity,
-				picture);
-		assertTrue(EquipmentCtrl.equipmentExists());
-		
-		try {
-			// empty field test
-			EquipmentCtrl.replaceEquipment(
-					"",
-					quantity,
-					picture,
-					eq);
-			fail("Expected to throw");
-		} catch (IllegalArgumentException e) {
-		}
-		assertEquals(1, EquipmentCtrl.asStringList().size());
-		
-		try {
-			// empty field test
-			EquipmentCtrl.replaceEquipment(
-					name,
-					-1,
-					picture,
-					eq);
-			fail("Expected to throw");
-		} catch (IllegalArgumentException e) {
-		}
-		assertEquals(1, EquipmentCtrl.asStringList().size());
-		
-		try {
-			// empty field test
-			EquipmentCtrl.replaceEquipment(
-					name,
-					quantity,
-					new File("doesNotExist"),
-					eq);
-			fail("Expected to throw");
-		} catch (IllegalArgumentException e) {
-		}
-		assertEquals(1, EquipmentCtrl.asStringList().size());
-		
-	}
-	
-	@Test
 	public final void testReplaceEquipmentNameDuplicate() {
 		
 		assertFalse(EquipmentCtrl.equipmentExists());
-		EquipmentCtrl.createEquipment(
+		Equipment eq = EquipmentCtrl.buildEquipment(
 				name,
 				quantity,
 				picture);
+		EquipmentCtrl.addEquipment(eq);
 		assertTrue(EquipmentCtrl.equipmentExists());
 		assertEquals(1, EquipmentCtrl.getEquipment().size());
 		
-		EquipmentCtrl.createEquipment(
+		Equipment eq2 = EquipmentCtrl.buildEquipment(
 				"nameDup",
 				quantity,
 				picture);
+		EquipmentCtrl.addEquipment(eq2);
 		assertEquals(2, EquipmentCtrl.getEquipment().size());
 		
 		try {
 			EquipmentCtrl.replaceEquipment(
-					"nameDup",
-					quantity,
-					picture,
+					eq2,
 					EquipmentCtrl.getEquipment().get(0));
 			fail("Expected to throw");
 		} catch (IllegalArgumentException e) {
@@ -285,10 +242,11 @@ public class EquipmentCtrlTest {
 	@Test
 	public final void testExistsWithName() {
 		assertFalse(EquipmentCtrl.equipmentExists());
-		EquipmentCtrl.createEquipment(
+		Equipment eq = EquipmentCtrl.buildEquipment(
 				name,
 				quantity,
 				picture);
+		EquipmentCtrl.addEquipment(eq);
 		assertTrue(EquipmentCtrl.equipmentExists());
 		assertEquals(1, EquipmentCtrl.getEquipment().size());
 		assertTrue(EquipmentCtrl.existsWithName(name));
@@ -298,17 +256,19 @@ public class EquipmentCtrlTest {
 	@Test
 	public final void testSearchEquipment() {
 		assertFalse(EquipmentCtrl.equipmentExists());
-		EquipmentCtrl.createEquipment(
+		Equipment eq = EquipmentCtrl.buildEquipment(
 				"aab",
 				1,
 				picture);
+		EquipmentCtrl.addEquipment(eq);
 		assertTrue(EquipmentCtrl.equipmentExists());
 		assertEquals(1, EquipmentCtrl.getEquipment().size());
 		
-		EquipmentCtrl.createEquipment(
+		Equipment eq2 = EquipmentCtrl.buildEquipment(
 				"abc",
 				2,
 				picture);
+		EquipmentCtrl.addEquipment(eq2);
 		assertEquals(2, EquipmentCtrl.getEquipment().size());
 		
 		assertEquals(2, EquipmentCtrl.searchEquipment(

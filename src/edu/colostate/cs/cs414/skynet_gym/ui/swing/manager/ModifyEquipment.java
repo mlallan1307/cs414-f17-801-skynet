@@ -40,10 +40,12 @@ public class ModifyEquipment extends EquipmentAbs {
 	@Override
 	protected void submitPressed() {
 		try {
-			EquipmentCtrl.replaceEquipment(
+			Equipment eq = EquipmentCtrl.buildEquipment(
 					name.getText(),
 					Integer.parseInt(quantity.getValue().toString()),
-					picture,
+					picture);
+			EquipmentCtrl.replaceEquipment(
+					eq,
 					equipmentOrig);
 			JOptionPane.showMessageDialog(null,
 				    "Customer Updated Successfully",
