@@ -26,14 +26,7 @@ public class SetBasedExercise implements ExerciseTypeIf {
 	}
 	
 	@Override
-	public String toString() {
-		return (this.type.name() + ":" +
-				String.valueOf(this.numberOfSets) + ":" +
-				String.valueOf(this.numberOfRepetitions));
-	}
-	
-	@Override
-	public boolean equals(Object o){
+	public boolean equals(Object o) {
 		try {
 			return (this.toString().equals(SetBasedExercise.class.cast(o).toString()));
 		} catch (java.lang.ClassCastException e) {
@@ -41,6 +34,23 @@ public class SetBasedExercise implements ExerciseTypeIf {
 		} catch (java.lang.NullPointerException e) {
 			return false;
 		}
+	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + numberOfRepetitions;
+		result = prime * result + numberOfSets;
+		result = prime * result + ((type == null) ? 0 : type.hashCode());
+		return result;
+	}
+	
+	@Override
+	public String toString() {
+		return (this.type.name() + ":" +
+				String.valueOf(this.numberOfSets) + ":" +
+				String.valueOf(this.numberOfRepetitions));
 	}
 
 	/**

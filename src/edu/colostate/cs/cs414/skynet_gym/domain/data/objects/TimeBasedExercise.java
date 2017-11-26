@@ -23,12 +23,6 @@ public class TimeBasedExercise implements ExerciseTypeIf {
 	}
 	
 	@Override
-	public String toString() {
-		return (this.type.name() + ":" +
-				this.duration.toString());
-	}
-	
-	@Override
 	public boolean equals(Object o){
 		try {
 			return (this.toString().equals(TimeBasedExercise.class.cast(o).toString()));
@@ -37,6 +31,22 @@ public class TimeBasedExercise implements ExerciseTypeIf {
 		} catch (java.lang.NullPointerException e) {
 			return false;
 		}
+	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((duration == null) ? 0 : duration.hashCode());
+		result = prime * result + ((type == null) ? 0 : type.hashCode());
+		return result;
+	}
+	
+	@Override
+	public String toString() {
+		return (this.type.name() + ":" +
+				this.duration.toString());
 	}
 
 	/**

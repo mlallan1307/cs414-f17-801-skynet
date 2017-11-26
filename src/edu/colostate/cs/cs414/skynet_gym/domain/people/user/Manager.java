@@ -28,11 +28,6 @@ public class Manager extends User implements Serializable {
 	}
 	
 	@Override
-	public String toString() {
-		return (super.toString());
-	}
-	
-	@Override
 	public boolean equals(Object o){
 		try {
 			return (this.toString().equals(Manager.class.cast(o).toString()));
@@ -41,6 +36,16 @@ public class Manager extends User implements Serializable {
 		} catch (java.lang.NullPointerException e) {
 			return false;
 		}
+	}
+	
+	@Override
+	public int hashCode() {
+		return (super.hashCode());
+	}
+	
+	@Override
+	public String toString() {
+		return (super.toString());
 	}
 
 }

@@ -49,6 +49,20 @@ public class TimePeriod implements Serializable{
 			return false;
 		}
 	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((startDay == null) ? 0 : startDay.hashCode());
+		result = prime * result
+				+ ((startTime == null) ? 0 : startTime.hashCode());
+		result = prime * result + ((stopDay == null) ? 0 : stopDay.hashCode());
+		result = prime * result
+				+ ((stopTime == null) ? 0 : stopTime.hashCode());
+		return result;
+	}
 
 	@Override
 	public String toString() {

@@ -22,11 +22,7 @@ public class Qualification implements Serializable {
 		this.setDescription(description);
 	}
 	
-	public String toString() {
-		return (this.description + ":" +
-				this.name);
-	}
-	
+	@Override
 	public boolean equals(Object o){
 		try {
 			return (this.toString().equals(Qualification.class.cast(o).toString()));
@@ -35,6 +31,22 @@ public class Qualification implements Serializable {
 		} catch (java.lang.NullPointerException e) {
 			return false;
 		}
+	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((description == null) ? 0 : description.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		return result;
+	}
+	
+	@Override
+	public String toString() {
+		return (this.description + ":" +
+				this.name);
 	}
 
 	/**

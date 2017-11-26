@@ -47,6 +47,29 @@ public class Exercise implements Serializable {
 	}
 	
 	@Override
+	public boolean equals(Object o){
+		try {
+			return (this.toString().equals(Exercise.class.cast(o).toString()));
+		} catch (java.lang.ClassCastException e) {
+			return false;
+		} catch (java.lang.NullPointerException e) {
+			return false;
+		}
+	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((equipment == null) ? 0 : equipment.hashCode());
+		result = prime * result
+				+ ((exerciseInfo == null) ? 0 : exerciseInfo.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		return result;
+	}
+	
+	@Override
 	public String toString() {
 		String rtn = (this.name + ":");
 		if (this.equipment != null) {
@@ -59,17 +82,6 @@ public class Exercise implements Serializable {
 	public String toStringShort() {
 		return (this.name + " " +
 				String.valueOf(this.exerciseInfo.getType()));
-	}
-	
-	@Override
-	public boolean equals(Object o){
-		try {
-			return (this.toString().equals(Exercise.class.cast(o).toString()));
-		} catch (java.lang.ClassCastException e) {
-			return false;
-		} catch (java.lang.NullPointerException e) {
-			return false;
-		}
 	}
 
 	/**

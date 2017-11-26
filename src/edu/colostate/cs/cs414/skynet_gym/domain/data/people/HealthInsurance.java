@@ -22,6 +22,7 @@ public class HealthInsurance implements Serializable{
 
 	}
 	
+	@Override
 	public boolean equals(Object o){
 		try {
 			return (this.toString().equals(HealthInsurance.class.cast(o).toString()));
@@ -32,6 +33,16 @@ public class HealthInsurance implements Serializable{
 		}
 	}
 	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((providerName == null) ? 0 : providerName.hashCode());
+		return result;
+	}
+	
+	@Override
 	public String toString(){
 		return (this.providerName);
 	}

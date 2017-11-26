@@ -52,6 +52,26 @@ public class PersonInformation implements Serializable{
 	}
 	
 	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((address == null) ? 0 : address.hashCode());
+		result = prime
+				* result
+				+ ((driversLicenseNumber == null) ? 0 : driversLicenseNumber
+						.hashCode());
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result
+				+ ((firstName == null) ? 0 : firstName.hashCode());
+		result = prime * result
+				+ ((healthInsurance == null) ? 0 : healthInsurance.hashCode());
+		result = prime * result
+				+ ((lastName == null) ? 0 : lastName.hashCode());
+		result = prime * result + ((phone == null) ? 0 : phone.hashCode());
+		return result;
+	}
+	
+	@Override
 	public String toString(){
 		return (this.firstName + ":" +
 				this.lastName + ":" +

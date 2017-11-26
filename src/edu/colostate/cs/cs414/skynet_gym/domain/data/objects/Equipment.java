@@ -29,6 +29,27 @@ public class Equipment implements Serializable {
 	}
 	
 	@Override
+	public boolean equals(Object o){
+		try {
+			return (this.toString().equals(Equipment.class.cast(o).toString()));
+		} catch (java.lang.ClassCastException e) {
+			return false;
+		} catch (java.lang.NullPointerException e) {
+			return false;
+		}
+	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((picture == null) ? 0 : picture.hashCode());
+		result = prime * result + quantity;
+		return result;
+	}
+	
+	@Override
 	public String toString() {
 		return (this.name + ":" +
 				String.valueOf(this.quantity) + ":" +
@@ -38,17 +59,6 @@ public class Equipment implements Serializable {
 	public String toStringShort() {
 		return (this.name + " " +
 				String.valueOf(this.quantity));
-	}
-	
-	@Override
-	public boolean equals(Object o){
-		try {
-			return (this.toString().equals(Equipment.class.cast(o).toString()));
-		} catch (java.lang.ClassCastException e) {
-			return false;
-		} catch (java.lang.NullPointerException e) {
-			return false;
-		}
 	}
 
 	/**
