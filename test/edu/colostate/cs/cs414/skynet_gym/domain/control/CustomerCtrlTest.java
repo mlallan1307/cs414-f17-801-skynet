@@ -11,6 +11,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import edu.colostate.cs.cs414.skynet_gym.domain.control.CustomerCtrl;
 import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.Routine;
 import edu.colostate.cs.cs414.skynet_gym.domain.data.people.Address;
 import edu.colostate.cs.cs414.skynet_gym.domain.data.people.HealthInsurance;

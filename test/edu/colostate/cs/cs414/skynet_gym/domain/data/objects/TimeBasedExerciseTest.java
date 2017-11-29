@@ -10,6 +10,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.ExerciseType;
+import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.TimeBasedExercise;
+
 public class TimeBasedExerciseTest {
 
 	private String type;

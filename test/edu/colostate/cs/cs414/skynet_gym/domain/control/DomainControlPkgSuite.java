@@ -1,4 +1,4 @@
-package test.edu.colostate.cs.cs414.skynet_gym.domain.control;
+package edu.colostate.cs.cs414.skynet_gym.domain.control;
 
 import org.junit.internal.TextListener;
 import org.junit.runner.JUnitCore;
@@ -6,7 +6,6 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
-import edu.colostate.cs.cs414.skynet_gym.domain.control.CustomerCtrlTest;
 import edu.colostate.cs.cs414.skynet_gym.domain.control.EquipmentCtrlTest;
 import edu.colostate.cs.cs414.skynet_gym.domain.control.ExerciseCtrlTest;
 import edu.colostate.cs.cs414.skynet_gym.domain.control.ManagerCtrlTest;
