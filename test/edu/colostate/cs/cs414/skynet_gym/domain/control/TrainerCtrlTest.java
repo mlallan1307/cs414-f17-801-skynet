@@ -980,6 +980,57 @@ public class TrainerCtrlTest {
 		} catch(IllegalArgumentException e) {
 		}
 	}
+	
+	@Test
+	public final void testRemoveTrainer() {
+		assertFalse(TrainerCtrl.trainersExists());
+		Trainer t = TrainerCtrl.buildTrainer(
+				username,
+				password,
+				firstName,
+				lastName,
+				driversLicenseNumber,
+				phone,
+				email,
+				hiN,
+				s1,
+				s2,
+				state,
+				city,
+				zip,
+				type,
+				schedule,
+				qualifications);
+		TrainerCtrl.addTrainer(t);
+		assertEquals(1, TrainerCtrl.getTrainers().size());
+		
+		Trainer t2 = TrainerCtrl.buildTrainer(
+				"new un",
+				password,
+				firstName,
+				lastName,
+				"new dln",
+				phone,
+				email,
+				hiN,
+				s1,
+				s2,
+				state,
+				city,
+				zip,
+				type,
+				schedule,
+				qualifications);
+		TrainerCtrl.addTrainer(t2);
+		assertEquals(2, TrainerCtrl.getTrainers().size());
+		
+		TrainerCtrl.removeTrainer(t);
+		assertEquals(1, TrainerCtrl.getTrainers().size());
+		assertTrue(TrainerCtrl.getTrainers().get(0).equals(t2));
+		
+		TrainerCtrl.removeTrainer(t2);
+		assertEquals(0, TrainerCtrl.getTrainers().size());
+	}
 
 	@Test
 	public final void testExistsWithDLN() {

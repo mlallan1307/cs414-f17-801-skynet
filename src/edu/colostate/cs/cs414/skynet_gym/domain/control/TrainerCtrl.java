@@ -166,6 +166,7 @@ public class TrainerCtrl {
 	 * 
 	 * @throws IllegalArgumentException if password if empty or this is a
 	 * 		duplicate
+	 * @throws NullPointerException if trainer is null
 	 */
 	public static void addTrainer(final Trainer trainer) {
 		
@@ -198,6 +199,7 @@ public class TrainerCtrl {
 	 * @param existingTrainer, the current trainer
 	 * 
 	 * @throws IllegalArgumentException if an empty string is passed
+	 * @throws NullPointerException if trainer is null
 	 */
 	public static void replaceTrainer(
 			final Trainer trainer,
@@ -244,6 +246,31 @@ public class TrainerCtrl {
 		// Save the state
 		saveState();
 		
+	}
+	
+	
+	/**
+	 * Remove the given trainer from the system
+	 * 
+	 * @param trainer the trainer to remove
+	 * 
+	 * @throws IllegalArgumentException if this trainer doesn't exist
+	 * @throws NullPointerException if trainer is null
+	 */
+	public static void removeTrainer(final Trainer trainer) {
+		
+		if (!trainers.contains(trainer)) {
+			throw new IllegalArgumentException(
+					"Can't find the given trainer.");
+		}
+		
+		if (!trainers.remove(trainer)) {
+			throw new RuntimeException(
+					"An issue occured when removing trainer.");
+		}
+		
+		// Save the state
+		saveState();
 	}
 	
 	/**
