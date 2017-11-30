@@ -238,6 +238,32 @@ public class EquipmentCtrlTest {
 		}
 		
 	}
+	
+	@Test
+	public final void testRemoveEquipment() {
+		assertFalse(EquipmentCtrl.equipmentExists());
+		Equipment eq = EquipmentCtrl.buildEquipment(
+				name,
+				quantity,
+				picture);
+		EquipmentCtrl.addEquipment(eq);
+		assertEquals(1, EquipmentCtrl.getEquipment().size());
+		
+		Equipment eq2 = EquipmentCtrl.buildEquipment(
+				"new name",
+				quantity,
+				picture);
+		EquipmentCtrl.addEquipment(eq2);
+		assertEquals(2, EquipmentCtrl.getEquipment().size());
+		
+		EquipmentCtrl.removeEquipment(eq);
+		assertEquals(1, EquipmentCtrl.getEquipment().size());
+		assertTrue(EquipmentCtrl.getEquipment().get(0).equals(eq2));
+		
+		EquipmentCtrl.removeEquipment(eq2);
+		assertEquals(0, EquipmentCtrl.getEquipment().size());
+	}
+
 
 	@Test
 	public final void testExistsWithName() {

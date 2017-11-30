@@ -171,6 +171,36 @@ public final class EquipmentCtrl {
 	}
 	
 	/**
+	 * Remove the given equipment from the system
+	 * 
+	 * @param eq the equipment to remove
+	 * 
+	 * @throws IllegalArgumentException if this equipment doesn't exist
+	 * @throws NullPointerException if equipment is null
+	 */
+	public static void removeEquipment(final Equipment eq) {
+		if (eq == null) {
+			throw new NullPointerException("Given equipment is null.");
+		}
+		
+		if (!equipment.contains(eq)) {
+			throw new IllegalArgumentException(
+					"Can't find the given equipment.");
+		}
+		
+		// Exercises use equipment so let ExerciseCtrl handle this change
+		ExerciseCtrl.equipmentRemoved(eq);
+		
+		if (!equipment.remove(eq)) {
+			throw new RuntimeException(
+					"An issue occured when removing equipment.");
+		}
+		
+		// Save the state
+		saveState();
+	}
+	
+	/**
 	 * 
 	 * @param name
 	 * @return true of the given name is associated with an existing equipment entry

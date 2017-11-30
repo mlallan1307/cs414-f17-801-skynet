@@ -192,6 +192,26 @@ public final class ExerciseCtrl {
 	}
 	
 	/**
+	 * Handle the removal of the given equipment from the system
+	 * 
+	 * @param eq the equipment being removed
+	 * 
+	 * @throws NullPointerException if equipment is null
+	 */
+	public static void equipmentRemoved(final Equipment eq) {
+		if (eq == null) {
+			throw new NullPointerException("Given equipment is null.");
+		}
+		
+		for (Exercise ex : exercises) {
+			if (ex.getEquipment() != null &&
+					ex.getEquipment().equals(eq)) {
+				ex.setEquipment(null);
+			}
+		}
+	}
+	
+	/**
 	 * 
 	 * @param name
 	 * @return true of the given name is associated with an existing exercise

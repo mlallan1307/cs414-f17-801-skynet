@@ -357,6 +357,23 @@ public class ExerciseCtrlTest {
 		}
 		
 	}
+	
+	@Test
+	public final void testEquipmentRemoved() {
+		Exercise ex = ExerciseCtrl.buildExercise(
+				name,
+				ExerciseType.SetBased,
+				equipment,
+				duration,
+				numberOfSets,
+				numberOfReps);
+		ExerciseCtrl.addExercise(ex);
+		assertEquals(1, ExerciseCtrl.getExercises().size());
+		
+		ExerciseCtrl.equipmentRemoved(equipment);
+		assertEquals(1, ExerciseCtrl.getExercises().size());
+		assertTrue(ExerciseCtrl.getExercises().get(0).getEquipment() == null);
+	}
 
 	@Test
 	public final void testExistsWithName() {

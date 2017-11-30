@@ -21,9 +21,7 @@ import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 
 import edu.colostate.cs.cs414.skynet_gym.domain.control.TrainerCtrl;
-import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.Equipment;
 import edu.colostate.cs.cs414.skynet_gym.domain.people.user.Trainer;
-import edu.colostate.cs.cs414.skynet_gym.ui.swing.common.MyListModel;
 
 /**
  * This abstract class defines the select trainer functionality.
