@@ -68,7 +68,6 @@ public final class RoutineCtrl {
 	 * 
 	 * @param name
 	 * @param exercises
-	 * @param existingRoutine
 	 * @return new Routine
 	 */
 	public static Routine buildRoutine(
@@ -153,6 +152,33 @@ public final class RoutineCtrl {
 		// Save the state
 		saveState();
 		
+	}
+	
+	/**
+	 * Remove the given Routine from the system
+	 * 
+	 * @param r the Routine to remove
+	 * 
+	 * @throws IllegalArgumentException if this Routine doesn't exist
+	 * @throws NullPointerException if Routine is null
+	 */
+	public static void removeRoutine(final Routine r) {
+		if (r == null) {
+			throw new NullPointerException("Given Routine is null.");
+		}
+		
+		if (!routines.contains(r)) {
+			throw new IllegalArgumentException(
+					"Can't find the given Routine.");
+		}
+		
+		if (!routines.remove(r)) {
+			throw new RuntimeException(
+					"An issue occured when removing Routine.");
+		}
+		
+		// Save the state
+		saveState();
 	}
 	
 	/**

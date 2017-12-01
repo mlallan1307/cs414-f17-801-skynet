@@ -244,6 +244,27 @@ public class RoutineCtrlTest {
 		}
 		
 	}
+	
+	@Test
+	public final void testRemoveRoutine() {
+		assertFalse(RoutineCtrl.routinesExist());
+		Routine r = RoutineCtrl.buildRoutine(
+				name,
+				ale);
+		RoutineCtrl.addRoutine(r);
+		assertEquals(1, RoutineCtrl.getRoutines().size());
+		
+		Routine r2 = RoutineCtrl.buildRoutine(
+				"new name",
+				ale);
+		RoutineCtrl.addRoutine(r2);
+		
+		RoutineCtrl.removeRoutine(r);
+		assertEquals(1, RoutineCtrl.getRoutines().size());
+		assertTrue(RoutineCtrl.getRoutines().get(0).equals(r2));
+		RoutineCtrl.removeRoutine(r2);
+		assertEquals(0, RoutineCtrl.getRoutines().size());
+	}
 
 	@Test
 	public final void testExerciseRemoved() {

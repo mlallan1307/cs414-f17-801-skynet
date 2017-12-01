@@ -98,7 +98,7 @@ public abstract class SelectRoutineAbs extends JPanel {
 		button.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				matchingRoutines.setModel(new MyListModel(getMatchingRoutines()));
+				updateList();
 			}
 		});
 		add(button, "5, 9, right, default");
@@ -108,7 +108,7 @@ public abstract class SelectRoutineAbs extends JPanel {
 		add(lblExercise, "3, 11");
 		
 		matchingRoutines = new JList();
-		matchingRoutines.setModel(new MyListModel(getMatchingRoutines()));
+		updateList();
 		matchingRoutines.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		matchingRoutines.setValueIsAdjusting(true);
 		add(matchingRoutines, "3, 13, 3, 1, fill, fill");
@@ -120,7 +120,7 @@ public abstract class SelectRoutineAbs extends JPanel {
 				selectPressed();
 			}
 		});
-		add(btnModify, "5, 15, left, center");
+		add(btnModify, "5, 15, right, center");
 		
 	}
 	
@@ -133,6 +133,10 @@ public abstract class SelectRoutineAbs extends JPanel {
 	}
 	
 	protected abstract void selectPressed();
+	
+	protected void updateList() {
+		matchingRoutines.setModel(new MyListModel(getMatchingRoutines()));
+	}
 	
 	private ArrayList<String> getMatchingRoutines(){
 		ArrayList<String> rtn = new ArrayList<String>();
