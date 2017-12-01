@@ -136,7 +136,7 @@ public abstract class SelectCustomerAbs extends JPanel {
 		submitBtn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				matchingCustomers.setModel(new MyListModel(getMatchingCustomers()));
+				updateList();
 			}
 		});
 		add(submitBtn, "5, 15, right, center");
@@ -146,7 +146,7 @@ public abstract class SelectCustomerAbs extends JPanel {
 		add(lblTrainers, "3, 17");
 		
 		matchingCustomers = new JList();
-		matchingCustomers.setModel(new MyListModel(getMatchingCustomers()));
+		updateList();
 		matchingCustomers.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		matchingCustomers.setValueIsAdjusting(true);
 		add(matchingCustomers, "3, 19, 3, 7, fill, fill");
@@ -171,6 +171,10 @@ public abstract class SelectCustomerAbs extends JPanel {
 	}
 	
 	protected abstract void selectPressed();
+	
+	protected void updateList() {
+		matchingCustomers.setModel(new MyListModel(getMatchingCustomers()));
+	}
 	
 	private ArrayList<String> getMatchingCustomers(){
 		ArrayList<String> rtn = new ArrayList<String>();

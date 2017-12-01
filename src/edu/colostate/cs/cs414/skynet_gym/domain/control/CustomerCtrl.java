@@ -205,6 +205,33 @@ public final class CustomerCtrl {
 	}
 	
 	/**
+	 * Remove the given Customer from the system
+	 * 
+	 * @param c the Customer to remove
+	 * 
+	 * @throws IllegalArgumentException if this Customer doesn't exist
+	 * @throws NullPointerException if Customer is null
+	 */
+	public static void removeCustomer(final Customer c) {
+		if (c == null) {
+			throw new NullPointerException("Given Customer is null.");
+		}
+		
+		if (!customers.contains(c)) {
+			throw new IllegalArgumentException(
+					"Can't find the given Customer.");
+		}
+		
+		if (!customers.remove(c)) {
+			throw new RuntimeException(
+					"An issue occured when removing Customer.");
+		}
+		
+		// Save the state
+		saveState();
+	}
+	
+	/**
 	 * Checks if the given drivers license number is already in the static list
 	 * 
 	 * @param driversLicenseNum

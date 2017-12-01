@@ -11,7 +11,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import edu.colostate.cs.cs414.skynet_gym.domain.control.CustomerCtrl;
 import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.Routine;
 import edu.colostate.cs.cs414.skynet_gym.domain.data.people.Address;
 import edu.colostate.cs.cs414.skynet_gym.domain.data.people.HealthInsurance;
@@ -553,6 +552,48 @@ public class CustomerCtrlTest {
 		
 	}
 
+	@Test
+	public final void testRemoveCustomer() {
+		assertFalse(CustomerCtrl.customersExist());
+		Customer c = CustomerCtrl.buildCustomer(
+				firstName,
+				lastName,
+				driversLicenseNumber,
+				phone,
+				email,
+				hiN,
+				s1,
+				s2,
+				state,
+				city,
+				zip,
+				type);
+		CustomerCtrl.addCustomer(c);
+		assertEquals(1, CustomerCtrl.getCustomers().size());
+		
+		Customer c2 = CustomerCtrl.buildCustomer(
+				firstName,
+				lastName,
+				"new dln",
+				phone,
+				email,
+				hiN,
+				s1,
+				s2,
+				state,
+				city,
+				zip,
+				type);
+		CustomerCtrl.addCustomer(c2);
+		assertEquals(2, CustomerCtrl.getCustomers().size());
+		
+		CustomerCtrl.removeCustomer(c);
+		assertEquals(1, CustomerCtrl.getCustomers().size());
+		assertTrue(CustomerCtrl.getCustomers().get(0).equals(c2));
+		CustomerCtrl.removeCustomer(c2);
+		assertEquals(0, CustomerCtrl.getCustomers().size());
+	}
+	
 	@Test
 	public final void testExistsWithDLN() {
 		assertFalse(CustomerCtrl.customersExist());
