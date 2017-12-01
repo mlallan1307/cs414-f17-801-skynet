@@ -359,6 +359,35 @@ public class ExerciseCtrlTest {
 	}
 	
 	@Test
+	public final void testRemoveExercise() {
+		Exercise ex = ExerciseCtrl.buildExercise(
+				name,
+				ExerciseType.SetBased,
+				equipment,
+				duration,
+				numberOfSets,
+				numberOfReps);
+		ExerciseCtrl.addExercise(ex);
+		assertEquals(1, ExerciseCtrl.getExercises().size());
+		
+		Exercise ex2 = ExerciseCtrl.buildExercise(
+				"new name",
+				ExerciseType.SetBased,
+				equipment,
+				duration,
+				numberOfSets,
+				numberOfReps);
+		ExerciseCtrl.addExercise(ex2);
+		assertEquals(2, ExerciseCtrl.getExercises().size());
+		
+		ExerciseCtrl.removeExercise(ex);
+		assertEquals(1, ExerciseCtrl.getExercises().size());
+		assertTrue(ExerciseCtrl.getExercises().get(0).equals(ex2));
+		ExerciseCtrl.removeExercise(ex2);
+		assertEquals(0, ExerciseCtrl.getExercises().size());
+	}
+	
+	@Test
 	public final void testEquipmentRemoved() {
 		Exercise ex = ExerciseCtrl.buildExercise(
 				name,

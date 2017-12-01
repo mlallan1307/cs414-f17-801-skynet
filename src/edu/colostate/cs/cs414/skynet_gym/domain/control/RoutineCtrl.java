@@ -156,6 +156,26 @@ public final class RoutineCtrl {
 	}
 	
 	/**
+	 * Handle the removal of the given exercise from the system
+	 * 
+	 * @param ex the exercise being removed
+	 * 
+	 * @throws NullPointerException if exercise is null
+	 */
+	public static void exerciseRemoved(final Exercise ex) {
+		if (ex == null) {
+			throw new NullPointerException("Given exercise is null.");
+		}
+		
+		for (Routine rt : routines) {
+			if (rt.getExercises() != null &&
+					rt.getExercises().contains(ex)) {
+				rt.getExercises().remove(ex);
+			}
+		}
+	}
+	
+	/**
 	 * 
 	 * @param name
 	 * @return true of the given name is associated with an existing routine

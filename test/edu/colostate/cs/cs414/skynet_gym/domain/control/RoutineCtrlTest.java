@@ -246,6 +246,20 @@ public class RoutineCtrlTest {
 	}
 
 	@Test
+	public final void testExerciseRemoved() {
+		assertFalse(RoutineCtrl.routinesExist());
+		Routine r = RoutineCtrl.buildRoutine(
+				name,
+				ale);
+		RoutineCtrl.addRoutine(r);
+		assertEquals(1, RoutineCtrl.getRoutines().size());
+		
+		RoutineCtrl.exerciseRemoved(exercise);
+		assertEquals(0,
+				RoutineCtrl.getRoutines().get(0).getExercises().size());
+	}
+	
+	@Test
 	public final void testExistsWithName() {
 		assertFalse(RoutineCtrl.routinesExist());
 		Routine r = RoutineCtrl.buildRoutine(

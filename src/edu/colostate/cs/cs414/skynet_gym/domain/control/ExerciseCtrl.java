@@ -192,6 +192,36 @@ public final class ExerciseCtrl {
 	}
 	
 	/**
+	 * Remove the given Exercise from the system
+	 * 
+	 * @param ex the Exercise to remove
+	 * 
+	 * @throws IllegalArgumentException if this Exercise doesn't exist
+	 * @throws NullPointerException if Exercise is null
+	 */
+	public static void removeExercise(final Exercise ex) {
+		if (ex == null) {
+			throw new NullPointerException("Given Exercise is null.");
+		}
+		
+		if (!exercises.contains(ex)) {
+			throw new IllegalArgumentException(
+					"Can't find the given Exercise.");
+		}
+		
+		// Routines contain exercises so let RoutineCtrl handle this change
+		RoutineCtrl.exerciseRemoved(ex);
+		
+		if (!exercises.remove(ex)) {
+			throw new RuntimeException(
+					"An issue occured when removing Exercise.");
+		}
+		
+		// Save the state
+		saveState();
+	}
+	
+	/**
 	 * Handle the removal of the given equipment from the system
 	 * 
 	 * @param eq the equipment being removed
