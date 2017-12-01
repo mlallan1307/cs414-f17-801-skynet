@@ -52,7 +52,7 @@ public class CreateExercise extends ExerciseAbs {
 					getReps());
 			ExerciseCtrl.addExercise(exercise);
 			JOptionPane.showMessageDialog(null,
-				    "Equipment Created Successfully",
+				    "Exercise Created Successfully",
 				    "Success",
 				    JOptionPane.INFORMATION_MESSAGE);
 			clearAll();

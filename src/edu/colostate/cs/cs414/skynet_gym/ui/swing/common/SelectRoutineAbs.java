@@ -103,7 +103,7 @@ public abstract class SelectRoutineAbs extends JPanel {
 		});
 		add(button, "5, 9, right, default");
 		
-		JLabel lblExercise = new JLabel("Exercises:");
+		JLabel lblExercise = new JLabel("Routines:");
 		lblExercise.setFont(new Font("Tahoma", Font.BOLD, 12));
 		add(lblExercise, "3, 11");
 		
