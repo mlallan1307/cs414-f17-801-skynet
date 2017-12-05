@@ -595,6 +595,58 @@ public class CustomerCtrlTest {
 	}
 	
 	@Test
+	public final void testRoutineRemoved() {
+		assertFalse(CustomerCtrl.customersExist());
+		Customer c = CustomerCtrl.buildCustomer(
+				firstName,
+				lastName,
+				driversLicenseNumber,
+				phone,
+				email,
+				hiN,
+				s1,
+				s2,
+				state,
+				city,
+				zip,
+				type);
+		CustomerCtrl.addCustomer(c);
+		assertEquals(1, CustomerCtrl.getCustomers().size());
+		
+		ArrayList<Routine> rts = new ArrayList<Routine>();
+		rts.add(routine);
+		
+		CustomerCtrl.assignRoutines(
+				CustomerCtrl.getCustomers().get(0),
+				rts);
+		
+		assertEquals(
+				rts.size(),
+				CustomerCtrl.getCustomers().get(0).getRoutines().size());
+		
+		Customer c2 = CustomerCtrl.buildCustomer(
+				firstName,
+				lastName,
+				"new dln",
+				phone,
+				email,
+				hiN,
+				s1,
+				s2,
+				state,
+				city,
+				zip,
+				type);
+		CustomerCtrl.addCustomer(c2);
+		assertEquals(2, CustomerCtrl.getCustomers().size());
+		
+		CustomerCtrl.routineRemoved(routine);
+		assertEquals(
+				0,
+				CustomerCtrl.getCustomers().get(0).getRoutines().size());
+	}
+	
+	@Test
 	public final void testExistsWithDLN() {
 		assertFalse(CustomerCtrl.customersExist());
 		Customer c = CustomerCtrl.buildCustomer(

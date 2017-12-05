@@ -239,6 +239,9 @@ public final class ExerciseCtrl {
 				ex.setEquipment(null);
 			}
 		}
+		
+		// Save the state
+		saveState();
 	}
 	
 	/**

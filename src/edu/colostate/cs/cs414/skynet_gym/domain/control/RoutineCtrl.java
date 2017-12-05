@@ -172,6 +172,9 @@ public final class RoutineCtrl {
 					"Can't find the given Routine.");
 		}
 		
+		// Customers reference routines so let CustomerCtrl handle this change
+		CustomerCtrl.routineRemoved(r);
+		
 		if (!routines.remove(r)) {
 			throw new RuntimeException(
 					"An issue occured when removing Routine.");
@@ -199,6 +202,9 @@ public final class RoutineCtrl {
 				rt.getExercises().remove(ex);
 			}
 		}
+		
+		// Save the state
+		saveState();
 	}
 	
 	/**

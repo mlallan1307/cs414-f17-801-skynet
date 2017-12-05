@@ -232,6 +232,32 @@ public final class CustomerCtrl {
 	}
 	
 	/**
+	 * Remove the given Routine from any customers "assigned" list
+	 * 
+	 * @param r the Routine to remove
+	 * 
+	 * @throws IllegalArgumentException if this Routine doesn't exist
+	 * @throws NullPointerException if Routine is null
+	 */
+	public static void routineRemoved(final Routine r) {
+		if (r == null) {
+			throw new NullPointerException("Given Routine is null.");
+		}
+		
+		for (Customer c: customers) {
+			if (c.getRoutines().contains(r)) {
+				ArrayList<Routine> ral = new ArrayList<Routine>();
+				ral.addAll(c.getRoutines());
+				ral.remove(r);
+				assignRoutines(c, ral);
+			}
+		}
+		
+		// Save the state
+		saveState();
+	}
+	
+	/**
 	 * Checks if the given drivers license number is already in the static list
 	 * 
 	 * @param driversLicenseNum
