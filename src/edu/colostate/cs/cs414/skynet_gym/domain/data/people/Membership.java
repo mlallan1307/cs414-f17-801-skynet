@@ -20,10 +20,7 @@ public class Membership implements Serializable {
 		this.setValid(isValid);
 	}
 	
-	public String toString() {
-		return String.valueOf(this.isValid);
-	}
-	
+	@Override
 	public boolean equals(Object o){
 		try {
 			return (this.toString().equals(Membership.class.cast(o).toString()));
@@ -32,6 +29,19 @@ public class Membership implements Serializable {
 		} catch (java.lang.NullPointerException e) {
 			return false;
 		}
+	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (isValid ? 1231 : 1237);
+		return result;
+	}
+	
+	@Override
+	public String toString() {
+		return String.valueOf(this.isValid);
 	}
 	
 	/**

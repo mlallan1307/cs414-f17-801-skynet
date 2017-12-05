@@ -32,7 +32,33 @@ public class User implements Serializable {
 		this.personInfo = personInfo;
 		
 	}
-
+	
+	@Override
+	public boolean equals(Object o) {
+		try {
+			return (this.toString().equals(User.class.cast(o).toString()));
+		} catch (java.lang.ClassCastException e) {
+			return false;
+		} catch (java.lang.NullPointerException e) {
+			return false;
+		}
+	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((password == null) ? 0 : password.hashCode());
+		result = prime * result
+				+ ((personInfo == null) ? 0 : personInfo.hashCode());
+		result = prime * result
+				+ ((userType == null) ? 0 : userType.hashCode());
+		result = prime * result
+				+ ((username == null) ? 0 : username.hashCode());
+		return result;
+	}
+	
 	@Override
 	public String toString() {
 		/**
@@ -47,17 +73,6 @@ public class User implements Serializable {
 		return (personInfo.getFirstName() + " " +
 				personInfo.getLastName()) + " " +
 				this.username;
-	}
-	
-	@Override
-	public boolean equals(Object o){
-		try {
-			return (this.toString().equals(User.class.cast(o).toString()));
-		} catch (java.lang.ClassCastException e) {
-			return false;
-		} catch (java.lang.NullPointerException e) {
-			return false;
-		}
 	}
 	
 	public Boolean login(String user, String pass){

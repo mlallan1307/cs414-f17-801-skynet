@@ -21,9 +21,7 @@ import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 
 import edu.colostate.cs.cs414.skynet_gym.domain.control.TrainerCtrl;
-import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.Equipment;
 import edu.colostate.cs.cs414.skynet_gym.domain.people.user.Trainer;
-import edu.colostate.cs.cs414.skynet_gym.ui.swing.common.MyListModel;
 
 /**
  * This abstract class defines the select trainer functionality.
@@ -145,7 +143,7 @@ public abstract class SelectTrainerAbs extends JPanel {
 		submitBtn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				matchingTrainers.setModel(new MyListModel(getMatchingTrainers()));
+				updateList();
 			}
 		});
 		add(submitBtn, "5, 17, right, center");
@@ -155,7 +153,7 @@ public abstract class SelectTrainerAbs extends JPanel {
 		add(lblTrainers, "3, 19");
 		
 		matchingTrainers = new JList();
-		matchingTrainers.setModel(new MyListModel(getMatchingTrainers()));
+		updateList();
 		matchingTrainers.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		matchingTrainers.setValueIsAdjusting(true);
 		add(matchingTrainers, "3, 21, 3, 7, fill, fill");
@@ -180,6 +178,10 @@ public abstract class SelectTrainerAbs extends JPanel {
 	}
 	
 	protected abstract void selectPressed();
+	
+	protected void updateList(){
+		matchingTrainers.setModel(new MyListModel(getMatchingTrainers()));
+	}
 	
 	private ArrayList<String> getMatchingTrainers(){
 		ArrayList<String> rtn = new ArrayList<String>();

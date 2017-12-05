@@ -99,7 +99,7 @@ public abstract class SelectExerciseAbs extends JPanel {
 		button.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				matchingExercises.setModel(new MyListModel(getMatchingExercises()));
+				updateList();
 			}
 		});
 		add(button, "5, 9, right, default");
@@ -109,7 +109,7 @@ public abstract class SelectExerciseAbs extends JPanel {
 		add(lblExercise, "3, 11");
 		
 		matchingExercises = new JList();
-		matchingExercises.setModel(new MyListModel(getMatchingExercises()));
+		updateList();
 		matchingExercises.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		matchingExercises.setValueIsAdjusting(true);
 		add(matchingExercises, "3, 13, 3, 1, fill, fill");
@@ -121,7 +121,7 @@ public abstract class SelectExerciseAbs extends JPanel {
 				selectPressed();
 			}
 		});
-		add(btnModify, "5, 15, left, center");
+		add(btnModify, "5, 15, right, center");
 		
 	}
 	
@@ -134,6 +134,10 @@ public abstract class SelectExerciseAbs extends JPanel {
 	}
 	
 	protected abstract void selectPressed();
+	
+	protected void updateList() {
+		matchingExercises.setModel(new MyListModel(getMatchingExercises()));
+	}
 	
 	private ArrayList<String> getMatchingExercises(){
 		ArrayList<String> rtn = new ArrayList<String>();

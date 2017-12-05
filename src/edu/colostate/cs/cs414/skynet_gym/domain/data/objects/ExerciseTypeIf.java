@@ -11,9 +11,14 @@ import java.time.Duration;
  */
 public interface ExerciseTypeIf extends Serializable{
 	
-	public String toString();
-	
+	@Override
 	public boolean equals(Object o);
+	
+	@Override
+	public int hashCode();
+	
+	@Override
+	public String toString();
 	
 	/**
 	 * @return the type

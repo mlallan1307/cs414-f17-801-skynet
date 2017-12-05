@@ -173,6 +173,15 @@ public abstract class RoutineAbs extends JPanel {
 		});
 		add(btnAddEx, "7, 27, center, top");
 		
+		JButton btnNewButton = new JButton("Reset Exercises");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				resetSelectedLists();
+			}
+		});
+		add(btnNewButton, "5, 31, center, default");
+		
 		JButton btnSubmit = new JButton("Submit");
 		btnSubmit.addMouseListener(new MouseAdapter() {
 			@Override

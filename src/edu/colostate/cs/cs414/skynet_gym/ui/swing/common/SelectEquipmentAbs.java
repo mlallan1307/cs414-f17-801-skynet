@@ -116,7 +116,7 @@ public abstract class SelectEquipmentAbs extends JPanel {
 		submitBtn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				matchingEquipment.setModel(new MyListModel(getMatchingEquipment()));
+				updateList();
 			}
 		});
 		add(submitBtn, "5, 11, right, center");
@@ -126,7 +126,7 @@ public abstract class SelectEquipmentAbs extends JPanel {
 		add(lblTrainers, "3, 13");
 		
 		matchingEquipment = new JList();
-		matchingEquipment.setModel(new MyListModel(getMatchingEquipment()));
+		updateList();
 		matchingEquipment.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		matchingEquipment.setValueIsAdjusting(true);
 		add(matchingEquipment, "3, 15, 3, 7, fill, fill");
@@ -151,6 +151,10 @@ public abstract class SelectEquipmentAbs extends JPanel {
 	}
 	
 	protected abstract void selectPressed();
+	
+	protected void updateList(){
+		matchingEquipment.setModel(new MyListModel(getMatchingEquipment()));
+	}
 	
 	private ArrayList<String> getMatchingEquipment(){
 		ArrayList<String> rtn = new ArrayList<String>();

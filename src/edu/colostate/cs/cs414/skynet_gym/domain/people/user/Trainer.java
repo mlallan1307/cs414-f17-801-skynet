@@ -39,6 +39,28 @@ public class Trainer extends User implements Serializable  {
 	}
 	
 	@Override
+	public boolean equals(Object o) {
+		try {
+			return (this.toString().equals(Trainer.class.cast(o).toString()));
+		} catch (java.lang.ClassCastException e) {
+			return false;
+		} catch (java.lang.NullPointerException e) {
+			return false;
+		}
+	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result
+				+ ((qualifications == null) ? 0 : qualifications.hashCode());
+		result = prime * result
+				+ ((schedule == null) ? 0 : schedule.hashCode());
+		return result;
+	}
+	
+	@Override
 	public String toString() {
 		String rtnString = (
 				"[" + super.toString() + "]" + ":" +
@@ -48,17 +70,6 @@ public class Trainer extends User implements Serializable  {
 			rtnString += ":" + "[" + q.toString() + "]"; 
 		}
 		return rtnString;
-	}
-	
-	@Override
-	public boolean equals(Object o){
-		try {
-			return (this.toString().equals(Trainer.class.cast(o).toString()));
-		} catch (java.lang.ClassCastException e) {
-			return false;
-		} catch (java.lang.NullPointerException e) {
-			return false;
-		}
 	}
 	
 	/**

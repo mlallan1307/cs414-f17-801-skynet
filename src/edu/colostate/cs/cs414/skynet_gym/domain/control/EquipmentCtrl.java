@@ -63,20 +63,20 @@ public final class EquipmentCtrl {
 	}
 	
 	/**
-	 * 
-	 * Create equipment instance to add to static list.
-	 * Collects all the information needed by the used classes.
+	 * Collects all the information needed by the used classes to create a new
+	 * Equipment instance
 	 * 
 	 * @param name
 	 * @param quantity
 	 * @param picture
+	 * @return an equipment instance
 	 * 
 	 * @throws IllegalArgumentException if given invalid argument
 	 */
-	public static void createEquipment(
+	public static Equipment buildEquipment(
 			String name,
 			int quantity,
-			File picture){
+			File picture) {
 		
 		// Throw if a required field is empty
 		if (name.isEmpty()) {
@@ -94,11 +94,6 @@ public final class EquipmentCtrl {
 		if (quantity < 0) {
 			throw new IllegalArgumentException(
 					"Invalid: The quantity must be positive");
-		}
-		
-		if (existsWithName(name)) {
-			throw new IllegalArgumentException(
-					"Invalid: An Equipment entry with that name already exists");
 		}
 		
 		Equipment eq = new Equipment(
@@ -106,49 +101,42 @@ public final class EquipmentCtrl {
 				quantity,
 				picture);
 		
+		return eq;
+	}
+	
+	/**
+	 * Add equipment instance to the static list.
+	 * 
+	 * @param equipment
+	 * 
+	 * @throws IllegalArgumentException if given equipment is a duplicate
+	 */
+	public static void addEquipment(
+			final Equipment eq){
+		
+		if (existsWithName(eq.getName())) {
+			throw new IllegalArgumentException(
+					"Invalid: An Equipment entry with that name already exists");
+		}
+		
 		equipment.add(eq);
 		
 		// Save the state
 		saveState();
-		
 	}
 	
 	/**
-	 * 
-	 * Create equipment instance to add to static list.
-	 * Collects all the information needed by the used classes.
 	 * Replaces and existing equipment entry in the static list.
 	 * 
-	 * @param name
-	 * @param quantity
-	 * @param picture
+	 * @param equipment
 	 * @param existingEquipment
 	 * 
-	 * @throws IllegalArgumentException if given invalid argument
+	 * @throws IllegalArgumentException if the new equipment is a duplicate
+	 * 		or the existing equipment can't be found
 	 */
 	public static void replaceEquipment(
-			String name,
-			int quantity,
-			File picture,
-			Equipment existingEquipment){
-		
-		// Throw if a required field is empty
-		if (name.isEmpty()) {
-			throw new IllegalArgumentException(
-					"Invalid: The name field is empty.");
-		}
-		if (picture == null) {
-			throw new IllegalArgumentException(
-					"Invalid: Please select a picture for this equipment.");
-		}
-		if (!picture.exists()) {
-			throw new IllegalArgumentException(
-					"Invalid: Selected picture file does not exist.");
-		}
-		if (quantity < 0) {
-			throw new IllegalArgumentException(
-					"Invalid: The quantity must be positive");
-		}
+			final Equipment eq,
+			final Equipment existingEquipment){
 		
 		if (existingEquipment == null ||
 				!equipment.contains(existingEquipment)) {
@@ -157,8 +145,8 @@ public final class EquipmentCtrl {
 		}
 		
 		// Validate that given name is not associated with another equipment
-		if (!name.equals(existingEquipment.getName()) &&
-				existsWithName(name)) {
+		if (!eq.getName().equals(existingEquipment.getName()) &&
+				existsWithName(eq.getName())) {
 			throw new IllegalArgumentException(
 					"An Equipment entry with that name already exists");
 		}
@@ -166,21 +154,50 @@ public final class EquipmentCtrl {
 		// Update equipment
 		int index = equipment.indexOf(existingEquipment);
 		Equipment currentEquipment = equipment.get(index);
-		if (!name.equals(currentEquipment.getName())) {
-			currentEquipment.setName(name);
+		if (!eq.getName().equals(currentEquipment.getName())) {
+			currentEquipment.setName(eq.getName());
 		}
-		if (quantity != currentEquipment.getQuantity()) {
-			currentEquipment.setQuantity(quantity);
+		if (eq.getQuantity() != currentEquipment.getQuantity()) {
+			currentEquipment.setQuantity(eq.getQuantity());
 		}
-		if (!picture.getAbsolutePath().equals(currentEquipment.getPicture().getAbsolutePath())) {
-			currentEquipment.setPicture(picture);
+		if (!eq.getPicture().getAbsolutePath().equals(currentEquipment.getPicture().getAbsolutePath())) {
+			currentEquipment.setPicture(eq.getPicture());
 		}
 		
 		equipment.set(index, currentEquipment);
 		
 		// Save the state
 		saveState();
+	}
+	
+	/**
+	 * Remove the given equipment from the system
+	 * 
+	 * @param eq the equipment to remove
+	 * 
+	 * @throws IllegalArgumentException if this equipment doesn't exist
+	 * @throws NullPointerException if equipment is null
+	 */
+	public static void removeEquipment(final Equipment eq) {
+		if (eq == null) {
+			throw new NullPointerException("Given equipment is null.");
+		}
 		
+		if (!equipment.contains(eq)) {
+			throw new IllegalArgumentException(
+					"Can't find the given equipment.");
+		}
+		
+		// Exercises use equipment so let ExerciseCtrl handle this change
+		ExerciseCtrl.equipmentRemoved(eq);
+		
+		if (!equipment.remove(eq)) {
+			throw new RuntimeException(
+					"An issue occured when removing equipment.");
+		}
+		
+		// Save the state
+		saveState();
 	}
 	
 	/**

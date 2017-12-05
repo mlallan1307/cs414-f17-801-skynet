@@ -1,7 +1,6 @@
 package edu.colostate.cs.cs414.skynet_gym.domain.people.other;
 
 import java.io.Serializable;
-import java.security.InvalidParameterException;
 import java.util.ArrayList;
 
 import edu.colostate.cs.cs414.skynet_gym.domain.data.objects.Routine;
@@ -31,17 +30,6 @@ public class Customer implements Serializable  {
 		this.routines = new ArrayList<Routine>();
 		
 	}
-
-	@Override
-	public String toString() {
-		return ("[" + personInfo.toString() + "]" + ":" +
-				"[" + membership.toString() + "]");
-	}
-	
-	public String toStringShort() {
-		return (personInfo.getFirstName() + " " +
-				personInfo.getLastName());
-	}
 	
 	@Override
 	public boolean equals(Object o){
@@ -52,6 +40,30 @@ public class Customer implements Serializable  {
 		} catch (java.lang.NullPointerException e) {
 			return false;
 		}
+	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((membership == null) ? 0 : membership.hashCode());
+		result = prime * result
+				+ ((personInfo == null) ? 0 : personInfo.hashCode());
+		result = prime * result
+				+ ((routines == null) ? 0 : routines.hashCode());
+		return result;
+	}
+	
+	@Override
+	public String toString() {
+		return ("[" + personInfo.toString() + "]" + ":" +
+				"[" + membership.toString() + "]");
+	}
+	
+	public String toStringShort() {
+		return (personInfo.getFirstName() + " " +
+				personInfo.getLastName());
 	}
 	
 	/**

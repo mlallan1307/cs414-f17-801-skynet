@@ -4,6 +4,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 
 import edu.colostate.cs.cs414.skynet_gym.domain.control.CustomerCtrl;
+import edu.colostate.cs.cs414.skynet_gym.domain.people.other.Customer;
 import edu.colostate.cs.cs414.skynet_gym.ui.swing.common.CustomerAbs;
 
 /**
@@ -30,7 +31,7 @@ public class CreateCustomer extends CustomerAbs {
 	@Override
 	protected void submitPressed() {
 		try {
-			CustomerCtrl.createCustomer(
+			Customer c = CustomerCtrl.buildCustomer(
 					gNameFirst.getText(), // PersonInformation
 					gNameLast.getText(),
 					gDriversLicense.getText(),
@@ -43,6 +44,7 @@ public class CreateCustomer extends CustomerAbs {
 					aCity.getText(),
 					aZipcode.getText(),
 					aType.getText());
+			CustomerCtrl.addCustomer(c);
 			JOptionPane.showMessageDialog(null,
 				    "Customer Created Successfully",
 				    "Success",

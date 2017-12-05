@@ -41,9 +41,11 @@ public class ModifyRoutine extends RoutineAbs {
 	@Override
 	protected void submitPressed() {
 		try {
-			RoutineCtrl.replaceRoutine(
+			Routine routine = RoutineCtrl.buildRoutine(
 					name.getText(),
-					selectedExercises,
+					selectedExercises);
+			RoutineCtrl.replaceRoutine(
+					routine,
 					routineOrig);
 			JOptionPane.showMessageDialog(null,
 				    "Routine Modifed Successfully",

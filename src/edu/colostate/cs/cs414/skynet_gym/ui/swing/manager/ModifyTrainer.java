@@ -43,8 +43,9 @@ public class ModifyTrainer extends TrainerAbs {
 	@Override
 	protected void submitPressed() {
 		try {
-			TrainerCtrl.replaceTrainer(
+			Trainer trainer = TrainerCtrl.buildTrainer(
 					lUsername.getText(),
+					"",
 					gNameFirst.getText(), // PersonInformation
 					gNameLast.getText(),
 					gDriversLicense.getText(),
@@ -58,7 +59,9 @@ public class ModifyTrainer extends TrainerAbs {
 					aZipcode.getText(),
 					aType.getText(),
 					schedule,
-					qualifications,
+					qualifications);
+			TrainerCtrl.replaceTrainer(
+					trainer,
 					trainerOrig);
 			JOptionPane.showMessageDialog(null,
 				    "Trainer Updated Successfully",

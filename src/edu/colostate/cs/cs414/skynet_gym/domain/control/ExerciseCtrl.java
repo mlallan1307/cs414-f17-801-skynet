@@ -68,35 +68,31 @@ public final class ExerciseCtrl {
 	}
 	
 	/**
+	 * Collects all the information needed by the used classes to create a new
+	 * exercise
 	 * 
-	 * Create exercise to add to static list.
-	 * Collects all the information needed by the used classes.
-	 * 
-	 * @param name
-	 * @param exerciseType
-	 * @param equipment
-	 * @param duration
-	 * @param numberOfSets
-	 * @param repsPerSet
+	 * @param name, the name of this exercise
+	 * @param exerciseType, specifies the exercise type
+	 * @param equipment, if not needed then put null
+	 * @param duration, needed for time based exercise
+	 * @param numberOfSets, needed for set based exercise
+	 * @param repsPerSet, needed for set based exercise
+	 * @return a new Exercise
 	 * 
 	 * @throws IllegalArgumentException if given invalid argument
 	 */
-	public static void createExercise(
+	public static Exercise buildExercise(
 			String name,
 			ExerciseType exerciseType,
 			Equipment equipment,
 			Duration duration,
 			int numberOfSets,
-			int repsPerSet){
+			int repsPerSet) {
 		
 		// Throw if a required field is invalid
 		if (name.isEmpty()) {
 			throw new IllegalArgumentException(
 					"Invalid: The name field is empty.");
-		}
-		if (existsWithName(name)) {
-			throw new IllegalArgumentException(
-					"Invalid: An Exercise with that name already exists");
 		}
 		
 		ExerciseTypeIf exerciseInfo = null;
@@ -106,35 +102,40 @@ public final class ExerciseCtrl {
 					"Invalid: exerciseType is null");
 		}
 		else if (exerciseType.equals(ExerciseType.TimeBased)) {
-			if (duration == null) {
-				throw new IllegalArgumentException(
-						"Invalid: The duration field is empty.");
-			}
-			else if (duration.isZero() || duration.isNegative()) {
-				throw new IllegalArgumentException(
-						"Invalid: The duration field must be positive.");
-			}
-			exerciseInfo = new TimeBasedExercise(duration);
+			exerciseInfo = buildTimedExerciseType(duration);
 		}
 		else if (exerciseType.equals(ExerciseType.SetBased)) {
-			if (numberOfSets <= 0 || repsPerSet <= 0) {
-				throw new IllegalArgumentException(
-						"Invalid: The number of sets and reps per set must be greater than zero.");
-			}
-			exerciseInfo = new SetBasedExercise(numberOfSets, repsPerSet);
+			exerciseInfo = buildSetExerciseType(numberOfSets, repsPerSet);
 		}
 		else {
 			throw new IllegalArgumentException(
 					"Invalid: Unknown exerciseType");
 		}
 		
-		
 		Exercise eq = new Exercise(
 				name,
 				exerciseInfo,
 				equipment);
 		
-		exercises.add(eq);
+		return eq;
+	}
+	
+	/**
+	 * Add exercise to add to static list.
+	 * 
+	 * @param exercise
+	 * 
+	 * @throws IllegalArgumentException if the given exercise is a duplicate
+	 */
+	public static void addExercise(
+			final Exercise exercise){
+		
+		if (existsWithName(exercise.getName())) {
+			throw new IllegalArgumentException(
+					"Invalid: An Exercise with that name already exists");
+		}
+		
+		exercises.add(exercise);
 		
 		// Save the state
 		saveState();
@@ -142,64 +143,17 @@ public final class ExerciseCtrl {
 	}
 	
 	/**
-	 * 
-	 * Create exercise to add to static list.
-	 * Collects all the information needed by the used classes.
 	 * Replaces an existing exercise in the static list.
 	 * 
-	 * @param name
-	 * @param exerciseType
-	 * @param equipment
-	 * @param duration
-	 * @param numberOfSets
-	 * @param repsPerSet
+	 * @param exercise
 	 * @param existingExercise
 	 * 
-	 * @throws IllegalArgumentException if given invalid argument
+	 * @throws IllegalArgumentException if the existing exercise can't be found
+	 * 		or the name is a duplicate of another exercise
 	 */
 	public static void replaceExercise(
-			String name,
-			ExerciseType exerciseType,
-			Equipment equipment,
-			Duration duration,
-			int numberOfSets,
-			int repsPerSet,
-			Exercise existingExercise){
-		
-		// Throw if a required field is invalid
-		if (name.isEmpty()) {
-			throw new IllegalArgumentException(
-					"Invalid: The name field is empty.");
-		}
-		
-		ExerciseTypeIf exerciseInfo = null;
-		
-		if (exerciseType == null){
-			throw new IllegalArgumentException(
-					"Invalid: exerciseType is null");
-		}
-		else if (exerciseType.equals(ExerciseType.TimeBased)) {
-			if (duration == null) {
-				throw new IllegalArgumentException(
-						"Invalid: The duration field is empty.");
-			}
-			else if (duration.isZero() || duration.isNegative()) {
-				throw new IllegalArgumentException(
-						"Invalid: The duration field must be positive.");
-			}
-			exerciseInfo = new TimeBasedExercise(duration);
-		}
-		else if (exerciseType.equals(ExerciseType.SetBased)) {
-			if (numberOfSets <= 0 || repsPerSet <= 0) {
-				throw new IllegalArgumentException(
-						"Invalid: The number of sets and reps per set must be greater than zero.");
-			}
-			exerciseInfo = new SetBasedExercise(numberOfSets, repsPerSet);
-		}
-		else {
-			throw new IllegalArgumentException(
-					"Invalid: Unknown exerciseType");
-		}
+			final Exercise exercise,
+			final Exercise existingExercise){
 		
 		if (existingExercise == null ||
 				!exercises.contains(existingExercise)) {
@@ -208,8 +162,8 @@ public final class ExerciseCtrl {
 		}
 		
 		// Validate that given name is not associated with another exercise
-		if (!name.equals(existingExercise.getName()) &&
-				existsWithName(name)) {
+		if (!exercise.getName().equals(existingExercise.getName()) &&
+				existsWithName(exercise.getName())) {
 			throw new IllegalArgumentException(
 					"An Exercise entry with that name already exists");
 		}
@@ -217,17 +171,17 @@ public final class ExerciseCtrl {
 		// Update exercises
 		int index = exercises.indexOf(existingExercise);
 		Exercise currentExercise = exercises.get(index);
-		if (!name.equals(currentExercise.getName())) {
-			currentExercise.setName(name);
+		if (!exercise.getName().equals(currentExercise.getName())) {
+			currentExercise.setName(exercise.getName());
 		}
-		if (!exerciseInfo.equals(currentExercise.getExerciseInfo())) {
-			currentExercise.setExerciseInfo(exerciseInfo);;
+		if (!exercise.getExerciseInfo().equals(currentExercise.getExerciseInfo())) {
+			currentExercise.setExerciseInfo(exercise.getExerciseInfo());
 		}
-		if (equipment == null) {
-			currentExercise.setEquipment(null);
+		if (exercise.getEquipment() == null) {
+			currentExercise.setEquipment(exercise.getEquipment());
 		}
-		else if (!equipment.equals(currentExercise.getEquipment())) {
-			currentExercise.setEquipment(equipment);
+		else if (!exercise.getEquipment().equals(currentExercise.getEquipment())) {
+			currentExercise.setEquipment(exercise.getEquipment());
 		}
 		
 		exercises.set(index, currentExercise);
@@ -235,6 +189,59 @@ public final class ExerciseCtrl {
 		// Save the state
 		saveState();
 		
+	}
+	
+	/**
+	 * Remove the given Exercise from the system
+	 * 
+	 * @param ex the Exercise to remove
+	 * 
+	 * @throws IllegalArgumentException if this Exercise doesn't exist
+	 * @throws NullPointerException if Exercise is null
+	 */
+	public static void removeExercise(final Exercise ex) {
+		if (ex == null) {
+			throw new NullPointerException("Given Exercise is null.");
+		}
+		
+		if (!exercises.contains(ex)) {
+			throw new IllegalArgumentException(
+					"Can't find the given Exercise.");
+		}
+		
+		// Routines contain exercises so let RoutineCtrl handle this change
+		RoutineCtrl.exerciseRemoved(ex);
+		
+		if (!exercises.remove(ex)) {
+			throw new RuntimeException(
+					"An issue occured when removing Exercise.");
+		}
+		
+		// Save the state
+		saveState();
+	}
+	
+	/**
+	 * Handle the removal of the given equipment from the system
+	 * 
+	 * @param eq the equipment being removed
+	 * 
+	 * @throws NullPointerException if equipment is null
+	 */
+	public static void equipmentRemoved(final Equipment eq) {
+		if (eq == null) {
+			throw new NullPointerException("Given equipment is null.");
+		}
+		
+		for (Exercise ex : exercises) {
+			if (ex.getEquipment() != null &&
+					ex.getEquipment().equals(eq)) {
+				ex.setEquipment(null);
+			}
+		}
+		
+		// Save the state
+		saveState();
 	}
 	
 	/**
@@ -281,6 +288,50 @@ public final class ExerciseCtrl {
 	protected static void clearData(){
 		exercises.clear();
 		ObjectFile.removeFile(serializedName);
+	}
+	
+	/**
+	 * Creates the ExerciseType for a time based exercise
+	 * 
+	 * @param duration
+	 * @return
+	 */
+	private static ExerciseTypeIf buildTimedExerciseType(
+			final Duration duration){
+		
+		if (duration == null) {
+			throw new IllegalArgumentException(
+					"Invalid: The duration field is empty.");
+		}
+		else if (duration.isZero() || duration.isNegative()) {
+			throw new IllegalArgumentException(
+					"Invalid: The duration field must be positive.");
+		}
+		
+		ExerciseTypeIf exerciseInfo = new TimeBasedExercise(duration);
+		
+		return exerciseInfo;
+	}
+	
+	/**
+	 * Creates the ExerciseType for a set based exercise
+	 * 
+	 * @param numberOfSets
+	 * @param repsPerSet
+	 * @return
+	 */
+	private static ExerciseTypeIf buildSetExerciseType(
+			final int numberOfSets,
+			final int repsPerSet){
+		
+		if (numberOfSets <= 0 || repsPerSet <= 0) {
+			throw new IllegalArgumentException(
+					"Invalid: The number of sets and reps per set must be greater than zero.");
+		}
+		
+		ExerciseTypeIf exerciseInfo = new SetBasedExercise(numberOfSets, repsPerSet);
+		
+		return exerciseInfo;
 	}
 	
 	/**

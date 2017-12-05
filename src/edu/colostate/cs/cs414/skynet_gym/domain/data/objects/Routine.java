@@ -35,6 +35,27 @@ public class Routine implements Serializable{
 	}
 	
 	@Override
+	public boolean equals(Object o){
+		try {
+			return (this.toString().equals(Routine.class.cast(o).toString()));
+		} catch (java.lang.ClassCastException e) {
+			return false;
+		} catch (java.lang.NullPointerException e) {
+			return false;
+		}
+	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((exercises == null) ? 0 : exercises.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		return result;
+	}
+	
+	@Override
 	public String toString() {
 		String rtn = this.name;
 		for (Exercise e : exercises) {
@@ -45,17 +66,6 @@ public class Routine implements Serializable{
 	
 	public String toStringShort() {
 		return (this.name);
-	}
-	
-	@Override
-	public boolean equals(Object o){
-		try {
-			return (this.toString().equals(Routine.class.cast(o).toString()));
-		} catch (java.lang.ClassCastException e) {
-			return false;
-		} catch (java.lang.NullPointerException e) {
-			return false;
-		}
 	}
 	
 	/**
