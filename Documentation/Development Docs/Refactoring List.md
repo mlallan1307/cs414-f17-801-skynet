@@ -59,6 +59,7 @@ New Package Structure
 * Created AccountManager class in domain.utilities so that the UI classes are not responsible for checking all user types (Manager & Trainer) when validating login information, recovering username, or resetting password. Using a new UserType enum, it can return the account type if the login information is correct (Lower coupling).
 	* Login and recover username were removed from the Manager and Trainer controllers.
 * A class designed for system initialization was created, InitializeSystem. This class calls all the controller initialize methods which were called by the UI launcher.
+* Split the create* functionality into build* and add*, which build the object and add the object to the static list (respectively). Updated UI methods that used this functionality. This change allows the long parameter list to be in the build* method and taken out of the create* and replace* methods (In the controllers), as well as reducing code duplication.
 
 ----------
 

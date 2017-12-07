@@ -33,9 +33,10 @@ Development Manual
 
 ### 2. Testing
 
+ * Tests are located under the **test** directory and use the same structure as their corresponding source packages
  * There is a top level **AllTest.java** file which can be used to run all the JUnit tests
  * There are also JUnit test suite files for each level one package, and most level two packages that must be updated as new tests are added
- * The JUnit test files are with their respective classes
+ * The JUnit test files are in the same package as their respective classes but under the **test** directory instead of the **src** directory
 
 **Running all Tests:**
 
@@ -47,6 +48,6 @@ Development Manual
 
 ### 3. Repository Management
 
-When making changes you must first create a branch off of Master. Be sure to keep the branch up to date if master changes after you branch off. When you have finished making changes you should create a pull request of the github repository. If the changes you make addres an open issue then that should be mentioned in the pull request. A repository admin will approve the pull request or respond with feedback. You should not merge it into the Master branch yourself. Changes to the code will be accepted only if all related documentation updates have been made also.
+When making changes you must first create a branch off of Master. Be sure to keep the branch up to date if master changes after you branch off. When you have finished making changes you should create a pull request of the github repository. If the changes you make address an open issue then that should be mentioned in the pull request. A repository admin will approve the pull request or respond with feedback. You should not merge it into the Master branch yourself. Changes to the code will be accepted only if all related documentation updates have been made also.
 
-The latest CircleCI build & test run must pass in order for you pull request to be merged.
+The latest CircleCI build & test run must pass in order for you pull request to be merged (This requirement is integrated into GitHub).
