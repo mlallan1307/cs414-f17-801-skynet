@@ -221,6 +221,11 @@ public final class RoutineCtrl {
 		return false;
 	}
 
+	/**
+	 * 
+	 * @param name
+	 * @return a list of routines that match the parameter
+	 */
 	public static ArrayList<Routine> searchRoutines (
 			String name) {
 		
@@ -240,14 +245,25 @@ public final class RoutineCtrl {
 		return rtn;
 	}
 	
+	/**
+	 * 
+	 * @return the routines data member
+	 */
 	public static final ArrayList<Routine> getRoutines() {
 		return routines;
 	}
 	
+	/**
+	 * 
+	 * @param name, the serialized name to set
+	 */
 	protected static void setSerializedName(String name) {
 		serializedName = name;
 	}
 	
+	/**
+	 * Clears the data and removes the object file
+	 */
 	protected static void clearData(){
 		routines.clear();
 		ObjectFile.removeFile(serializedName);

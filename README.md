@@ -1,5 +1,5 @@
 # cs414-f17-801-skynet
 
-## System V1 Demo Video
+## Skynet Gym Demo Video
 
-https://youtu.be/g-9NJ3YiHF0
+https://youtu.be/ttpe5xPRbD4

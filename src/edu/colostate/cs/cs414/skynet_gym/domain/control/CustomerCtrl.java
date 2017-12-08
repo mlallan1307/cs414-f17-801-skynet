@@ -39,6 +39,10 @@ public final class CustomerCtrl {
 		return false;
 	}
 	
+	/**
+	 * 
+	 * @return an array of all the customers represented as strings
+	 */
 	public static ArrayList<String> asStringList(){
 		ArrayList<String> rtn = new ArrayList<String>();
 		for (Customer c : customers) {
@@ -327,7 +331,7 @@ public final class CustomerCtrl {
 	 * Associates routines with a given customer
 	 * 
 	 * @param c, the customer getting assigned routines 
-	 * @param routines
+	 * @param routine list
 	 * 
 	 * @throws IllegalArgumentException if the given customer is invalid
 	 */
@@ -356,10 +360,17 @@ public final class CustomerCtrl {
 		return customers;
 	}
 	
+	/**
+	 * 
+	 * @param name, the serialization identifier
+	 */
 	protected static void setSerializedName(String name) {
 		serializedName = name;
 	}
 	
+	/**
+	 * Clears the static data and removes the file
+	 */
 	protected static void clearData(){
 		customers.clear();
 		ObjectFile.removeFile(serializedName);

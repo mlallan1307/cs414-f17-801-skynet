@@ -258,6 +258,11 @@ public final class ExerciseCtrl {
 		return false;
 	}
 
+	/**
+	 * 
+	 * @param name 
+	 * @return a list of exercises that match the given parameter
+	 */
 	public static ArrayList<Exercise> searchExercises (
 			String name) {
 		
@@ -277,14 +282,25 @@ public final class ExerciseCtrl {
 		return rtn;
 	}
 	
+	/**
+	 * 
+	 * @return the exercises data member
+	 */
 	public static final ArrayList<Exercise> getExercises() {
 		return exercises;
 	}
 	
+	/**
+	 * 
+	 * @param name, the serialized name
+	 */
 	protected static void setSerializedName(String name) {
 		serializedName = name;
 	}
 	
+	/**
+	 * Clears the data and object file
+	 */
 	protected static void clearData(){
 		exercises.clear();
 		ObjectFile.removeFile(serializedName);

@@ -5,6 +5,7 @@ var classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1people_1_1u
     [ "getPersonInfo", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1people_1_1user_1_1_user.html#a91633904bdbe87fd8e70f1ccde940e4b", null ],
     [ "getUsername", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1people_1_1user_1_1_user.html#a084edb0d30a8ad7151d60bc2e63622c0", null ],
     [ "getUserType", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1people_1_1user_1_1_user.html#aa1510a6138b341ca7a0f6cb950e56450", null ],
+    [ "hashCode", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1people_1_1user_1_1_user.html#adb72dd2863aac9e180532fe38782dbed", null ],
     [ "isPassword", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1people_1_1user_1_1_user.html#a244bb153fcfbf805f0a414b4e0987880", null ],
     [ "login", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1people_1_1user_1_1_user.html#aade6ae3a4e2ea133ec76358f90704daf", null ],
     [ "recoverUsername", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1people_1_1user_1_1_user.html#a1a33c351565a97510bbc22a829c585da", null ],

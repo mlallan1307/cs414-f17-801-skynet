@@ -1,5 +1,0 @@
-var namespaceedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1data_1_1routine =
-[
-    [ "Routine", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1data_1_1routine_1_1_routine.html", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1data_1_1routine_1_1_routine" ],
-    [ "RoutineTest", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1data_1_1routine_1_1_routine_test.html", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1data_1_1routine_1_1_routine_test" ]
-];

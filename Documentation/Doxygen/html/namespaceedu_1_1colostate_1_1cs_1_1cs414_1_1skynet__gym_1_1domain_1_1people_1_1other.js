@@ -1,5 +1,4 @@
 var namespaceedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1people_1_1other =
 [
-    [ "Customer", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1people_1_1other_1_1_customer.html", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1people_1_1other_1_1_customer" ],
-    [ "CustomerTest", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1people_1_1other_1_1_customer_test.html", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1people_1_1other_1_1_customer_test" ]
+    [ "Customer", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1people_1_1other_1_1_customer.html", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1people_1_1other_1_1_customer" ]
 ];

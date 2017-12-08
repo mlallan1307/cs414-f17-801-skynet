@@ -140,6 +140,16 @@ public final class ManagerCtrl{
 		return manager;
 	}
 	
+	/**
+	 * Calls the User resetPassword method
+	 * 
+	 * @param firstName
+	 * @param lastName
+	 * @param driversLicenseNum
+	 * @param user
+	 * @param pass
+	 * @return true if the password change was successful
+	 */
 	public static boolean resetPassword(
 			String firstName,
 			String lastName,
@@ -163,10 +173,17 @@ public final class ManagerCtrl{
 		return false;
 	}
 	
+	/**
+	 * 
+	 * @param name, the serialized name
+	 */
 	public static void setSerializedName(String name) {
 		serializedName = name;
 	}
 	
+	/**
+	 * Clears the data and removes the object file
+	 */
 	public static void clearData(){
 		manager = null;
 		ObjectFile.removeFile(serializedName);
