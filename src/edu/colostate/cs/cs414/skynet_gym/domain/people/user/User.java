@@ -177,8 +177,6 @@ public class User implements Serializable {
 		this.personInfo = personInfo;
 	}
 	
-	
-	
 	/**
 	 * @param password the password to set
 	 */

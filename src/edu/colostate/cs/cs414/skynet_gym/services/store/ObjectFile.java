@@ -18,6 +18,11 @@ public class ObjectFile {
 	private static String fileDirectory = "";
 	private final static String ext = ".ser";
 	
+	/**
+	 * 
+	 * @param o, the object to serialize into a file
+	 * @param name, the name of the file to use, this should be unique
+	 */
 	public static void saveAsFile(Object o, String name){
 		try {
 			FileOutputStream myFileOutputStream = new FileOutputStream(fileName(name));
@@ -30,6 +35,11 @@ public class ObjectFile {
 		}
 	}
 
+	/**
+	 * 
+	 * @param name, the name of the file to load, ".ser" extension is added to the name
+	 * @return the object read from the file, or null on failure
+	 */
 	public static Object loadObjectFile(String name){
 		try {
 			FileInputStream myFileInputStream = new FileInputStream(fileName(name));
@@ -47,6 +57,11 @@ public class ObjectFile {
 		return null;
 	}
 	
+	/**
+	 * 
+	 * @param name, the name of the file to remove
+	 * @return true if the file was remove, false on failure
+	 */
 	public static Boolean removeFile(String name){
 		File delete = new File(fileName(name));
 		if (delete.exists()) {
@@ -55,6 +70,11 @@ public class ObjectFile {
 		return false;
 	}
 	
+	/**
+	 * 
+	 * @param name, the name of the file to use
+	 * @return a full file path using the directory, name, and extension
+	 */
 	private static String fileName(String name) {
 		return (fileDirectory + name + ext);
 	}

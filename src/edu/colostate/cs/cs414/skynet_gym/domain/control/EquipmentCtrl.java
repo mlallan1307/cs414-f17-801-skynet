@@ -214,6 +214,12 @@ public final class EquipmentCtrl {
 		return false;
 	}
 
+	/**
+	 * 
+	 * @param name
+	 * @param quantity
+	 * @return a list of equipment that matches the given parameters
+	 */
 	public static ArrayList<Equipment> searchEquipment (
 			String name,
 			int quantity) {
@@ -239,14 +245,25 @@ public final class EquipmentCtrl {
 		return rtn;
 	}
 	
+	/**
+	 * 
+	 * @return the equipment data member
+	 */
 	public static final ArrayList<Equipment> getEquipment() {
 		return equipment;
 	}
 	
+	/**
+	 * 
+	 * @param name, the serialized name
+	 */
 	protected static void setSerializedName(String name) {
 		serializedName = name;
 	}
 	
+	/**
+	 * Clears the data and object file 
+	 */
 	protected static void clearData(){
 		equipment.clear();
 		ObjectFile.removeFile(serializedName);

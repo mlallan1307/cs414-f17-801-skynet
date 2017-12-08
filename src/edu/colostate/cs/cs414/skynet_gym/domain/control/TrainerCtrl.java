@@ -318,6 +318,16 @@ public class TrainerCtrl {
 		return false;
 	}
 	
+	/**
+	 * Calls the User resetPassword method for each trainer
+	 * 
+	 * @param firstName
+	 * @param lastName
+	 * @param driversLicenseNum
+	 * @param user
+	 * @param pass
+	 * @return true if the correct trainer was found and password reset
+	 */
 	public static Boolean resetPassword(
 			String firstName,
 			String lastName,
@@ -342,6 +352,15 @@ public class TrainerCtrl {
 		return false;
 	}
 	
+	/**
+	 * 
+	 * @param firstName
+	 * @param lastName
+	 * @param phone
+	 * @param email
+	 * @param username
+	 * @return an array of trainers that match the given parameters
+	 */
 	public static ArrayList<Trainer> searchTrainers(
 			String firstName,
 			String lastName,
@@ -385,14 +404,25 @@ public class TrainerCtrl {
 		return rtn;
 	}
 	
+	/**
+	 * 
+	 * @return the trainers static data member
+	 */
 	public static final ArrayList<Trainer> getTrainers() {
 		return trainers;
 	}
 	
+	/**
+	 * 
+	 * @param name, sets the serialized name
+	 */
 	public static void setSerializedName(String name) {
 		serializedName = name;
 	}
 	
+	/**
+	 * Clears the static data and remove the object file
+	 */
 	public static void clearData(){
 		trainers.clear();
 		ObjectFile.removeFile(serializedName);
