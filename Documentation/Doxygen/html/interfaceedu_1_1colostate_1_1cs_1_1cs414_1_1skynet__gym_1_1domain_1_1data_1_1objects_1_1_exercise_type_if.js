@@ -5,5 +5,6 @@ var interfaceedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1data_1_
     [ "getNumberOfRepetitions", "interfaceedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1data_1_1objects_1_1_exercise_type_if.html#a24927f1baac59383034955468a326891", null ],
     [ "getNumberOfSets", "interfaceedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1data_1_1objects_1_1_exercise_type_if.html#a6209f06f5fa80b51ec1b05a36587ece9", null ],
     [ "getType", "interfaceedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1data_1_1objects_1_1_exercise_type_if.html#a15c238391fcb73beb591bd0df11505b5", null ],
+    [ "hashCode", "interfaceedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1data_1_1objects_1_1_exercise_type_if.html#aad2f73783b7a75fd855e088038de63f4", null ],
     [ "toString", "interfaceedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1data_1_1objects_1_1_exercise_type_if.html#ae5901fbb88449473dddc14531991ef30", null ]
 ];

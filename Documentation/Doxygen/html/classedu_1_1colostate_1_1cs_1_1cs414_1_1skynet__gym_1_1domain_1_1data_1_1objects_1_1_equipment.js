@@ -5,6 +5,7 @@ var classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1data_1_1obj
     [ "getName", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1data_1_1objects_1_1_equipment.html#a77411958863b91604dea81b268ba860e", null ],
     [ "getPicture", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1data_1_1objects_1_1_equipment.html#adcbab9d7861b362b1e617bafa3d8517e", null ],
     [ "getQuantity", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1data_1_1objects_1_1_equipment.html#aa673656ed29321a348384952d348eec9", null ],
+    [ "hashCode", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1data_1_1objects_1_1_equipment.html#aa2cc66d95066ef0f53ac54fcd8ba7e8c", null ],
     [ "setName", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1data_1_1objects_1_1_equipment.html#a423d4f4d1cedc8e4463df83a5378e44b", null ],
     [ "setPicture", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1data_1_1objects_1_1_equipment.html#ad7fbcb96294bdce272d44c29c17af6da", null ],
     [ "setQuantity", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1data_1_1objects_1_1_equipment.html#ac3bc8a88244776ac49d4823f91202c74", null ],

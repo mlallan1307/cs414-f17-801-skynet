@@ -7,6 +7,7 @@ var classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1data_1_1obj
     [ "equals", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1data_1_1objects_1_1_routine.html#a821648a4f0a154d544d3b034a14e2c61", null ],
     [ "getExercises", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1data_1_1objects_1_1_routine.html#a3ee85d04edd60bf63d4f02a739060a21", null ],
     [ "getName", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1data_1_1objects_1_1_routine.html#a4c1f023add6b5fd678136fd1bcbce8a7", null ],
+    [ "hashCode", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1data_1_1objects_1_1_routine.html#abb8354a400b72584d7198a5d8541ed8e", null ],
     [ "removeExercise", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1data_1_1objects_1_1_routine.html#a24ad04415fcb1f510c2030cfe2405182", null ],
     [ "removeExercise", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1data_1_1objects_1_1_routine.html#a8ccf7be2582a0bc8b536d1e265c8c17e", null ],
     [ "setExercises", "classedu_1_1colostate_1_1cs_1_1cs414_1_1skynet__gym_1_1domain_1_1data_1_1objects_1_1_routine.html#a2bdb121f402ebfe55196e05e3a15842e", null ],
