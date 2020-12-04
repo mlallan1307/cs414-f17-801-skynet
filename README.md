@@ -1,4 +1,4 @@
-# cs414-f17-801-skynet
+# Gym Management Interface - Java
 
 ## Skynet Gym Demo Video
 
